@@ -66,6 +66,12 @@ mongoose.connect(`mongodb+srv://${process.env.DBUSER}:${process.env.DBPASS}@simp
         });
     });
 
+    app.get("/search", (req, res) => {
+        res.render("search", {
+            username: getName(req),
+        });
+    });
+
     app.get("/login", (req, res) => {
         res.render("login", {
             username: getName(req),
@@ -80,24 +86,12 @@ mongoose.connect(`mongodb+srv://${process.env.DBUSER}:${process.env.DBPASS}@simp
         });
     });
 
-    app.post("/register", function(req, res, next) {
+    app.post("/register", function (req, res, next) {
         console.log(`Register: ${req.body.username}:${req.body.password}`);
-        /*
-        Account.register(new Account({ username: req.body.username }), req.body.password, function(err) {
-            if (err) {
-                console.log("error while user register!", err);
-                return next(err);
-            }
-
-            console.log("user registered!");
-
-            res.redirect("/");
-        });
-        */
         res.redirect("/register?result=success");
     });
-    app.post("/login", function(req, res, next) {
-        passport.authenticate("local", function(err, user, info) {
+    app.post("/login", function (req, res, next) {
+        passport.authenticate("local", function (err, user, info) {
             if (err) {
                 return next(err);
             }
@@ -107,7 +101,7 @@ mongoose.connect(`mongodb+srv://${process.env.DBUSER}:${process.env.DBPASS}@simp
                     message: "Invalid login!"
                 })
             }
-            req.logIn(user, function(err) {
+            req.logIn(user, function (err) {
                 if (err) {
                     return next(err);
                 }
@@ -116,11 +110,11 @@ mongoose.connect(`mongodb+srv://${process.env.DBUSER}:${process.env.DBPASS}@simp
         })(req, res, next);
     });
 
-    app.get("/logout", function(req, res) {
+    app.get("/logout", function (req, res) {
         reg.logout();
         reg.redirect("/");
     });
-    app.listen(config.port, function(err) {
+    app.listen(config.port, function (err) {
         if (err) console.log("Error in server setup");
         console.log(`The Simpsons Database now running on localhost:${config.port}`);
     });
