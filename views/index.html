@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>The Simpsons Database</title>
+    <link rel="shortcut icon" href="/assets/favicon.ico" />
+    <link rel="stylesheet" type="text/css" href="/assets/text/style.css" />
+</head>
+
+<body>
+    <div class="navbar">
+        <div class="barlogo">
+            <h1>The Simpsons Database</h1>
+        </div>
+        <div class="navlist">
+            <div class="navitema"><a href="/">Search</a></div>
+            <div class="navitem"><a href="/login">Login</a></div>
+            <div class="navitem"><a href="/register">Register</a></div>
+            <div class="accountname">
+                <% if (username != "") { %>
+                    <div class="logout">
+                        <form action="/logout" method="POST">
+                            <label>
+                            User: <%= username %>
+                            <button type="submit" value="logout" name="action">Log Out</button>
+                        </label>
+                        </form>
+                    </div>
+                    <%} else { %>
+                        <a href="/login">Log In</a>
+                        <% } %>
+            </div>
+        </div>
+
+        <div class="clearfix"></div>
+    </div>
+    <div class="contentarticle">
+        <article>
+            <header>
+                <h2>Search</h2>
+            </header>
+            <section>
+                <div class="sectioncontent">
+                    <div class="resultdata">
+                        <span class="resultPrefix">Username: </span>
+                        <span class="resultText"><%= username %></span>
+                    </div>
+                </div>
+            </section>
+            <div class="clearfix"></div>
+        </article>
+    </div>
+
+
+    <footer>
+        <div class="footer">By <em>MaximMaximS</em></div>
+    </footer>
+</body>
+
+</html>

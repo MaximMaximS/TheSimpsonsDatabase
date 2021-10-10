@@ -1,0 +1,140 @@
+@font-face {
+    font-family: 'Simpsonfont';
+    src: url('/assets/fonts/Simpsonfont.woff2') format('woff2'), url('/assets/fonts/Simpsonfont.woff') format('woff'), url('/assets/fonts/Simpsonfont.ttf') format('truetype');
+}
+
+body {
+    background: #1F2426;
+    color: lightgray;
+    font-family: Simpsonfont;
+    text-align: center;
+    text-shadow: 2em;
+}
+
+article {
+    margin-top: 50px;
+}
+
+article header {
+    width: 250px;
+    background: #30353A;
+    float: left;
+    height: 250px;
+    box-shadow: 2px 2px 7px #1c2228;
+}
+
+article section {
+    padding: 0px 10px 0px 10px;
+    width: 600px;
+    background-color: #677682;
+    background: #2B3136;
+    height: 250px;
+    float: left;
+    box-shadow: 2px 2px 7px #1c2228;
+}
+
+.clearfix {
+    clear: both;
+}
+
+.contentarticle {
+    margin: 0px auto;
+    width: 960px;
+}
+
+.footer {
+    margin: 80px auto;
+    width: 960px;
+    font-family: Arial;
+}
+
+.sectioncontent {
+    width: 600px;
+    height: 250px;
+    display: flex;
+    align-items: center;
+    align-items: left;
+}
+
+.navbar {
+    background: #010101;
+    margin: 10px 10px 10px 10px;
+    padding: 5px 10px 5px 10px;
+}
+
+.navitem {
+    float: left;
+    font-size: 20px;
+}
+
+.navitema {
+    float: left;
+    font-size: 20px;
+    background: #30353A;
+}
+
+.navitem:hover {
+    background: #2B3136;
+}
+
+.navitem>a {
+    color: lightgray;
+    text-decoration: none;
+    display: block;
+    padding: 18px 20px;
+}
+
+.navitema>a {
+    color: lightgray;
+    text-decoration: none;
+    display: block;
+    padding: 18px 20px;
+}
+
+.barlogo {
+    float: left;
+    margin-right: 15px;
+    margin-left: 15px;
+    font-size: 12px;
+}
+
+.accountname {
+    float: right;
+    color: lightgray;
+    display: block;
+    font-size: 18px;
+    font-family: Arial;
+    margin-right: 10px;
+}
+
+.formdata {
+    display: row-flex;
+    float: left;
+}
+
+.inputdata {
+    margin: 10px;
+    text-align: left;
+}
+
+.inputform>input,
+label {
+    display: block;
+}
+
+.resultText {
+    background: white;
+    border-radius: 2px;
+    color: black;
+    padding: 2px;
+    font-family: Arial;
+    font-size: 16px;
+}
+
+.resultData {
+    margin: 10px;
+}
+
+.logout {
+    display: inline;
+}

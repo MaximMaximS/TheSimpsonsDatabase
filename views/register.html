@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>The Simpsons Database</title>
+    <link rel="shortcut icon" href="/assets/favicon.ico" />
+    <link rel="stylesheet" type="text/css" href="/assets/text/style.css" />
+</head>
+
+<body>
+    <div class="navbar">
+        <div class="barlogo">
+            <h1>The Simpsons Database</h1>
+        </div>
+        <div class="navlist">
+            <div class="navitem"><a href="/">Search</a></div>
+            <div class="navitem"><a href="/login">Login</a></div>
+            <div class="navitema"><a href="/register">Register</a></div>
+            <div class="accountname">
+                <% if (username != "") { %>
+                    <p>User:
+                        <%= username %>
+                    </p>
+                    <%} else { %>
+                        <p>Log In</p>
+                        <% } %>
+            </div>
+        </div>
+
+        <div class="clearfix"></div>
+    </div>
+    <div class="contentarticle">
+        <article>
+            <header>
+                <h2>Register</h2>
+            </header>
+            <section>
+                <div class="sectioncontent">
+                    <p>
+                        <%= message %>
+                    </p>
+                    <div class="inputform">
+                        <form action="#" method="POST">
+                            <div class="formdata">
+                                <div class="inputdata">
+                                    <label for="username">Username: </label>
+                                    <input id="username" type="text" name="username">
+                                </div>
+                                <div class="inputdata">
+                                    <label for="password">Password: </label>
+                                    <input id="password" type="password" name="password">
+                                </div>
+                                <div class="inputdata">
+                                    <button type="submit" value="register" name="action">Register</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </section>
+            <div class="clearfix"></div>
+        </article>
+    </div>
+
+
+    <footer>
+        <div class="footer">By <em>MaximMaximS</em></div>
+    </footer>
+</body>
+
+</html>
