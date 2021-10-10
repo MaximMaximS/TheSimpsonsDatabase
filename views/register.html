@@ -9,31 +9,37 @@
 </head>
 
 <body>
-    <div class="navbar">
-        <div class="barlogo">
-            <h1>The Simpsons Database</h1>
+    <nav class="menu-container">
+        <a href="" class="menu-logo">
+            <img src="/assets/images/logo.png" alt="TheSimpsonsDatabase" />
+        </a>
+        <div class="menu">
+            <ul>
+                <li>
+                    <a href="/">
+                        TheSimpsonsDatabase
+                    </a>
+                </li>
+                <li>
+                    <a href="/search">
+                        Search
+                    </a>
+                </li>
+            </ul>
+            <ul>
+                <li>
+                    <a href="/register">
+                        Register
+                    </a>
+                </li>
+                <li>
+                    <a href="/login">
+                        Login
+                    </a>
+                </li>
+            </ul>
         </div>
-        <div class="navlist">
-            <div class="navitem"><a href="/">Search</a></div>
-            <div class="navitem"><a href="/login">Login</a></div>
-            <div class="navitema"><a href="/register">Register</a></div>
-            <div class="accountname">
-                <% if (username !="" ) { %>
-                <div class="logout">
-                    <form action="/logout" method="POST">
-                        <label>
-                            User: <%= username %>
-                            <button type="submit" value="logout" name="action">Log Out</button>
-                        </label>
-                    </form>
-                </div>
-                <%} else { %>
-                <a href="/login">Log In</a>
-                <% } %>
-            </div>
-        </div>
-        <div class="clearfix"></div>
-    </div>
+    </nav>
     <div class="contentarticle">
         <article>
             <header>
