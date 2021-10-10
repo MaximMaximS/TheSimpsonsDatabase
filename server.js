@@ -96,8 +96,8 @@ mongoose.connect(`mongodb+srv://${process.env.DBUSER}:${process.env.DBPASS}@simp
         */
         res.redirect("/register?result=success");
     });
-    app.post('/login', function(req, res, next) {
-        passport.authenticate('local', function(err, user, info) {
+    app.post("/login", function(req, res, next) {
+        passport.authenticate("local", function(err, user, info) {
             if (err) {
                 return next(err);
             }
@@ -114,6 +114,11 @@ mongoose.connect(`mongodb+srv://${process.env.DBUSER}:${process.env.DBPASS}@simp
                 return res.redirect("/");
             });
         })(req, res, next);
+    });
+
+    app.get("/logout", function(req, res) {
+        reg.logout();
+        reg.redirect("/");
     });
     app.listen(config.port, function(err) {
         if (err) console.log("Error in server setup");
