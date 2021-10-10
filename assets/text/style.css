@@ -138,3 +138,11 @@ label {
 .logout {
     display: inline;
 }
+
+.accountname>a {
+    color: lightgray;
+    text-decoration: none;
+    display: block;
+    padding: 18px 20px;
+    font-family: Simpsonfont;
+}
