@@ -262,6 +262,6 @@ label {
     }
 }
 
-#displayName {
+.useNormalFont {
     font-family: Arial;
 }
