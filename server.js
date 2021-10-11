@@ -101,6 +101,9 @@ mongoose.connect(`mongodb+srv://${process.env.DBUSER}:${process.env.DBPASS}@simp
                 if (err.name == "UserExistsError") {
                     req.flash("error", "This username is taken!");
                 }
+                else {
+                    req.flash("error", `Unexpected error: ${err.name}`);
+                }
                 
                 res.redirect("/register");
                 return;               
