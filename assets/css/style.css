@@ -3,6 +3,10 @@
     src: url('/assets/fonts/Simpsonfont.woff2') format('woff2'), url('/assets/fonts/Simpsonfont.woff') format('woff'), url('/assets/fonts/Simpsonfont.ttf') format('truetype');
 }
 
+:root {
+    --bar: #151819
+}
+
 body {
     background: #1F2426;
     color: lightgray;
@@ -91,7 +95,7 @@ label {
     display: flex;
     align-items: center;
     margin-bottom: 20px;
-    background: #232323;
+    background: var(--bar);
     color: #cdcdcd;
     padding: 20px;
     z-index: 1;
@@ -113,7 +117,7 @@ label {
 
 .menu-container a {
     text-decoration: none;
-    color: #232323;
+    color: var(--bar);
     transition: color 0.3s ease;
 }
 
@@ -162,7 +166,7 @@ label {
 .menu-container input:checked~span {
     opacity: 1;
     transform: rotate(45deg) translate(3px, -1px);
-    background: #232323;
+    background: var(--bar);
 }
 
 .menu-container input:checked~span:nth-child(4) {
