@@ -261,3 +261,7 @@ label {
         padding: 0 20px;
     }
 }
+
+#displayName {
+    font-family: Arial;
+}
