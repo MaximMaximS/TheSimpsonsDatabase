@@ -72,6 +72,12 @@ mongoose.connect(`mongodb+srv://${process.env.DBUSER}:${process.env.DBPASS}@simp
         });
     });
 
+    app.get("/user", (req, res) => {
+        res.render("user", {
+            username: getName(req),
+        });
+    });
+
     app.get("/login", (req, res) => {
         res.render("login", {
             username: getName(req),
@@ -85,6 +91,8 @@ mongoose.connect(`mongodb+srv://${process.env.DBUSER}:${process.env.DBPASS}@simp
             message: ""
         });
     });
+
+
 
     app.post("/register", function (req, res, next) {
         console.log(`Register: ${req.body.username}:${req.body.password}`);
