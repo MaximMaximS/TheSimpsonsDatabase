@@ -81,23 +81,37 @@ mongoose.connect(`mongodb+srv://${process.env.DBUSER}:${process.env.DBPASS}@simp
     app.get("/login", (req, res) => {
         res.render("login", {
             username: getName(req),
-            message: ""
+            error: ""
         });
     });
 
     app.get("/register", (req, res) => {
         res.render("register", {
             username: getName(req),
-            message: ""
+            error: req.flash("error")
         });
     });
 
-
-
     app.post("/register", function (req, res, next) {
-        console.log(`Register: ${req.body.username}:${req.body.password}`);
-        res.redirect("/register?result=success");
+        console.log(`Register: ${req.body.username}:${req.body.password}`); // Debug
+        User.register(new User({
+            username: req.body.username
+        }), req.body.password, function (err, user) {
+            if (err) {
+                if (err.name == "UserExistsError") {
+                    req.flash("error", "This username is taken!");
+                }
+                
+                res.redirect("/register");
+                return;               
+            }
+
+            passport.authenticate('local')(req, res, function () {
+                res.redirect('/user');
+            });
+        });
     });
+
     app.post("/login", function (req, res, next) {
         passport.authenticate("local", function (err, user, info) {
             if (err) {
@@ -106,7 +120,7 @@ mongoose.connect(`mongodb+srv://${process.env.DBUSER}:${process.env.DBPASS}@simp
             if (!user) {
                 return res.render("login", {
                     username: getName(req),
-                    message: "Invalid login!"
+                    error: "Invalid login!"
                 })
             }
             req.logIn(user, function (err) {
