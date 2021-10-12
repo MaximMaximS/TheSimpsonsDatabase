@@ -88,7 +88,7 @@ mongoose.connect(`mongodb+srv://${process.env.DBUSER}:${process.env.DBPASS}@simp
     app.get("/register", (req, res) => {
         res.render("register", {
             username: getName(req),
-            message: req.flash("message")
+            message: "Please register"
         });
     });
 
@@ -105,7 +105,10 @@ mongoose.connect(`mongodb+srv://${process.env.DBUSER}:${process.env.DBPASS}@simp
                     req.flash("message", `Unexpected message: ${err.name}`);
                 }
                 
-                res.redirect("/register");
+                res.render("register", {
+                    username: getName(req),
+                    message: req.flash("message")
+                });
                 return;               
             }
 
