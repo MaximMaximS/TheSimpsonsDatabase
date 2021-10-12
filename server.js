@@ -73,32 +73,66 @@ mongoose.connect(`mongodb+srv://${process.env.DBUSER}:${process.env.DBPASS}@simp
     });
 
     app.get("/user", (req, res) => {
+        if (!req.isAuthenticated()) {
+            return res.redirect("/login");
+        }
         res.render("user", {
             username: getName(req),
         });
     });
 
     app.get("/login", (req, res) => {
+        if (req.isAuthenticated()) {
+            return res.redirect("/user");
+        }
         res.render("login", {
             username: getName(req),
-            message: ""
+            message: "Please log in"
         });
     });
 
     app.get("/register", (req, res) => {
+        if (req.isAuthenticated()) {
+            return res.redirect("/user");
+        }
         res.render("register", {
             username: getName(req),
-            message: ""
+            message: "Please register"
         });
     });
 
-
-
     app.post("/register", function (req, res, next) {
-        console.log(`Register: ${req.body.username}:${req.body.password}`);
-        res.redirect("/register?result=success");
+        if (req.isAuthenticated()) {
+            return res.redirect("/user");
+        }
+        User.register(new User({
+            username: req.body.username
+        }), req.body.password, function (err, user) {
+            if (err) {
+                if (err.name == "UserExistsError") {
+                    req.flash("message", "This username is taken!");
+                }
+                else {
+                    req.flash("message", `Unexpected message: ${err.name}`);
+                }
+                
+                res.render("register", {
+                    username: getName(req),
+                    message: req.flash("message")
+                });
+                return;               
+            }
+
+            passport.authenticate('local')(req, res, function () {
+                res.redirect('/user');
+            });
+        });
     });
+
     app.post("/login", function (req, res, next) {
+        if (req.isAuthenticated()) {
+            return res.redirect("/user");
+        }
         passport.authenticate("local", function (err, user, info) {
             if (err) {
                 return next(err);
@@ -119,8 +153,8 @@ mongoose.connect(`mongodb+srv://${process.env.DBUSER}:${process.env.DBPASS}@simp
     });
 
     app.get("/logout", function (req, res) {
-        reg.logout();
-        reg.redirect("/");
+        req.logout();
+        res.redirect("/login");
     });
     app.listen(config.port, function (err) {
         if (err) console.log("Error in server setup");

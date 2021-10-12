@@ -57,9 +57,7 @@ article section {
 .sectioncontent {
     width: 600px;
     height: 250px;
-    display: flex;
-    align-items: center;
-    align-items: left;
+    align-items: center;    
 }
 
 .formdata {
@@ -264,4 +262,9 @@ label {
 
 .useNormalFont {
     font-family: Arial;
+}
+
+.contentMessage {
+    font-size: 20px;
+    margin-top: 10px;
 }
