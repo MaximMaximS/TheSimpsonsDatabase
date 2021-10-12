@@ -57,9 +57,7 @@ article section {
 .sectioncontent {
     width: 600px;
     height: 250px;
-    display: flex;
-    align-items: center;
-    align-items: left;
+    align-items: center;    
 }
 
 .formdata {
