@@ -81,14 +81,14 @@ mongoose.connect(`mongodb+srv://${process.env.DBUSER}:${process.env.DBPASS}@simp
     app.get("/login", (req, res) => {
         res.render("login", {
             username: getName(req),
-            error: ""
+            message: "Please log in"
         });
     });
 
     app.get("/register", (req, res) => {
         res.render("register", {
             username: getName(req),
-            error: req.flash("error")
+            message: req.flash("message")
         });
     });
 
@@ -99,10 +99,10 @@ mongoose.connect(`mongodb+srv://${process.env.DBUSER}:${process.env.DBPASS}@simp
         }), req.body.password, function (err, user) {
             if (err) {
                 if (err.name == "UserExistsError") {
-                    req.flash("error", "This username is taken!");
+                    req.flash("message", "This username is taken!");
                 }
                 else {
-                    req.flash("error", `Unexpected error: ${err.name}`);
+                    req.flash("message", `Unexpected message: ${err.name}`);
                 }
                 
                 res.redirect("/register");
@@ -123,7 +123,7 @@ mongoose.connect(`mongodb+srv://${process.env.DBUSER}:${process.env.DBPASS}@simp
             if (!user) {
                 return res.render("login", {
                     username: getName(req),
-                    error: "Invalid login!"
+                    message: "Invalid login!"
                 })
             }
             req.logIn(user, function (err) {

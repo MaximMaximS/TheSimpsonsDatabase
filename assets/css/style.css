@@ -263,3 +263,8 @@ label {
 .useNormalFont {
     font-family: Arial;
 }
+
+.contentMessage {
+    font-size: 20px;
+    margin-top: 10px;
+}
