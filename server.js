@@ -50,7 +50,7 @@ mongoose
         extended: true,
       })
     );
-    
+
     app.get("/", (req, res) => {
       res.render("index", {
         username: getName(req),
@@ -158,7 +158,7 @@ mongoose
     app.listen(config.port, function (err) {
       if (err) console.log("Error in server setup");
       console.log(
-        `The Simpsons Database now running on localhost:${config.port}`
+        `The Simpsons Database now running on http://localhost:${config.port}`
       );
     });
   });
