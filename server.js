@@ -50,23 +50,7 @@ mongoose
         extended: true,
       })
     );
-
-    // var User = mongoose.model("Users", UserSchema);
-    /*
-                UserSchema.register({ username: "pepa" }, "haxor", function(err, user) {
-                    if (err) {
-                        console.log(err);
-                    } else {
-                        console.log("hpos");
-                    }
-                });
-                
-            UserSchema.authenticate("pepa", "hax5or", function(err, result) {
-                if (err) console.log(err);
-                console.log("pepe");
-            });
-            */
-
+    
     app.get("/", (req, res) => {
       res.render("index", {
         username: getName(req),
