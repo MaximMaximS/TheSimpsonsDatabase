@@ -1,90 +1,77 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
     <title>The Simpsons Database</title>
     <link rel="shortcut icon" href="/assets/favicon.ico" />
     <link rel="stylesheet" type="text/css" href="/assets/css/style.css" />
-</head>
+  </head>
 
-<body>
+  <body>
     <nav class="menu-container">
-        <a href="" class="menu-logo">
-            <img src="/assets/images/logo.png" alt="TheSimpsonsDatabase" />
-        </a>
-        <div class="menu">
-            <ul>
-                <li>
-                    <a href="/">
-                        TheSimpsonsDatabase
-                    </a>
-                </li>
-                <li>
-                    <a href="/search">
-                        Search
-                    </a>
-                </li>
-            </ul>
-            <ul>
-                <% if (username == ""){ %>
-                <li>
-                    <a href="/register">
-                        Register
-                    </a>
-                </li>
-                <li>
-                    <a href="/login">
-                        Login
-                    </a>
-                </li>
-                <% } else{ %>
-                <li>
-                    <a href="/user" class="useNormalFont">
-                        <%= username %>
-                    </a>
-                </li>
-                <% } %>
-            </ul>
-        </div>
+      <a href="" class="menu-logo">
+        <img src="/assets/images/logo.png" alt="TheSimpsonsDatabase" />
+      </a>
+      <div class="menu">
+        <ul>
+          <li>
+            <a href="/"> TheSimpsonsDatabase </a>
+          </li>
+          <li>
+            <a href="/search"> Search </a>
+          </li>
+        </ul>
+        <ul>
+          <% if (username == ""){ %>
+          <li>
+            <a href="/register"> Register </a>
+          </li>
+          <li>
+            <a href="/login"> Login </a>
+          </li>
+          <% } else{ %>
+          <li>
+            <a href="/user" class="useNormalFont"> <%= username %> </a>
+          </li>
+          <% } %>
+        </ul>
+      </div>
     </nav>
     <div class="contentarticle">
-        <article>
-            <header>
-                <h2>Register</h2>
-            </header>
-            <section>
-                <div class="sectioncontent">
-                    <p class="contentMessage">
-                        <%= message %>
-                    </p>
-                    <div class="inputform">
-                        <form action="#" method="POST">
-                            <div class="formdata">
-                                <div class="inputdata">
-                                    <label for="username">Username: </label>
-                                    <input id="username" type="text" name="username">
-                                </div>
-                                <div class="inputdata">
-                                    <label for="password">Password: </label>
-                                    <input id="password" type="password" name="password">
-                                </div>
-                                <div class="inputdata">
-                                    <button type="submit" value="register" name="action">Register</button>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
+      <article>
+        <header>
+          <h2>Register</h2>
+        </header>
+        <section>
+          <div class="sectioncontent">
+            <p class="contentMessage"><%= message %></p>
+            <div class="inputform">
+              <form action="#" method="POST">
+                <div class="formdata">
+                  <div class="inputdata">
+                    <label for="username">Username: </label>
+                    <input id="username" type="text" name="username" />
+                  </div>
+                  <div class="inputdata">
+                    <label for="password">Password: </label>
+                    <input id="password" type="password" name="password" />
+                  </div>
+                  <div class="inputdata">
+                    <button type="submit" value="register" name="action">
+                      Register
+                    </button>
+                  </div>
                 </div>
-            </section>
-            <div class="clearfix"></div>
-        </article>
+              </form>
+            </div>
+          </div>
+        </section>
+        <div class="clearfix"></div>
+      </article>
     </div>
 
-
     <footer>
-        <div class="footer">By <em>MaximMaximS</em></div>
+      <div class="footer">By <em>MaximMaximS</em></div>
     </footer>
-</body>
-
+  </body>
 </html>

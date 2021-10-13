@@ -1,34 +1,34 @@
 {
-    "name": "thesimpsonsdatabase",
-    "version": "0.1.0",
-    "description": "Online watch prgress tracker of The Simpsons series.",
-    "main": "server.js",
-    "scripts": {
-        "test": "node server.js"
-    },
-    "repository": {
-        "type": "git",
-        "url": "git+https://github.com/MaximMaximS/TheSimpsonsDatabase.git"
-    },
-    "keywords": [
-        "Simpsons",
-        "Database"
-    ],
-    "author": "MaximMaximS",
-    "license": "MIT",
-    "bugs": {
-        "url": "https://github.com/MaximMaximS/TheSimpsonsDatabase/issues"
-    },
-    "homepage": "https://github.com/MaximMaximS/TheSimpsonsDatabase#readme",
-    "dependencies": {
-        "connect-flash": "^0.1.1",
-        "dotenv": "^10.0.0",
-        "ejs": "^3.1.6",
-        "express": "^4.17.1",
-        "express-session": "^1.17.2",
-        "mongoose": "^6.0.9",
-        "passport": "^0.5.0",
-        "passport-local": "^1.0.0",
-        "passport-local-mongoose": "^6.1.0"
-    }
+  "name": "thesimpsonsdatabase",
+  "version": "0.1.0",
+  "description": "Online watch prgress tracker of The Simpsons series.",
+  "main": "server.js",
+  "scripts": {
+    "test": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MaximMaximS/TheSimpsonsDatabase.git"
+  },
+  "keywords": [
+    "Simpsons",
+    "Database"
+  ],
+  "author": "MaximMaximS",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/MaximMaximS/TheSimpsonsDatabase/issues"
+  },
+  "homepage": "https://github.com/MaximMaximS/TheSimpsonsDatabase#readme",
+  "dependencies": {
+    "connect-flash": "^0.1.1",
+    "dotenv": "^10.0.0",
+    "ejs": "^3.1.6",
+    "express": "^4.17.1",
+    "express-session": "^1.17.2",
+    "mongoose": "^6.0.9",
+    "passport": "^0.5.0",
+    "passport-local": "^1.0.0",
+    "passport-local-mongoose": "^6.1.0"
+  }
 }
