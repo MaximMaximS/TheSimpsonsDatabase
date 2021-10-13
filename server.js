@@ -97,7 +97,7 @@ mongoose
       });
     });
 
-    app.post("/register", function (req, res, next) {
+    app.post("/register", function (req, res) {
       if (req.isAuthenticated()) {
         return res.redirect("/user");
       }
@@ -106,7 +106,7 @@ mongoose
           username: req.body.username,
         }),
         req.body.password,
-        function (err, user) {
+        function (err) {
           if (err) {
             if (err.name == "UserExistsError") {
               req.flash("message", "This username is taken!");
@@ -132,7 +132,7 @@ mongoose
       if (req.isAuthenticated()) {
         return res.redirect("/user");
       }
-      passport.authenticate("local", function (err, user, info) {
+      passport.authenticate("local", function (err, user) {
         if (err) {
           return next(err);
         }
