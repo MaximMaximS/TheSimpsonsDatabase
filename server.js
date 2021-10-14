@@ -60,11 +60,7 @@ mongoose
     app.get("/search", (req, res) => {
       res.render("search", {
         username: getName(req),
-        season: 1,
-        episode: 1,
-        nameCzech: "",
-        seenBy: "",
-        seeners: [],
+        searchData: {},
       });
     });
 

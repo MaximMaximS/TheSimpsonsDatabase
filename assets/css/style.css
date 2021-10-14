@@ -39,7 +39,7 @@ article section {
   height: 250px;
   float: left;
   box-shadow: 2px 2px 7px #1c2228;
-  align-items: center;
+  position: relative;
 }
 
 .clearfix {
@@ -65,6 +65,18 @@ article section {
 .inputdata {
   margin: 10px;
   text-align: left;
+}
+
+.contentInner {
+  position: absolute;
+  top: 50%;
+  transform: translate(0, -50%);
+}
+
+.contentInner > form {
+  display: inline;
+  margin: 50px;
+  float: left;
 }
 
 .inputform > input,
