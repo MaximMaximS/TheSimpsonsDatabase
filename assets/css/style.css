@@ -39,6 +39,7 @@ article section {
   height: 250px;
   float: left;
   box-shadow: 2px 2px 7px #1c2228;
+  align-items: center;
 }
 
 .clearfix {
@@ -54,12 +55,6 @@ article section {
   margin: 80px auto;
   width: 960px;
   font-family: Arial;
-}
-
-.sectioncontent {
-  width: 600px;
-  height: 250px;
-  align-items: center;
 }
 
 .formdata {

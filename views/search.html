@@ -44,56 +44,54 @@
           <h2>Search</h2>
         </header>
         <section>
-          <div class="sectioncontent">
-            <form action="#" method="POST">
-              <div class="formdata">
-                <div class="episodedata">
-                  <label for="season">Season: </label>
-                  <input
-                    id="season"
-                    type="number"
-                    name="season_field"
-                    value="<%= season %>"
-                  />
-                </div>
-                <div class="episodedata">
-                  <label for="episode">Episode: </label>
-                  <input
-                    id="episode"
-                    type="number"
-                    name="episode_field"
-                    value="<%= episode %>"
-                  />
-                </div>
-                <div class="episodedata">
-                  <button type="submit" value="search" name="action">
-                    Search
-                  </button>
-                </div>
+          <form action="#" method="POST">
+            <div class="formdata">
+              <div class="episodedata">
+                <label for="season">Season: </label>
+                <input
+                  id="season"
+                  type="number"
+                  name="season_field"
+                  value="<%= season %>"
+                />
               </div>
-              <div class="formdata">
-                <div class="episodedata">
-                  <span class="resultPrefix">Name: </span>
-                  <span class="resultText"><%= nameCzech %></span>
-                </div>
-                <div class="episodedata">
-                  <span class="resultPrefix">Seen by: </span>
-                  <span class="resultText"><%= seenBy %></span>
-                </div>
+              <div class="episodedata">
+                <label for="episode">Episode: </label>
+                <input
+                  id="episode"
+                  type="number"
+                  name="episode_field"
+                  value="<%= episode %>"
+                />
+              </div>
+              <div class="episodedata">
+                <button type="submit" value="search" name="action">
+                  Search
+                </button>
+              </div>
+            </div>
+            <div class="formdata">
+              <div class="episodedata">
+                <span class="resultPrefix">Name: </span>
+                <span class="resultText"><%= nameCzech %></span>
+              </div>
+              <div class="episodedata">
+                <span class="resultPrefix">Seen by: </span>
+                <span class="resultText"><%= seenBy %></span>
+              </div>
 
-                <div class="episodedata">
-                  <select name="seener">
-                    <% for(var a=0; a < seeners.length; a++) { %>
-                    <option value="<%= a %>"><%= seeners[a] %></option>
-                    <% } %>
-                  </select>
-                </div>
-                <div class="episodedata">
-                  <button type="submit" value="mark" name="action">Mark</button>
-                </div>
+              <div class="episodedata">
+                <select name="seener">
+                  <% for(var a=0; a < seeners.length; a++) { %>
+                  <option value="<%= a %>"><%= seeners[a] %></option>
+                  <% } %>
+                </select>
               </div>
-            </form>
-          </div>
+              <div class="episodedata">
+                <button type="submit" value="mark" name="action">Mark</button>
+              </div>
+            </div>
+          </form>
         </section>
         <div class="clearfix"></div>
       </article>
