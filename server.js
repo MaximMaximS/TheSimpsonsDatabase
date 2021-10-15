@@ -64,6 +64,18 @@ mongoose
       });
     });
 
+    app.post("/search", (req, res) => {
+      res.render("search", {
+        username: getName(req),
+        searchData: {
+          season: req.body.season,
+          episode: req.body.episode,
+          name: req.body.name,
+          lang: req.body.lang,
+        },
+      });
+    });
+
     app.get("/user", (req, res) => {
       if (!req.isAuthenticated()) {
         return res.redirect("/login");
