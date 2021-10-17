@@ -65,13 +65,13 @@ mongoose
     });
 
     app.post("/search", (req, res) => {
+      console.log(req.body.action);
       res.render("search", {
         username: getName(req),
         searchData: {
           season: req.body.season,
           episode: req.body.episode,
           name: req.body.name,
-          lang: req.body.lang,
         },
       });
     });

@@ -42,6 +42,7 @@
       <article>
         <header>
           <h2>Search</h2>
+          <h3>by Number</h3>
         </header>
         <section>
           <div class="contentInner">
@@ -81,22 +82,81 @@
                     type="text"
                     name="name"
                     value="<%= searchData.name %>"
+                    readonly
                   />
                 </div>
                 <div class="inputdata">
-                  <label for="lang">Language: </label>
+                  <button type="submit" value="details" name="action">
+                    Details
+                  </button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </section>
+        <div class="clearfix"></div>
+      </article>
+    </div>
+    <div class="contentarticle">
+      <article>
+        <header>
+          <h2>Search</h2>
+          <h3>by Name</h3>
+        </header>
+        <section>
+          <div class="contentInner">
+            <form action="#" method="POST">
+              <div class="formdata">
+                <div class="inputdata">
+                  <label for="season">Name: </label>
+                  <input
+                    id="name"
+                    type="text"
+                    name="name"
+                    value="<%= searchData.name %>"
+                  />
+                </div>
+                <div class="inputdata">
+                  <label for="episodes">Episodes: </label>
                   <select
-                    id="lang"
-                    name="lang"
-                    value="<%= searchData.episode %>"
-                  >
-                    <option value="en">English</option>
-                    <option value="cs">Czech</option>
-                  </select>
+                    id="episodes"
+                    name="action"
+                    value="<%= searchData.episodes %>"
+                    onchange="this.form.submit()"
+                  ></select>
                 </div>
                 <div class="inputdata">
                   <button type="submit" value="searchname" name="action">
                     Search by Name
+                  </button>
+                </div>
+              </div>
+            </form>
+            <form action="#" method="POST">
+              <div class="formdata">
+                <div class="inputdata">
+                  <label for="season">Season: </label>
+                  <input
+                    id="season"
+                    type="number"
+                    name="season"
+                    value="<%= searchData.season %>"
+                    readonly
+                  />
+                </div>
+                <div class="inputdata">
+                  <label for="episode">Episode: </label>
+                  <input
+                    id="episode"
+                    type="number"
+                    name="episode"
+                    value="<%= searchData.episode %>"
+                    readonly
+                  />
+                </div>
+                <div class="inputdata">
+                  <button type="submit" value="details" name="action">
+                    Details
                   </button>
                 </div>
               </div>
