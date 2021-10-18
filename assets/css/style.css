@@ -276,3 +276,14 @@ label {
   font-size: 20px;
   margin-top: 10px;
 }
+
+a.button {
+  -webkit-appearance: button;
+  -moz-appearance: button;
+  appearance: button;
+
+  text-decoration: none;
+  color: lightgray;
+  float: left;
+  font-size: 20px;
+}
