@@ -6,6 +6,7 @@ const path = require("path");
 const mongoose = require("mongoose");
 const session = require("express-session");
 const User = require("./models/user");
+const UserData = require("./models/userdata");
 const flash = require("connect-flash");
 
 function getName(req) {
@@ -126,9 +127,18 @@ mongoose
               username: getName(req),
               message: req.flash("message"),
             });
-            return;
           }
-
+          // Resgistration sucessfull
+          User.findOne({ username: req.body.username }, function (err, obj) {
+            if (err) req.flash("message", err);
+            new UserData({
+              _id: obj._id,
+              settings: {},
+              watched: [],
+            }).save(function (err) {
+              if (err) req.flash("message", err);
+            });
+          });
           passport.authenticate("local")(req, res, function () {
             res.redirect("/user");
           });
