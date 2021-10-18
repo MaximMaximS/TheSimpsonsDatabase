@@ -22,8 +22,10 @@ db.once("open", function () {
   function onInsert(err, docs) {
     if (err) {
       console.log(err);
+      process.exit(1);
     } else {
       console.info("%d stored.", docs.length);
+      process.exit(0);
     }
   }
 });
