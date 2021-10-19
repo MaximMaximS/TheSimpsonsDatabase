@@ -7,16 +7,63 @@ const mongoose = require("mongoose");
 const session = require("express-session");
 const User = require("./models/user");
 const UserData = require("./models/userdata");
+const Season = require("./models/season");
 const flash = require("connect-flash");
 
-function getName(req) {
+function getSetting(user, settingName, callback) {
+  if (typeof user !== "undefined") {
+    // If user logged in
+    UserData.findById(user._id, function (err, userdata) {
+      // Find UserData of User
+      if (err) {
+        callback(err, null); // Return error
+      } else if (userdata == null) {
+        // If UserData not found
+        callback(new Error("Error: UserData missing!"), null); // Return error
+      } else {
+        // UserData found
+        let settingValue = userdata.settings[settingName]; // Get setting value
+        if (typeof settingValue !== "undefined") {
+          // Check if setting value exists
+          callback(null, settingValue); // Sucess: Return requires setting value
+        } else {
+          // Setting value missing
+          callback(new Error("Error: Setting is missing!"), null); // Return error
+        }
+      }
+    });
+  } else {
+    // Logged out
+    callback(new Error("Not logged in!"), null); // Return error
+  }
+}
+
+function getName(user) {
   var username = "";
   try {
-    username = req.user.username;
+    username = user.username;
   } catch (err) {
     username = "";
   }
   return username;
+}
+
+function findByNumber(req, callback) {
+  var seasonNum = req.body.seasonByNum;
+  Season.findById(parseInt(seasonNum) || 0, function (err, season) {
+    if (err) {
+      callback(err, null);
+    } else if (season == null) {
+      callback(new Error("Season not found!"), null);
+    } else {
+      let episode = season.episodes[req.body.episodeByNum - 1];
+      if (typeof episode == "undefined") {
+        callback(new Error("Episode not found!"));
+      } else {
+        callback(null, episode);
+      }
+    }
+  });
 }
 
 mongoose
@@ -54,27 +101,84 @@ mongoose
 
     app.get("/", (req, res) => {
       res.render("index", {
-        username: getName(req),
+        username: getName(req.user),
       });
     });
 
     app.get("/search", (req, res) => {
       res.render("search", {
-        username: getName(req),
+        username: getName(req.user),
+        messages: {
+          num: "Please type season and episode number.",
+          name: "Please type episode name and select one.",
+        },
         searchData: {},
       });
     });
 
     app.post("/search", (req, res) => {
-      console.log(req.body.action);
-      res.render("search", {
-        username: getName(req),
-        searchData: {
-          season: req.body.season,
-          episode: req.body.episode,
-          name: req.body.name,
-        },
-      });
+      switch (
+        req.body.action // Switch actions of post request
+      ) {
+        case "searchByNum": // If searchign episode by number
+          findByNumber(req, function (err, episode) {
+            // Find episode
+            let msg = "Episode found!";
+            let searchData = {
+              seasonByNum: req.body.seasonByNum,
+              episodeByNum: req.body.episodeByNum,
+            };
+            if (err) {
+              // If episode not found
+              msg = err.message;
+              console.log(err);
+              continueRender();
+            } else {
+              // Episode found
+              if (typeof req.user !== "undefined") {
+                // If user logged in
+                getSetting(req.user, "lang", function (err, lang) {
+                  if (err) {
+                    msg = err.message;
+                    console.log(err);
+                    continueRender();
+                  } else {
+                    searchData["nameByNum"] = episode.names[lang];
+                    continueRender();
+                  }
+                });
+              } else {
+                searchData["nameByNum"] = episode.names["en"];
+                continueRender();
+              }
+            }
+            function continueRender() {
+              res.render("search", {
+                username: getName(req.user),
+                messages: {
+                  num: msg,
+                  name: "Please type episode name and select one.",
+                },
+                searchData: searchData,
+              });
+            }
+          });
+          break;
+        default:
+          res.render("search", {
+            username: getName(req.user),
+            messages: {
+              num: "Please type season and episode number.",
+              name: "Please type episode name and select one.",
+            },
+            searchData: {
+              season: req.body.season,
+              episode: req.body.episode,
+              name: req.body.name,
+            },
+          });
+          break;
+      }
     });
 
     app.get("/user", (req, res) => {
@@ -82,7 +186,7 @@ mongoose
         return res.redirect("/login");
       }
       res.render("user", {
-        username: getName(req),
+        username: getName(req.user),
       });
     });
 
@@ -91,7 +195,7 @@ mongoose
         return res.redirect("/user");
       }
       res.render("login", {
-        username: getName(req),
+        username: getName(req.user),
         message: "Please log in",
       });
     });
@@ -101,7 +205,7 @@ mongoose
         return res.redirect("/user");
       }
       res.render("register", {
-        username: getName(req),
+        username: getName(req.user),
         message: "Please register",
       });
     });
@@ -124,7 +228,7 @@ mongoose
             }
 
             res.render("register", {
-              username: getName(req),
+              username: getName(req.user),
               message: req.flash("message"),
             });
           }
@@ -156,7 +260,7 @@ mongoose
         }
         if (!user) {
           return res.render("login", {
-            username: getName(req),
+            username: getName(req.user),
             message: "Invalid login!",
           });
         }

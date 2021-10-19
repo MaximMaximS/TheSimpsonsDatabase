@@ -45,29 +45,30 @@
           <h3>by Number</h3>
         </header>
         <section>
+          <p class="contentMessage"><%= messages.num %></p>
           <div class="contentInner">
             <form action="#" method="POST">
               <div class="formdata">
                 <div class="inputdata">
-                  <label for="season">Season: </label>
+                  <label for="seasonByNum">Season: </label>
                   <input
-                    id="season"
+                    id="seasonByNum"
                     type="number"
-                    name="season"
-                    value="<%= searchData.season %>"
+                    name="seasonByNum"
+                    value="<%= searchData.seasonByNum %>"
                   />
                 </div>
                 <div class="inputdata">
-                  <label for="episode">Episode: </label>
+                  <label for="episodeByNum">Episode: </label>
                   <input
-                    id="episode"
+                    id="episodeByNum"
                     type="number"
-                    name="episode"
-                    value="<%= searchData.episode %>"
+                    name="episodeByNum"
+                    value="<%= searchData.episodeByNum %>"
                   />
                 </div>
                 <div class="inputdata">
-                  <button type="submit" value="searchnumber" name="action">
+                  <button type="submit" value="searchByNum" name="action">
                     Search by Number
                   </button>
                 </div>
@@ -76,12 +77,12 @@
             <form action="#" method="POST">
               <div class="formdata">
                 <div class="inputdata">
-                  <label for="season">Name: </label>
+                  <label for="nameByNum">Name: </label>
                   <input
-                    id="name"
+                    id="nameByNum"
                     type="text"
-                    name="name"
-                    value="<%= searchData.name %>"
+                    name="nameByNum"
+                    value="<%= searchData.nameByNum %>"
                     readonly
                   />
                 </div>
@@ -104,31 +105,32 @@
           <h3>by Name</h3>
         </header>
         <section>
+          <p class="contentMessage"><%= messages.name %></p>
           <div class="contentInner">
             <form action="#" method="POST">
               <div class="formdata">
                 <div class="inputdata">
-                  <label for="season">Name: </label>
+                  <label for="seasonByName">Name: </label>
                   <input
-                    id="name"
+                    id="nameByName"
                     type="text"
-                    name="name"
-                    value="<%= searchData.name %>"
+                    name="nameByName"
+                    value="<%= searchData.nameByName %>"
                   />
                 </div>
                 <div class="inputdata">
-                  <label for="episodes">Episodes: </label>
-                  <select
-                    id="episodes"
-                    name="action"
-                    value="<%= searchData.episodes %>"
-                    onchange="this.form.submit()"
-                  ></select>
-                </div>
-                <div class="inputdata">
-                  <button type="submit" value="searchname" name="action">
+                  <button type="submit" value="searchByName" name="action">
                     Search by Name
                   </button>
+                </div>
+                <div class="inputdata">
+                  <label for="episodesByName">Episodes: </label>
+                  <select
+                    id="episodesByName"
+                    name="action"
+                    value="<%= searchData.episodesByName %>"
+                    onchange="this.form.submit()"
+                  ></select>
                 </div>
               </div>
             </form>
