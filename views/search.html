@@ -88,7 +88,7 @@
                 </div>
                 <div class="inputdata">
                   <button type="submit" value="details" name="action">
-                    Details
+                    WIP
                   </button>
                 </div>
               </div>
@@ -105,6 +105,8 @@
           <h3>by Name</h3>
         </header>
         <section>
+          <p>Comming coon...</p>
+          <!--
           <p class="contentMessage"><%= messages.name %></p>
           <div class="contentInner">
             <form action="#" method="POST">
@@ -123,15 +125,17 @@
                     Search by Name
                   </button>
                 </div>
-                <div class="inputdata">
-                  <label for="episodesByName">Episodes: </label>
-                  <select
-                    id="episodesByName"
-                    name="action"
-                    value="<%= searchData.episodesByName %>"
-                    onchange="this.form.submit()"
-                  ></select>
-                </div>
+                <% if ((searchData.nameByName != "") && (typeof searchData.nameByName !== "undefined")) { %>
+                  <div class="inputdata">
+                    <label for="episodesByName">Episodes: </label>
+                    <select
+                      id="episodesByName"
+                      name="action"
+                      value="<%= searchData.episodesByName %>"
+                      onchange="this.form.submit()"
+                    ></select>
+                  </div>
+                <% } %>                
               </div>
             </form>
             <form action="#" method="POST">
@@ -164,6 +168,7 @@
               </div>
             </form>
           </div>
+          -->
         </section>
         <div class="clearfix"></div>
       </article>

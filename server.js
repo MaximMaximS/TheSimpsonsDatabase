@@ -39,28 +39,28 @@ function getSetting(user, settingName, callback) {
 }
 
 function getName(user) {
-  var username = "";
-  try {
-    username = user.username;
-  } catch (err) {
-    username = "";
-  }
-  return username;
+  if (typeof user !== "undefined") {
+    // If user logged in
+    return user.username;
+  } else return "";
 }
 
 function findByNumber(req, callback) {
-  var seasonNum = req.body.seasonByNum;
-  Season.findById(parseInt(seasonNum) || 0, function (err, season) {
+  Season.findById(parseInt(req.body.seasonByNum) || 0, function (err, season) {
+    // Find season
     if (err) {
-      callback(err, null);
+      callback(err, null); // Return error
     } else if (season == null) {
-      callback(new Error("Season not found!"), null);
+      // If season not found
+      callback(new Error("Season not found!"), null); // Return error
     } else {
-      let episode = season.episodes[req.body.episodeByNum - 1];
+      // If season found
+      let episode = season.episodes[req.body.episodeByNum - 1]; // Get episode obejct
       if (typeof episode == "undefined") {
-        callback(new Error("Episode not found!"));
+        // If episode obejct is undefined
+        callback(new Error("Episode not found!")); // Return error
       } else {
-        callback(null, episode);
+        callback(null, episode); // Success: Return episode object
       }
     }
   });
@@ -175,9 +175,11 @@ mongoose
               seasonByNum: req.body.seasonByNum,
               episodeByNum: req.body.episodeByNum,
               nameByNum: req.body.nameByNum,
+              /*
               seasonByName: req.body.seasonByName,
               episodeByName: req.body.episodeByName,
               nameByName: req.body.nameByName,
+              */
             },
           });
           break;
