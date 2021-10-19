@@ -5,7 +5,6 @@
   "main": "server.js",
   "scripts": {
     "test": "node server.js",
-    "start": "node server.js",
     "prepare": "husky install"
   },
   "repository": {
