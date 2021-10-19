@@ -1,70 +1,181 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
     <title>The Simpsons Database</title>
     <link rel="shortcut icon" href="/assets/favicon.ico" />
     <link rel="stylesheet" type="text/css" href="/assets/css/style.css" />
-</head>
+  </head>
 
-<body>
+  <body>
     <nav class="menu-container">
-        <a href="" class="menu-logo">
-            <img src="/assets/images/logo.png" alt="TheSimpsonsDatabase" />
-        </a>
-        <div class="menu">
-            <ul>
-                <li>
-                    <a href="/">
-                        TheSimpsonsDatabase
-                    </a>
-                </li>
-                <li>
-                    <a href="/search">
-                        Search
-                    </a>
-                </li>
-            </ul>
-            <ul>
-                <% if (username == ""){ %>
-                <li>
-                    <a href="/register">
-                        Register
-                    </a>
-                </li>
-                <li>
-                    <a href="/login">
-                        Login
-                    </a>
-                </li>
-                <% } else{ %>
-                <li>
-                    <a href="/user" class="useNormalFont">
-                        <%= username %>
-                    </a>
-                </li>
-                <% } %>
-            </ul>
-        </div>
+      <a href="" class="menu-logo">
+        <img src="/assets/images/logo.png" alt="TheSimpsonsDatabase" />
+      </a>
+      <div class="menu">
+        <ul>
+          <li>
+            <a href="/"> TheSimpsonsDatabase </a>
+          </li>
+          <li>
+            <a href="/search"> Search </a>
+          </li>
+        </ul>
+        <ul>
+          <% if (username == ""){ %>
+          <li>
+            <a href="/register"> Register </a>
+          </li>
+          <li>
+            <a href="/login"> Login </a>
+          </li>
+          <% } else{ %>
+          <li>
+            <a href="/user" class="useNormalFont"> <%= username %> </a>
+          </li>
+          <% } %>
+        </ul>
+      </div>
     </nav>
 
     <div class="contentarticle">
-        <article>
-            <header>
-                <h2>Search</h2>
-            </header>
-            <section>
-                <p>Coming soon...</p>
-            </section>
-            <div class="clearfix"></div>
-        </article>
+      <article>
+        <header>
+          <h2>Search</h2>
+          <h3>by Number</h3>
+        </header>
+        <section>
+          <p class="contentMessage"><%= messages.num %></p>
+          <div class="contentInner">
+            <form action="#" method="POST">
+              <div class="formdata">
+                <div class="inputdata">
+                  <label for="seasonByNum">Season: </label>
+                  <input
+                    id="seasonByNum"
+                    type="number"
+                    name="seasonByNum"
+                    value="<%= searchData.seasonByNum %>"
+                  />
+                </div>
+                <div class="inputdata">
+                  <label for="episodeByNum">Episode: </label>
+                  <input
+                    id="episodeByNum"
+                    type="number"
+                    name="episodeByNum"
+                    value="<%= searchData.episodeByNum %>"
+                  />
+                </div>
+                <div class="inputdata">
+                  <button type="submit" value="searchByNum" name="action">
+                    Search by Number
+                  </button>
+                </div>
+              </div>
+            </form>
+            <form action="#" method="POST">
+              <div class="formdata">
+                <div class="inputdata">
+                  <label for="nameByNum">Name: </label>
+                  <input
+                    id="nameByNum"
+                    type="text"
+                    name="nameByNum"
+                    value="<%= searchData.nameByNum %>"
+                    readonly
+                  />
+                </div>
+                <div class="inputdata">
+                  <button type="submit" value="details" name="action">
+                    WIP
+                  </button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </section>
+        <div class="clearfix"></div>
+      </article>
+    </div>
+    <div class="contentarticle">
+      <article>
+        <header>
+          <h2>Search</h2>
+          <h3>by Name</h3>
+        </header>
+        <section>
+          <p>Comming coon...</p>
+          <!--
+          <p class="contentMessage"><%= messages.name %></p>
+          <div class="contentInner">
+            <form action="#" method="POST">
+              <div class="formdata">
+                <div class="inputdata">
+                  <label for="seasonByName">Name: </label>
+                  <input
+                    id="nameByName"
+                    type="text"
+                    name="nameByName"
+                    value="<%= searchData.nameByName %>"
+                  />
+                </div>
+                <div class="inputdata">
+                  <button type="submit" value="searchByName" name="action">
+                    Search by Name
+                  </button>
+                </div>
+                <% if ((searchData.nameByName != "") && (typeof searchData.nameByName !== "undefined")) { %>
+                  <div class="inputdata">
+                    <label for="episodesByName">Episodes: </label>
+                    <select
+                      id="episodesByName"
+                      name="action"
+                      value="<%= searchData.episodesByName %>"
+                      onchange="this.form.submit()"
+                    ></select>
+                  </div>
+                <% } %>                
+              </div>
+            </form>
+            <form action="#" method="POST">
+              <div class="formdata">
+                <div class="inputdata">
+                  <label for="season">Season: </label>
+                  <input
+                    id="season"
+                    type="number"
+                    name="season"
+                    value="<%= searchData.season %>"
+                    readonly
+                  />
+                </div>
+                <div class="inputdata">
+                  <label for="episode">Episode: </label>
+                  <input
+                    id="episode"
+                    type="number"
+                    name="episode"
+                    value="<%= searchData.episode %>"
+                    readonly
+                  />
+                </div>
+                <div class="inputdata">
+                  <button type="submit" value="details" name="action">
+                    Details
+                  </button>
+                </div>
+              </div>
+            </form>
+          </div>
+          -->
+        </section>
+        <div class="clearfix"></div>
+      </article>
     </div>
 
-
     <footer>
-        <div class="footer">By <em>MaximMaximS</em></div>
+      <div class="footer">By <em>MaximMaximS</em></div>
     </footer>
-</body>
-
+  </body>
 </html>

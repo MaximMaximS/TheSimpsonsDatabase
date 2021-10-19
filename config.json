@@ -1,4 +1,4 @@
 {
-    "port": 3000,
-    "seasonCollectionName": "seasons"
+  "port": 3000,
+  "seasonCollectionName": "seasons"
 }
