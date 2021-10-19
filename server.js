@@ -172,9 +172,12 @@ mongoose
               name: "Please type episode name and select one.",
             },
             searchData: {
-              season: req.body.season,
-              episode: req.body.episode,
-              name: req.body.name,
+              seasonByNum: req.body.seasonByNum,
+              episodeByNum: req.body.episodeByNum,
+              nameByNum: req.body.nameByNum,
+              seasonByName: req.body.seasonByName,
+              episodeByName: req.body.episodeByName,
+              nameByName: req.body.nameByName,
             },
           });
           break;
