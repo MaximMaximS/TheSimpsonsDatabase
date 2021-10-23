@@ -1,0 +1,737 @@
+1	1	Simpsons Roasting on an Open Fire	Vánoce u Simpsonových 	David Silverman	Mimi Pond	17. prosince 1989	26. února 1993	7G08
+2	2	Bart the Genius	Malý génius 	David Silverman	Jon Vitti	14. ledna 1990	15. ledna 1993	7G02
+3	3	Homer's Odyssey	Homerova odysea 	Wes Archer	Jay Kogen a Wallace Wolodarsky	21. ledna 1990	22. ledna 1993	7G03
+4	4	There's No Disgrace Like Home	Taková nenormální rodinka 	Gregg Vanzo a Kent Butterworth	Al Jean a Mike Reiss	28. ledna 1990	29. ledna 1993	7G04
+5	5	Bart the General	Bart generálem aneb Kdopak by se Nelsona bál 	David Silverman	John Swartzwelder	4. února 1990	5. února 1993	7G05
+6	6	Moaning Lisa	Smutná Líza 	Wes Archer	Al Jean a Mike Reiss	11. února 1990	12. února 1993	7G06
+7	7	The Call of the Simpsons	Volání přírody 	Wes Archer	John Swartzwelder	18. února 1990	5. března 1993	7G09
+8	8	The Telltale Head	Mluvící hlava 	Rich Moore	Al Jean, Mike Reiss, Sam Simon a Matt Groening	25. února 1990	19. února 1993	7G07
+9	9	Life on the Fast Lane	Ve víru vášně 	David Silverman	John Swartzwelder	18. března 1990	19. března 1993	7G11
+10	10	Homer's Night Out	Světák Homer 	Rich Moore	Jon Vitti	25. března 1990	12. března 1993	7G10
+11	11	The Crepes of Wrath	Kyselé hrozny sladké Francie 	Wes Archer a Milton Gray	George Meyer, Sam Simon, John Swartzwelder a Jon Vitti	15. dubna 1990	2. dubna 1993	7G13
+12	12	Krusty Gets Busted	Je Šáša vinen?	Brad Bird	Jay Kogen a Wallace Wolodarsky	29. dubna 1990	26. března 1993	7G12
+13	13	Some Enchanted Evening	Hezkej večer 	David Silverman a Kent Butterworth	Matt Groening a Sam Simon	13. května 1990	8. ledna 1993	7G01
+-split-
+14	1	Bart Gets an F	Bart propadá 	David Silverman	David M. Stern	11. října 1990	23. dubna 1993	7F03
+15	2	Simpson and Delilah	Homerova dobrá víla 	Rich Moore	Jon Vitti	18. října 1990	16. dubna 1993	7F02
+16	3	Treehouse of Horror	Zvlášť strašidelní Simpsonovi 	Rich Moore, Wes Archer a David Silverman	John Swartzwelder, Jay Kogen, Wallace Wolodarsky, Edgar Allan Poe a Sam Simon	25. října 1990	30. dubna 1993	7F04
+17	4	Two Cars in Every Garage and Three Eyes on Every Fish	Kdo s koho 	Wes Archer	Sam Simon a John Swartzwelder	1. listopadu 1990	9. dubna 1993	7F01
+18	5	Dancin' Homer	Homer maskotem 	Mark Kirkland	Ken Levine a David Isaacs	8. listopadu 1990	7. května 1993	7F05
+19	6	Dead Putting Society	Golfová společnost 	Rich Moore	Jeff Martin	15. listopadu 1990	28. května 1993	7F08
+20	7	Bart vs. Thanksgiving	Bart kazisvět 	David Silverman	John Swartwelder	22. listopadu 1990	21. května 1993	7F07
+21	8	Bart the Daredevil	Ďábelský Bart 	Wes Archer	Jay Kogen a Wallace Wolodarsky	6. prosince 1990	14. května 1993	7F06
+22	9	Itchy & Scratchy & Marge	Za všechno může televize 	Jim Reardon	George Meyer	20. prosince 1990	4. června 1993	7F09
+23	10	Bart Gets Hit by a Car	Bartova srážka s autem 	Mark Kirkland	John Swartzwelder	10. ledna 1991	11. června 1993	7F10
+24	11	One Fish, Two Fish, Blowfish, Blue Fish	Není ryba jako ryba 	Wesley M. Archer	Nell Scovell	24. ledna 1991	18. června 1993	7F11
+25	12	The Way We Was	Takoví jsme byli 	David Silverman	Al Jean, Mike Reiss a Sam Simon	31. ledna 1991	25. června 1993	7F12
+26	13	Homer vs. Lisa and the 8th Commandment	Homer a desatero aneb Každý krade, jak dovede	Rich Moore	Steve Pepoon	7. února 1991	2. července 1993	7F13
+27	14	Principal Charming	Láska klíčí i v ředitelně 	Mark Kirkland	David M. Stern	14. února 1991	10. září 1993	7F15
+28	15	Oh Brother, Where Art Thou?	Ach, rodný bratře, kde tě mám? 	W.M. „Bud“ Archer	Jeff Martin	21. února 1991	17. září 1993	7F16
+29	16	Bart's Dog Gets an F	Spasitel trapitel 	Jim Reardon	Jon Vitti	7. března 1991	3. září 1993	7F14
+30	17	Old Money	Dědovo dědictví 	David Silverman	Jay Kogen a Wallace Wolodarsky	28. března 1991	24. září 1993	7F17
+31	18	Brush with Greatness	Síla talentu 	Jim Reardon	Brian K. Roberts	11. dubna 1991	1. října 1993	7F18
+32	19	Lisa's Substitute	Lízin let do nebe 	Rich Moore	Jon Vitti	25. dubna 1991	8. října 1993	7F19
+33	20	The War of the Simpsons	Válka Simpsonových 	Mark Kirkland	John Swartzwelder	2. května 1991	15. října 1993	7F20
+34	21	Three Men and a Comic Book	Drobné kiksy nad komiksy 	Wes Archer	Jeff Martin	9. května 1991	22. října 1993	7F21
+35	22	Blood Feud	Krevní msta 	David Silverman	George Meyer	11. července 1991	29. října 1993	7F22
+-split-
+36	1	Stark Raving Dad	Šílený Homer[pozn. 2] 	Rich Moore	Al Jean a Mike Reiss	19. září 1991	24. prosince 1993	7F24
+37	2	Mr. Lisa Goes to Washington	Líza na stopě zlořádu 	Wes Archer	George Meyer	26. září 1991	12. listopadu 1993	8F01
+38	3	When Flanders Failed	Zkáza domu Flandersů 	Jim Reardon	Jon Vitti	3. října 1991	5. listopadu 1993	7F23
+39	4	Bart the Murderer	Bart vrahem 	Rich Moore	John Swartzwelder	10. října 1991	26. listopadu 1993	8F03
+40	5	Homer Defined	Homerova definice 	Mark Kirkland	Howard Gewirtz	17. října 1991	3. prosince 1993	8F04
+41	6	Like Father, Like Clown	Jaký otec, takový klaun 	Jeffrey Lynch a Brad Bird	Jay Kogen a Wallace Wolodarsky	24. října 1991	18. února 1994	8F05
+42	7	Treehouse of Horror II	Zvláštní čarodějnický díl 	Jim Reardon	Al Jean, Mike Reiss, Jeff Martin, George Meyer, Sam Simon a John Swartzwelder	31. října 1991	19. listopadu 1993	8F02
+43	8	Lisa's Pony	Cena lásky 	Carlos Baeza	Al Jean a Mike Reiss	7. listopadu 1991	10. prosince 1993	8F06
+44	9	Saturdays of Thunder	Hromská sobota 	Jim Reardon	Ken Levine a David Isaacs	14. listopadu 1991	7. ledna 1994	8F07
+45	10	Flaming Moe's	U ohnivého Vočka 	Rich Moore a Alan Smart	Robert Cohen	21. listopadu 1991	18. března 1994	8F08
+46	11	Burns Verkaufen der Kraftwerk	Jak Burns prodával elektrárnu 	Mark Kirkland	Jon Vitti	5. prosince 1991	14. ledna 1994	8F09
+47	12	I Married Marge	Jak jsem si bral Marge 	Jeffrey Lynch	Jeff Martin	26. prosince 1991	31. prosince 1993	8F10
+48	13	Radio Bart	Rádio Bart	Carlos Baeza	Jon Vitti	9. ledna 1992	17. prosince 1993	8F11
+49	14	Lisa the Greek	Líza sázkařem 	Rich Moore	Jay Kogen a Wallace Wolodarsky	23. ledna 1992	21. ledna 1994	8F12
+50	15	Homer Alone	Homer sám doma 	Mark Kirkland	David M. Stern	6. února 1992	4. února 1994	8F14
+51	16	Bart the Lover	Bart milencem 	Carlos Baeza	Jon Vitti	13. února 1992	11. března 1994	8F16
+52	17	Homer at the Bat	Homer na pálce 	Jim Reardon	John Swartzwelder	20. února 1992	28. ledna 1994	8F13
+53	18	Separate Vocations	Lízina vzpoura 	Jeffrey Lynch	George Meyer	27. února 1992	11. února 1994	8F15
+54	19	Dog of Death	Spasitel zabijákem 	Jim Reardon	John Swartzwelder	12. března 1992	25. března 1994	8F17
+55	20	Colonel Homer	Ctěný pan Homer 	Mark Kirkland	Matt Groening	26. března 1992	8. dubna 1994	8F19
+56	21	Black Widower	Černý vdovec 	David Silverman	Thomas Chastain, Sam Simon a Jon Vitti	9. dubna 1992	15. dubna 1994	8F20
+57	22	The Otto Show	Otto v akci 	Wes Archer	Jeff Martin	23. dubna 1992	22. dubna 1994	8F21
+58	23	Bart's Friend Falls in Love	Milhouseův románek	Jim Reardon	Jay Kogen a Wallace Wolodarsky	7. května 1992	25. února 1994	8F22
+59	24	Brother, Can You Spare Two Dimes?	Brácho, můžeš postrádat dva tácy? 	Rich Moore	John Swartzwelder	27. srpna 1992	4. března 1994	8F23
+-split-
+60	1	Kamp Krusty	Vzhůru na prázdniny 	Mark Kirkland	David M. Stern	24. září 1992	29. dubna 1994	8F24
+61	2	A Streetcar Named Marge	Tramvaj do stanice Marge 	Rich Moore	Jeff Martin	1. října 1992	1. dubna 1994	8F18
+62	3	Homer the Heretic	Homer kacířem 	Jim Reardon	George Meyer	8. října 1992	9. září 1994	9F01
+63	4	Lisa the Beauty Queen	Líza královnou krásy 	Mark Kirkland	Jeff Martin	15. října 1992	16. září 1994	9F02
+64	5	Treehouse of Horror III	Speciální čarodějnický díl 	Carlos Baeza	Al Jean, Mike Reiss, Jay Kogen, Wallace Wolodarsky, Sam Simon a Jon Vitti	29. října 1992	4. listopadu 1994	9F04
+65	6	Itchy & Scratchy: The Movie	Bartův trest 	Rich Moore	John Swartzwelder	3. listopadu 1992	23. září 1994	9F03
+66	7	Marge Gets a Job	Marge jde do zaměstnání 	Jeff Lynch	Bill Oakley a Josh Weinstein	5. listopadu 1992	30. září 1994	9F05
+67	8	New Kid on the Block	Nová holka v ulici 	Wes Archer	Conan O'Brien	12. listopadu 1992	2. září 1994	9F06
+68	9	Mr. Plow	Pan Pluhař 	Jim Reardon	Jon Vitti	19. listopadu 1992	18. listopadu 1994	9F07
+69	10	Lisa's First Word	Lízino první slovo 	Mark Kirkland	Jeff Martin	3. prosince 1992	7. října 1994	9F08
+70	11	Homer's Triple Bypass	Homerova koronární operace 	David Silverman	Gary Apple a Michael Carrington	17. prosince 1992	14. října 1994	9F09
+71	12	Marge vs. the Monorail	Marge versus jednokolejka 	Rich Moore	Conan O'Brien	14. ledna 1993	21. října 1994	9F10
+72	13	Selma's Choice	Selmina volba 	Carlos Baeza	David M. Stern	21. ledna 1993	28. října 1994	9F11
+73	14	Brother from the Same Planet	Velký bratr 	Jeff Lynch	Jon Vitti	4. února 1993	11. listopadu 1994	9F12
+74	15	I Love Lisa	Svatého Valentýna 	Wes Archer	Frank Mula	11. února 1993	27. ledna 1995	9F13
+75	16	Duffless	Homer na suchu 	Jim Reardon	David M. Stern	18. února 1993	30. prosince 1994	9F14
+76	17	Last Exit to Springfield	Homer – spása Springfieldu 	Mark Kirkland	Jay Kogen a Wallace Wolodarsky	11. března 1993	2. prosince 1994	9F15
+77	18	So It's Come to This: A Simpsons Clip Show	Tak takhle to dopadlo 	Carlos Baeza	Jon Vitti	1. dubna 1993	16. prosince 1994	9F17
+78	19	The Front	Nastrčená osoba 	Rich Moore	Adam I. Lapidus	15. dubna 1993	9. prosince 1994	9F16
+79	20	Whacking Day	Hadobijecký den 	Jeff Lynch	John Swartzwelder	29. dubna 1993	25. listopadu 1994	9F18
+80	21	Marge in Chains	Marge za mřížemi 	Jim Reardon	Bill Oakley a Josh Weinstein	6. května 1993	13. ledna 1995	9F20
+81	22	Krusty Gets Kancelled	Šáša Krusty je zrušen – Šáša Krusty má padáka	David Silverman	John Swartzwelder	13. května 1993	6. ledna 1995	9F19
+-split-
+82	1	Homer's Barbershop Quartet	Homerovo pěvecké kvarteto 	Mark Kirkland	Jeff Martin	30. září 1993	23. prosince 1994	9F21
+83	2	Cape Feare	Mys hrůzy 	Rich Moore	Jon Vitti	7. října 1993	20. ledna 1995	9F22
+84	3	Homer Goes to College	Homer jde studovat 	Jim Reardon	Conan O'Brien	14. října 1993	28. dubna 1995	1F02
+85	4	Rosebud	Medvídek 	Wes Archer	John Swartzwelder	21. října 1993	21. dubna 1995	1F01
+86	5	Treehouse of Horror IV	Speciální čarodějnický díl IV – Dům plný hrůzy 	David Silverman	Conan O'Brien, Greg Daniels, Dan McGrath, Bill Oakley, Josh Weinstein a Bill Canterbury	28. října 1993	21. ledna 1996	1F04
+87	6	Marge on the Lam	Marge na útěku 	Mark Kirkland	Bill Canterbury	4. listopadu 1993	5. května 1995	1F03
+88	7	Bart's Inner Child	Bartovo vnitřní dítě 	Bob Anderson	George Meyer	11. listopadu 1993	12. května 1995	1F05
+89	8	Boy-Scoutz 'n the Hood	Bart táborníkem 	Jeffrey Lynch	Dan McGrath	18. listopadu 1993	19. května 1995	1F06
+90	9	The Last Temptation of Homer	Poslední pokušení Homera Simpsona 	Carlos Baeza	Frank Mula	9. prosince 1993	26. května 1995	1F07
+91	10	$pringfield (Or, How I Learned to Stop Worrying and Love Legalized Gambling)	Jak jsem se přestal bát	Wes Archer	Bill Oakley a Josh Weinstein	16. prosince 1993	2. června 1995	1F08
+92	11	Homer the Vigilante	Homer strážcem zákona 	Jim Reardon	John Swartzwelder	6. ledna 1994	9. června 1995	1F09
+93	12	Bart Gets Famous	Bart na vrcholu slávy 	Susie Dietter	John Swartzwelder	3. února 1994	30. června 1995	1F11
+94	13	Homer and Apu	Homer a Apu 	Mark Kirkland	Greg Daniels	10. února 1994	16. června 1995	1F10
+95	14	Lisa vs. Malibu Stacy	Líza proti mluvící panence 	Jeffrey Lynch	Bill Oakley a Josh Weinstein	17. února 1994	19. listopadu 1995	1F12
+96	15	Deep Space Homer	Hrdinný kosmonaut Homer 	Carlos Baeza	David Mirkin	24. února 1994	5. listopadu 1995	1F13
+97	16	Homer Loves Flanders	Homer miluje Flanderse 	Wes Archer	David Richardson	17. března 1994	12. listopadu 1995	1F14
+98	17	Bart Gets an Elephant	Bart dostane slona 	Jim Reardon	John Swartzwelder	31. března 1994	26. listopadu 1995	1F15
+99	18	Burns' Heir	Burnsův dědic 	Mark Kirkland	Jace Richdale	14. dubna 1994	3. prosince 1995	1F16
+100	19	Sweet Seymour Skinner's Baadasssss Song	Skinner – sladký nepřítel 	Bob Anderson	Bill Oakley a Josh Weinstein	28. dubna 1994	14. ledna 1996	1F18
+101	20	The Boy Who Knew Too Much	Chlapec, který věděl příliš mnoho 	Jeffrey Lynch	John Swartzwelder	5. května 1994	17. prosince 1995	1F19
+102	21	Lady Bouvier's Lover	Milenec Lady Bouvierové 	Wes Archer	Bill Oakley a Josh Weinstein	12. května 1994	7. ledna 1996	1F21
+103	22	Secrets of a Successful Marriage	Tajemství úspěšného manželství 	Carlos Baeza	Greg Daniels	19. května 1994	23. prosince 1995	1F20
+-split-
+104	1	Bart of Darkness	Bart temnoty 	Jim Reardon	Dan McGrath	4. září 1994	23. června 1995	1F22
+105	2	Lisa's Rival	Lízina rivalka 	Mark Kirkland	Mike Scully	11. září 1994	10. prosince 1995	1F17
+106	3	Another Simpsons Clip Show	Tentokrát o lásce 	David Silverman	Penny Wise	25. září 1994	11. února 1997	2F33
+107	4	Itchy & Scratchy Land	Návštěva Drsnolandu 	Wes Archer	John Swartzwelder	2. října 1994	15. prosince 1996	2F01
+108	5	Sideshow Bob Roberts	Návrat Leváka Boba 	Mark Kirkland	Bill Oakley a Josh Weinstein	9. října 1994	28. ledna 1997	2F02
+109	6	Treehouse of Horror V	Pátý speciální čarodějnický díl	Jim Reardon	Greg Daniels, Dan McGrath, David S. Cohen a Bob Kushell	30. října 1994	20. května 1997	2F03
+110	7	Bart's Girlfriend	Bartovo děvče 	Susie Dietter	Jonathan Collier	6. listopadu 1994	29. prosince 1996	2F04
+111	8	Lisa on Ice	Líza – posila mužstva 	Bob Anderson	Mike Scully	13. listopadu 1994	22. prosince 1996	2F05
+112	9	Homer Badman	Zvrhlík Homer 	Jeff Lynch	Greg Daniels	27. listopadu 1994	14. ledna 1997	2F06
+113	10	Grampa vs. Sexual Inadequacy	Dědeček versus sexuální ochablost 	Wes Archer	Bill Oakley a Josh Weinstein	4. prosince 1994	21. ledna 1997	2F07
+114	11	Fear of Flying	Strach z létání 	Mark Kirkland	David Sacks	18. prosince 1994	4. února 1997	2F08
+115	12	Homer the Great	Homer Veliký 	Jim Reardon	John Swartzwelder	8. ledna 1995	7. ledna 1997	2F09
+116	13	And Maggie Makes Three	A s Maggie jsou tři	Swinton O. Scott III	Jennifer Crittenden	22. ledna 1995	18. února 1997	2F10
+117	14	Bart's Comet	Bartova kometa 	Bob Anderson	John Swartzwelder	5. února 1995	25. února 1997	2F11
+118	15	Homie the Clown	Homer klaunem 	David Silverman	John Swartzwelder	12. února 1995	4. března 1997	2F12
+119	16	Bart vs. Australia	Bart versus Austrálie 	Wes Archer	Bill Oakley a Josh Weinstein	19. února 1995	23. září 1997	2F13
+120	17	Homer vs. Patty and Selma	Homer versus Patty a Selma 	Mark Kirkland	Brent Forrester	26. února 1995	18. března 1997	2F14
+121	18	A Star Is Burns	Zrodila se hvězda 	Susie Dietter	Ken Keeler	5. března 1995	2. září 1997	2F31
+122	19	Lisa's Wedding	Lízina svatba 	Jim Reardon	Greg Daniels	19. března 1995	11. března 1997	2F15
+123	20	Two Dozen and One Greyhounds	Dva tucty a jeden chrt 	Bob Anderson	Mike Scully	9. dubna 1995	8. dubna 1997	2F18
+124	21	The PTA Disbands	Konec SRPŠ 	Swinton O. Scott III	Jennifer Crittenden	16. dubna 1995	30. září 1997	2F19
+125	22	'Round Springfield	Kolem Springfieldu 	Steven Dean Moore	Joshua Sternin, Jennifer Ventimilia, Mike Reiss a Al Jean	30. dubna 1995	28. ledna 1998	2F32
+126	23	The Springfield Connection	Springfieldská spojka 	Mark Kirkland	Jonathan Collier	7. května 1995	1. dubna 1997	2F21
+127	24	Lemon of Troy	Trojský citron 	Jim Reardon	Brent Forrester	14. května 1995	13. května 1997	2F22
+128	25	Who Shot Mr. Burns? (Part One)	Kdo postřelil pana Burnse? 1/2	Jeffrey Lynch	Bill Oakley a Josh Weinstein	21. května 1995	15. dubna 1997	2F16
+-split-
+129	1	Who Shot Mr. Burns? (Part Two)	Kdo postřelil pana Burnse? 2/2	Wes Archer	Bill Oakley a Josh Weinstein	17. září 1995	22. dubna 1997	2F20
+130	2	Radioactive Man	Radioaktivní muž 	Susie Dietter	John Swartzwelder	24. září 1995	29. dubna 1997	2F17
+131	3	Home Sweet Homediddly-Dum-Doodily	Domove, sladký domove 	Susie Dietter	Jon Vitti	1. října 1995	9. prosince 1997	3F01
+132	4	Bart Sells His Soul	Bart prodává duši 	Wesley Archer	Greg Daniels	8. října 1995	16. září 1997	3F02
+133	5	Lisa the Vegetarian	Líza vegetariánkou 	Mark Kirkland	David S. Cohen	15. října 1995	25. března 1997	3F03
+134	6	Treehouse of Horror VI	Speciální čarodějnický díl 	Bob Anderson	John Swartzwelder, Steve Tompkins a David S. Cohen	29. října 1995	24. února 1998	3F04
+135	7	King-Size Homer	Tlouštík Homer 	Jim Reardon	Dan Greaney	5. listopadu 1995	9. září 1997	3F05
+136	8	Mother Simpson	Babička 	David Silverman	Richard Appel	19. listopadu 1995	27. října 1997	3F06
+137	9	Sideshow Bob's Last Gleaming	Poslední šance Leváka Boba 	Dominic Polcino	Spike Feresten	26. listopadu 1995	4. listopadu 1997	3F08
+138	10	The Simpsons 138th Episod Spectacular	Slavnostní epizoda 	Pound Foolish	Penny Wise	3. prosince 1995	30. prosince 1997	3F31
+139	11	Marge Be Not Proud	Nemáš se čím chlubit, Marge 	Steven Dean Moore	Mike Scully	17. prosince 1995	23. prosince 1997	3F07
+140	12	Team Homer	Homerův tým 	Mark Kirkland	Mike Scully	7. ledna 1996	18. listopadu 1997	3F10
+141	13	Two Bad Neighbors	Dva zlí sousedé 	Wes Archer	Ken Keeler	14. ledna 1996	11. listopadu 1997	3F09
+142	14	Scenes from the Class Struggle in Springfield	Výjevy z třídního boje ve Springfieldu 	Susie Dietter	Jennifer Crittenden	4. února 1996	25. listopadu 1997	3F11
+143	15	Bart the Fink	Udavač Bart 	Jim Reardon	Bob Kushell a John Swartzwelder	11. února 1996	2. prosince 1997	3F12
+144	16	Lisa the Iconoclast	Líza bortí mýty 	Mike B. Anderson	Jonathan Collier	18. února 1996	14. října 1997	3F13
+145	17	Homer the Smithers	Homer ve službě 	Steven Dean Moore	John Swartzwelder	25. února 1996	6. ledna 1998	3F14
+146	18	The Day the Violence Died	Den, kdy zemřelo násilí 	Wesley Archer	John Swartzwelder	17. března 1996	6. května 1997	3F16
+147	19	A Fish Called Selma	Ryba jménem Selma 	Mark Kirkland	Jack Barth	24. března 1996	13. ledna 1998	3F15
+148	20	Bart on the Road	Bart na cestě 	Swinton O. Scott III	Richard Appel	31. března 1996	16. prosince 1997	3F17
+149	21	22 Short Films About Springfield	Dvaadvacet krátkých filmů o Springfieldu 	Jim Reardon	Richard Appel, David S. Cohen, Jonathan Collier, Jennifer Crittenden, Brent Forrester, Rachel Pulido, Steve Tompkins, Bill Oakley, Josh Weinstein, Matt Groening a Greg Daniels	14. dubna 1996	27. ledna 1998	3F18
+150	22	Raging Abe Simpson and His Grumbling Grandson in "The Curse of the Flying Hellfish"	Zuřící dědeček a jeho reptající vnuk 	Jeffrey Lynch	Jonathan Collier	28. dubna 1996	3. února 1998	3F19
+151	23	Much Apu About Nothing	Mnoho Apua pro nic 	Susie Dietter	David S. Cohen	5. května 1996	10. února 1998	3F20
+152	24	Homerpalooza	Homerpalooza 	Wesley Archer	Brent Forrester	19. května 1996	17. února 1998	3F21
+153	25	Summer of 4 Ft. 2	Simpsonovi na prázdninách 	Mark Kirkland	Dan Greaney	19. května 1996	7. října 1997	3F22
+-split-
+154	1	Treehouse of Horror VII	Speciální čarodějnický díl 	Mike B. Anderson	Ken Keeler, Dan Greaney a David S. Cohen	27. října 1996	1. prosince 1998	4F02
+155	2	You Only Move Twice	Dvojí stěhování 	Mike B. Anderson	John Swartzwelder	3. listopadu 1996	3. března 1998	3F23
+156	3	The Homer They Fall	Zuřící býk Homer 	Mark Kirkland	Jonathan Collier	10. listopadu 1996	8. prosince 1998	4F03
+157	4	Burns, Baby Burns	Burnsovy otcovské lapálie 	Jim Reardon	Ian Maxtone-Graham	17. listopadu 1996	15. prosince 1998	4F05
+158	5	Bart After Dark	Bart po setmění 	Dominic Polcino	Richard Appel	24. listopadu 1996	22. prosince 1998	4F06
+159	6	A Milhouse Divided	Rozdělený Milhouse 	Steven Dean Moore	Steve Tompkins	1. prosince 1996	29. prosince 1998	4F04
+160	7	Lisa's Date with Density	Lízino rande s blbostí 	Susie Dietter	Mike Scully	15. prosince 1996	5. ledna 1999	4F01
+161	8	Hurricane Neddy	Hurikán Ned 	Bob Anderson	Steve Young	29. prosince 1996	12. ledna 1999	4F07
+162	9	El Viaje Misterioso de Nuestro Jomer (The Mysterious Voyage of Homer)	Homerova mystická cesta 	Jim Reardon	Ken Keeler	5. ledna 1997	24. listopadu 1998	3F24
+163	10	The Springfield Files	Akta S 	Steven Dean Moore	Reid Harrison	12. ledna 1997	26. ledna 1999	3G01
+164	11	The Twisted World of Marge Simpson	Pokřivený svět Marge Simpsonové 	Chuck Sheetz	Jennifer Crittenden	19. ledna 1997	2. února 1999	4F08
+165	12	Mountain of Madness	Hora šílenství 	Mark Kirkland	John Swartzwelder	2. února 1997	9. února 1999	4F10
+166	13	Simpsoncalifragilisticexpiala(Annoyed Grunt)cious	Himlhergotdoneveterkrucajselement 	Chuck Sheetz	Al Jean a Mike Reiss	7. února 1997	16. února 1999	3G03
+167	14	The Itchy & Scratchy & Poochie Show	Představují se Itchy, Scratchy a Poochie 	Steven Dean Moore	David S. Cohen	9. února 1997	23. února 1999	4F12
+168	15	Homer's Phobia	Homerova fobie 	Mike B. Anderson	Ron Hauge	16. února 1997	2. března 1999	4F11
+169	16	Brother from Another Series	Bratr z jiného seriálu 	Pete Michels	Ken Keeler	23. února 1997	9. března 1999	4F14
+170	17	My Sister, My Sitter	Má sestra, má chůva 	Jim Reardon	Dan Greaney	2. března 1997	16. března 1999	4F13
+171	18	Homer vs. The Eighteenth Amendment	Homer versus 18. dodatek Ústavy 	Bob Anderson	John Swartzwelder	16. března 1997	23. března 1999	4F15
+172	19	Grade School Confidential	Důvěrnosti v základní škole 	Susie Dietter	Rachel Pulido	6. dubna 1997	30. března 1999	4F09
+173	20	The Canine Mutiny	Psí pozdvižení 	Dominic Polcino	Ron Hauge	13. dubna 1997	6. dubna 1999	4F16
+174	21	The Old Man and the Lisa	Stařec a Líza 	Mark Kirkland	John Swartzwelder	20. dubna 1997	13. dubna 1999	4F17
+175	22	In Marge We Trust	V tebe věříme, ó Marge 	Steven Dean Moore	Donick Cary	27. dubna 1997	20. dubna 1999	4F18
+176	23	Homer's Enemy	Homerův nepřítel 	Jim Reardon	John Swartzwelder	4. května 1997	27. dubna 1999	4F19
+177	24	The Simpsons Spin-off Showcase	Simpsonovi	Neil Affleck	Ken Keeler, David S. Cohen, Dan Greaney a Steve	11. května 1997	4. května 1999	4F20
+178	25	The Secret War of Lisa Simpson	Tajná válka Lízy Simpsonové 	Mike B. Anderson	Richard Appel	18. května 1997	19. ledna 1999	4F21
+-split-
+179	1	The City of New York vs. Homer Simpson	Město New York versus Homer Simpson 	Jim Reardon	Ian Maxtone-Graham	21. září 1997	26. října 1999	4F22
+180	2	The Principal and the Pauper	Ředitel Skinner a seržant Skinner 	Steven Dean Moore	Ken Keeler	28. září 1997	2. listopadu 1999	4F23
+181	3	Lisa's Sax	Lízin saxofon 	Dominic Polcino	Al Jean	19. října 1997	9. listopadu 1999	3G02
+182	4	Treehouse of Horror VIII	Speciální čarodějnický díl 	Mark Kirkland	Mike Scully, David S. Cohen a Ned Goldreyer	26. října 1997	16. listopadu 1999	5F02
+183	5	The Cartridge Family	Pistolníkova rodina 	Pete Michels	John Swartzwelder	2. listopadu 1997	31. října 2000	5F01
+184	6	Bart Star	Bart hvězdou 	Dominic Polcino	Donick Cary	9. listopadu 1997	30. listopadu 1999	5F03
+185	7	The Two Mrs. Nahasapeemapetilons	Dvě paní Nahasapímapetilonové 	Steven Dean Moore	Richard Appel	16. listopadu 1997	7. prosince 1999	5F04
+186	8	Lisa the Skeptic	Líza skeptik 	Neil Affleck	David S. Cohen	23. listopadu 1997	14. prosince 1999	5F05
+187	9	Realty Bites	Marge prodává nemovitosti 	Swinton O. Scott III	Dan Greaney	7. prosince 1997	4. ledna 2000	5F06
+188	10	Miracle on Evergreen Terrace	Zázrak na Evergreen Terrace 	Bob Anderson	Ron Hauge	21. prosince 1997	21. prosince 1999	5F07
+189	11	All Singing, All Dancing	Všichni zpívají a tančí 	Mark Kirkland	Steve O'Donnell	4. ledna 1998	11. ledna 2000	5F24
+190	12	Bart Carny	Bart Světský 	Mark Kirkland	John Swartzwelder	11. ledna 1998	18. ledna 2000	5F08
+191	13	The Joy of Sect	Radost v sektě 	Steven Dean Moore	Steve O'Donnell	8. února 1998	25. ledna 2000	5F23
+192	14	Das Bus	Ponorkobus 	Pete Michels	David S. Cohen	15. února 1998	1. února 2000	5F11
+193	15	The Last Temptation of Krust	Poslední pokušení Krustyho 	Mike B. Anderson	Donick Cary	22. února 1998	8. února 2000	5F10
+194	16	Dumbbell Indemnity	Jak napálit pojišťovnu 	Dominic Polcino	Ron Hauge	1. března 1998	14. března 2000	5F12
+195	17	Lisa the Simpson	Líza z rodu Simpsonů 	Susie Dietter	Ned Goldreyer	8. března 1998	15. února 2000	4F24
+196	18	This Little Wiggy	Hrátky s Ralphem 	Neil Affleck	Dan Greaney	22. března 1998	22. února 2000	5F13
+197	19	Simpson Tide	Homer slouží vlasti 	Milton Gray	Joshua Sternin a Jennifer Ventimilia	29. března 1998	29. února 2000	3G04
+198	20	The Trouble with Trillions	Trable s triliony 	Swinton O. Scott III	Ian Maxtone-Graham	5. dubna 1998	28. prosince 1999	5F14
+199	21	Girly Edition	Bart − televizní šoumen 	Mark Kirkland	Larry Doyle	19. dubna 1998	21. března 2000	5F15
+200	22	Trash of the Titans	Kam s odpadem? 	Jim Reardon	Ian Maxtone-Graham	26. dubna 1998	28. března 2000	5F09
+201	23	King of the Hill	Homer horolezcem 	Steven Dean Moore	John Swartzwelder	3. května 1998	4. dubna 2000	5F16
+202	24	Lost Our Lisa	Ztracená Líza 	Pete Michels	Brian Scully	10. května 1998	11. dubna 2000	5F17
+203	25	Natural Born Kissers	Rození líbači 	Klay Hall	Matt Selman	17. května 1998	23. listopadu 1999	5F18
+-split-
+204	1	Lard of the Dance	Školní večírek 	Dominic Polcino	Jane O'Brien	23. srpna 1998	17. října 2000	5F20
+205	2	The Wizard of Evergreen Terrace	Kouzelník z Evergreen Terrace 	Mark Kirkland	John Swartzwelder	20. září 1998	24. října 2000	5F21
+206	3	Bart the Mother	Bart v úloze matky 	Steven Dean Moore	David S. Cohen	27. září 1998	14. listopadu 2000	5F22
+207	4	Treehouse of Horror IX	Speciální čarodějnický díl 	Steven Dean Moore	Donick Cary, Larry Doyle a David S. Cohen	25. října 1998	18. dubna 2000	AABF01
+208	5	When You Dish Upon a Star	Dojezdy pro hvězdy 	Pete Michels	Richard Appel	8. listopadu 1998	7. listopadu 2000	5F19
+209	6	D'oh-in' in the Wind	Šťastná doba hippies 	Mark Kirkland a Matthew Nastuk	Donick Cary	15. listopadu 1998	21. listopadu 2000	AABF02
+210	7	Lisa Gets an 'A'	Líza má jedničku 	Bob Anderson	Ian Maxtone-Graham	22. listopadu 1998	28. listopadu 2000	AABF03
+211	8	Homer Simpson in: 'Kidney Trouble'	Homer Simpson a ledvina 	Mike B. Anderson	John Swartzwelder	6. prosince 1998	5. prosince 2000	AABF04
+212	9	Mayored to the Mob	Střet s mafií 	Swinton O. Scott III	Ron Hauge	20. prosince 1998	12. prosince 2000	AABF05
+213	10	Viva Ned Flanders	Ať žije Flanders 	Neil Affleck	David M. Stern	10. ledna 1999	19. prosince 2000	AABF06
+214	11	Wild Barts Can't Be Broken	Bart se nevzdává 	Mark Ervin	Larry Doyle	17. ledna 1999	9. ledna 2001	AABF07
+215	12	Sunday, Cruddy Sunday	Sportovní neděle 	Steven Dean Moore	Tom Martin, George Meyer, Brian Scully a Mike Scully	31. ledna 1999	16. ledna 2001	AABF08
+216	13	Homer to the Max	Homer − Maxi obr	Pete Michels	John Swartzwelder	7. února 1999	23. ledna 2001	AABF09
+217	14	I'm with Cupid	Mor na Amora 	Bob Anderson	Dan Greaney	14. února 1999	6. února 2001	AABF11
+218	15	Marge Simpson in: 'Screaming Yellow Honkers'	Marge – královna silnic 	Mark Kirkland	David M. Stern	21. února 1999	30. ledna 2001	AABF10
+219	16	Make Room for Lisa	Dejte Líze pokoj 	Matthew Nastuk	Brian Scully	28. února 1999	13. února 2001	AABF12
+220	17	Maximum Homerdrive	Na plnej plyn 	Swinton O. Scott III	John Swartzwelder	28. března 1999	20. února 2001	AABF13
+221	18	Simpsons Bible Stories	Simpsonovské biblické příběhy 	Nancy Kruse	Tim Long, Larry Doyle a Matt Selman	4. dubna 1999	27. února 2001	AABF14
+222	19	Mom and Pop Art	Outsider-art 	Steven Dean Moore	Al Jean	11. dubna 1999	6. března 2001	AABF15
+223	20	The Old Man and The 'C' Student	Stařec a moře průšvihů 	Mark Kirkland	Julie Thacker	25. dubna 1999	13. března 2001	AABF16
+224	21	Monty Can't Buy Me Love	Za peníze si Monty lásku nekoupí 	Mark Ervin	John Swartzwelder	2. května 1999	20. března 2001	AABF17
+225	22	They Saved Lisa's Brain	Asociace Mensy zachraňuje Lízu 	Pete Michels	Matt Selman	9. května 1999	27. března 2001	AABF18
+226	23	Thirty Minutes Over Tokyo	Třicet minut v Tokiu 	Jim Reardon	Donick Cary a Dan Greaney	16. května 1999	3. dubna 2001	AABF20
+-split-
+227	1	Beyond Blunderdome	Cáklý Max jedna 	Steven Dean Moore	Mike Scully	26. září 1999	9. října 2001	AABF23
+228	2	Brother's Little Helper	Bartovo napravení 	Mark Kirkland	George Meyer	3. října 1999	16. října 2001	AABF22
+229	3	Guess Who's Coming to Criticize Dinner	Hádejte, kdo kritizuje 	Nancy Kruse	Al Jean	24. října 1999	23. října 2001	AABF21
+230	4	Treehouse of Horror X	Speciální čarodějnický díl 	Pete Michels	1. část: Donick Cary, Tim Long a Ron Hauge	31. října 1999	30. října 2001	BABF01
+231	5	E-I-E-I-(Annoyed Grunt)	Fujtajbl 	Bob Anderson	Ian Maxtone-Graham	7. listopadu 1999	6. listopadu 2001	AABF19
+232	6	Hello Gutter, Hello Fadder	Všechna sláva polní tráva	Mike B. Anderson	Al Jean	14. listopadu 1999	13. listopadu 2001	BABF02
+233	7	Eight Misbehavin'	Osm raubířů 	Steven Dean Moore	Matt Selman	21. listopadu 1999	20. listopadu 2001	BABF03
+234	8	Take My Wife, Sleaze	Marge jako rukojmí 	Neil Affleck	John Swartzwelder	28. listopadu 1999	27. listopadu 2001	BABF05
+235	9	Grift of the Magi	Hračka snů 	Matthew Nastuk	Tom Martin	19. prosince 1999	4. prosince 2001	BABF07
+236	10	Little Big Mom	Malá velká máma 	Mark Kirkland	Carolyn Omine	9. ledna 2000	11. prosince 2001	BABF04
+237	11	Faith Off	Jak Barta osvítil Bůh 	Nancy Kruse	Frank Mula	16. ledna 2000	18. prosince 2001	BABF06
+238	12	The Mansion Family	Panská rodina 	Michael Polcino	John Swartzwelder	23. ledna 2000	8. ledna 2002	BABF08
+239	13	Saddlesore Galactica	Bart v sedle 	Lance Kramer	Tim Long	6. února 2000	15. ledna 2002	BABF09
+240	14	Alone Again, Natura-diddily	Kdo ví, kdo ovdoví? 	Jim Reardon	Ian Maxtone-Graham	13. února 2000	22. ledna 2002	BABF11
+241	15	Missionary: Impossible	Nemožný misionář 	Steven Dean Moore	Ron Hauge	20. února 2000	29. ledna 2002	BABF10
+242	16	Pygmoelian	Plastický Vočko 	Mark Kirkland	Larry Doyle	27. února 2000	5. února 2002	BABF12
+243	17	Bart to the Future	Nebárt se budoucnosti 	Michael Marcantel	Dan Greaney	19. března 2000	12. února 2002	BABF13
+244	18	Days of Wine and D'oh'ses	Čas vína a bědování 	Neil Affleck	Deb Lacusta a Dan Castellaneta	9. dubna 2000	19. února 2002	BABF14
+245	19	Kill the Alligator and Run	Zabij krokodýla a uteč 	Jen Kamerman	John Swartzwelder	30. dubna 2000	26. února 2002	BABF16
+246	20	Last Tap Dance in Springfield	Poslední step ve Springfieldu 	Nancy Kruse	Julie Thacker	7. května 2000	5. března 2002	BABF15
+247	21	It's a Mad, Mad, Mad, Mad Marge	Šílená a ještě šílenější Marge 	Steven Dean Moore	Larry Doyle	14. května 2000	12. března 2002	BABF18
+248	22	Behind the Laughter	Cena smíchu 	Mark Kirkland	Tim Long, George Meyer, Mike Scully a Matt Selman	21. května 2000	19. března 2002	BABF19
+-split-
+249	1	Treehouse of Horror XI	Speciální čarodějnický díl 	Matthew Nastuk	1. část: Rob LaZebnik, John Frink, Don Payne a Carolyn Omine	1. listopadu 2000	21. ledna 2003	BABF21
+250	2	A Tale of Two Springfields	Příběh dvou Springfieldů 	Shaun Cashman	John Swartzwelder	5. listopadu 2000	28. ledna 2003	BABF20
+251	3	Insane Clown Poppy	Napravení šíleného klauna 	Bob Anderson	John Frink a Don Payne	12. listopadu 2000	4. února 2003	BABF17
+252	4	Lisa the Tree Hugger	Líza na větvi 	Steven Dean Moore	Matt Selman	19. listopadu 2000	3. září 2002	CABF01
+253	5	Homer vs. Dignity	Homer versus důstojnost 	Neil Affleck	Rob LaZebnik	26. listopadu 2000	10. září 2002	CABF04
+254	6	The Computer Wore Menace Shoes	Muž, který věděl příliš mnoho 	Mark Kirkland	John Swartzwelder	3. prosince 2000	17. září 2002	CABF02
+255	7	The Great Money Caper	Podfuk za všechny prachy 	Michael Polcino	Carolyn Omine	10. prosince 2000	24. září 2002	CABF03
+256	8	Skinner's Sense of Snow	Skinnerova zkouška sněhem 	Lance Kramer	Tim Long	17. prosince 2000	1. října 2002	CABF06
+257	9	HOMЯ	Homr 	Mike B. Anderson	Al Jean	7. ledna 2001	11. února 2003	BABF22
+258	10	Pokey Mom	Marge a mukl 	Bob Anderson	Tom Martin	14. ledna 2001	8. října 2002	CABF05
+259	11	Worst Episode Ever	Náhlá srdeční příhoda 	Matthew Nastuk	Larry Doyle	4. února 2001	15. října 2002	CABF08
+260	12	Tennis the Menace	Bratrovražedný tenis 	Jen Kamerman	Ian Maxtone-Graham	11. února 2001	22. října 2002	CABF07
+261	13	Day of the Jackanapes	Den spratka 	Michael Marcantel	Al Jean	18. února 2001	29. října 2002	CABF10
+262	14	New Kids on the Blecch	Nová chlapecká kapela 	Steven Dean Moore	Tim Long	25. února 2001	5. listopadu 2002	CABF12
+263	15	Hungry, Hungry Homer	Homer drží hladovku 	Nancy Kruse	John Swartzwelder	4. března 2001	12. listopadu 2002	CABF09
+264	16	Bye, Bye, Nerdie	Konec šikany ve Springfieldu 	Lauren MacMullan	John Frink a Don Payne	11. března 2001	19. listopadu 2002	CABF11
+265	17	Simpson Safari	Simpsonovi v Africe 	Mark Kirkland	John Swartzwelder	1. dubna 2001	26. listopadu 2002	CABF13
+266	18	Trilogy of Error	Trilogie omylů 	Mike B. Anderson	Matt Selman	29. dubna 2001	10. prosince 2002	CABF14
+267	19	I'm Goin' to Praiseland	Vzhůru do Svatoparku! 	Chuck Sheetz	Julie Thacker	6. května 2001	17. prosince 2002	CABF15
+268	20	Children of a Lesser Clod	Homerem zapomenuté děti 	Mike Polcino	Al Jean	13. května 2001	7. ledna 2003	CABF16
+269	21	Simpsons Tall Tales	Tulácké báchorky 	Bob Anderson	John Frink a Don Payne, Bob Bendetson a Matt Selman	20. května 2001	14. ledna 2003	CABF17
+-split-
+270	1	Treehouse of Horror XII	Speciální čarodějnický díl 	Jim Reardon	Joel H. Cohen, John Frink, Don Payne a Carolyn Omine	6. listopadu 2001	15. července 2003	CABF19
+271	2	The Parent Rap	Rodičovské pouto 	Mark Kirkland	George Meyer a Mike Scully	11. listopadu 2001	22. července 2003	CABF22
+272	3	Homer the Moe	Homer barmanem 	Jen Kamerman	Dana Gould	18. listopadu 2001	29. července 2003	CABF20
+273	4	A Hunka Hunka Burns in Love	Zamilovaný Burns 	Lance Kramer	John Swartzwelder	2. prosince 2001	5. srpna 2003	CABF18
+274	5	The Blunder Years	Telecí léta 	Steven Dean Moore	Ian Maxtone-Graham	9. prosince 2001	12. srpna 2003	CABF21
+275	6	She of Little Faith	Malověrná Líza 	Steven Dean Moore	Bill Freiberger	16. prosince 2001	19. srpna 2003	DABF02
+276	7	Brawl in the Family	Rozkol v rodině 	Matthew Nastuk	Joel H. Cohen	6. ledna 2002	26. srpna 2003	DABF01
+277	8	Sweets and Sour Marge	Sladkosti a zahořklá Marge 	Mark Kirkland	Carolyn Omine	20. ledna 2002	2. září 2003	DABF03
+278	9	Jaws Wired Shut	Sdrátovaná čelist 	Nancy Kruse	Matt Selman	27. ledna 2002	9. září 2003	DABF05
+279	10	Half-Decent Proposal	Napůl slušný návrh 	Lauren MacMullan	Tim Long	10. února 2002	16. září 2003	DABF04
+280	11	The Bart Wants What It Wants	Srdci neporučíš 	Michael Polcino	John Frink a Don Payne	17. února 2002	23. září 2003	DABF06
+281	12	The Lastest Gun in the West	Poslední pistolník na Západě 	Bob Anderson	John Swartzwelder	24. února 2002	30. září 2003	DABF07
+282	13	The Old Man and the Key	Stařec a hoře 	Lance Kramer	Jon Vitti	10. března 2002	7. října 2003	DABF09
+283	14	Tales from the Public Domain	Příběhy z nevrácené knihy 	Mike B. Anderson	Andrew Kreisberg, Josh Lieb a Matt Warburton	17. března 2002	21. října 2003	DABF08
+284	15	Blame It on Lisa	Může za to Líza 	Steven Dean Moore	Bob Bendetson	31. března 2002	4. listopadu 2003	DABF10
+285	16	Weekend at Burnsie's	Homerova zelená medicínka 	Michael Marcantel	Jon Vitti	7. dubna 2002	11. listopadu 2003	DABF11
+286	17	Gump Roast	Na pranýři 	Mark Kirkland	Deb Lacusta a Dan Castellaneta	21. dubna 2002	18. listopadu 2003	DABF12
+287	18	I Am Furious (Yellow)	Jsem cholerik, ale léčím se 	Chuck Sheetz	John Swartzwelder	28. dubna 2002	25. listopadu 2003	DABF13
+288	19	The Sweetest Apu	Záletník Apu 	Matthew Nastuk	John Swartzwelder	5. května 2002	2. prosince 2003	DABF14
+289	20	Little Girl in the Big Ten	Malá vysokoškolačka 	Lauren MacMullan	Jon Vitti	12. května 2002	16. prosince 2003	DABF15
+290	21	The Frying Game	Křeslo pro Homera 	Michael Polcino	John Swartzwelder	19. května 2002	23. prosince 2003	DABF16
+291	22	Poppa's Got a Brand New Badge	S Homerem přijde zákon 	Pete Michels	Dana Gould	22. května 2002	30. prosince 2003	DABF17
+-split-
+292	1	Treehouse of Horror XIII	Speciální čarodějnický díl 	David Silverman	Marc Wilmore, Brian Kelley a Kevin Curran	3. listopadu 2002	7. září 2004	DABF19
+293	2	How I Spent My Strummer Vacation	Homerova rock'n'rollová brnkačka 	Mike B. Anderson	Mike Scully	10. listopadu 2002	14. září 2004	DABF22
+294	3	Bart vs. Lisa vs. the Third Grade	Bart versus Líza versus 3. A 	Steven Dean Moore	Tim Long	17. listopadu 2002	21. září 2004	DABF20
+295	4	Large Marge	Veliká Marge 	Jim Reardon	Ian Maxtone-Graham	24. listopadu 2002	28. září 2004	DABF18
+296	5	Helter Shelter	Zkáza domu Simpsonů 	Mark Kirkland	Brian Pollack a Mert Rich	1. prosince 2002	5. října 2004	DABF21
+297	6	The Great Louse Detective	Kdo chce zabít Homera? 	Steven Dean Moore	John Frink a Don Payne	15. prosince 2002	12. října 2004	EABF01
+298	7	Special Edna	Úča roku 	Bob Anderson	Dennis Snee	5. ledna 2003	19. října 2004	EABF02
+299	8	The Dad Who Knew Too Little	Výchova dívek v Americe 	Mark Kirkland	Matt Selman	12. ledna 2003	26. října 2004	EABF03
+300	9	The Strong Arms of the Ma	Namakaná máma 	Pete Michels	Carolyn Omine	2. února 2003	2. listopadu 2004	EABF04
+301	10	Pray Anything	Chrám páně Simpsonův 	Michael Polcino	Sam O'Neal a Neal Boushell	9. února 2003	9. listopadu 2004	EABF06
+302	11	Barting Over	Bart na volné noze 	Matthew Nastuk	Andrew Kreisberg	16. února 2003	16. listopadu 2004	EABF05
+303	12	I'm Spelling As Fast As I Can	Speluji, jak nejrychleji dovedu 	Nancy Kruse	Kevin Curran	16. února 2003	23. listopadu 2004	EABF07
+304	13	A Star Is Born-Again	Kráska a soused 	Michael Marcantel	Brian Kelley	2. března 2003	30. listopadu 2004	EABF08
+305	14	Mr. Spritz Goes to Washington	Šáša míří do Washingtonu 	Lance Kramer	John Swartzwelder	9. března 2003	7. prosince 2004	EABF09
+306	15	C.E.D'oh	Ředitel XXL 	Mike B. Anderson	Dana Gould	16. března 2003	14. prosince 2004	EABF10
+307	16	'Scuse Me While I Miss the Sky	Vraťte mi hvězdnou oblohu 	Steven Dean Moore	Dan Greaney a Allen Glazier	30. března 2003	21. prosince 2004	EABF11
+308	17	Three Gays of the Condo	Čtyřprocentní trojka 	Mark Kirkland	Matt Warburton	13. dubna 2003	28. prosince 2004	EABF12
+309	18	Dude, Where's My Ranch?	Cesta z maloměsta 	Chris Clements	Ian Maxtone-Graham	27. dubna 2003	4. ledna 2005	EABF13
+310	19	Old Yeller-Belly	Starý zbabělec 	Bob Anderson	John Frink a Don Payne	4. května 2003	11. ledna 2005	EABF14
+311	20	Brake My Wife, Please	Zabrzděte moji ženu 	Pete Michels	Tim Long	11. května 2003	18. ledna 2005	EABF15
+312	21	The Bart of War	Bartova válka 	Michael Polcino	Marc Wilmore	18. května 2003	25. ledna 2005	EABF16
+313	22	Moe Baby Blues	Vočko pečuje o malou 	Lauren MacMullan	J. Stewart Burns	18. května 2003	1. února 2005	EABF17
+-split-
+314	1	Treehouse of Horror XIV	Speciální čarodějnický díl 	Steven Dean Moore	John Swartzwelder	2. listopadu 2003	9. září 2006	EABF21
+315	2	My Mother the Carjacker	Návrat nezdárné matky 	Nancy Kruse	Michael Price	9. listopadu 2003	16. září 2006	EABF18
+316	3	The President Wore Pearls	Předsedkyně pro parádu 	Mike B. Anderson	Dana Gould	16. listopadu 2003	23. září 2006	EABF20
+317	4	The Regina Monologues	Obtěžoval jsem anglickou královnu 	Mark Kirkland	John Swartzwelder	23. listopadu 2003	30. září 2006	EABF22
+318	5	The Fat and the Furriest	Rychle a srstnatě 	Matthew Nastuk	Joel H. Cohen	30. listopadu 2003	7. října 2006	EABF19
+319	6	Today I Am a Clown	Krustyho zkouška z dospělosti 	Nancy Kruse	Joel H. Cohen	7. prosince 2003	14. října 2006	FABF01
+320	7	'Tis the Fifteenth Season	Patnácté Vánoce u Simpsonů 	Steven Dean Moore	Michael Price	14. prosince 2003	21. října 2006	FABF02
+321	8	Marge vs. Singles, Seniors, Childless Couples and Teens and Gays	Marge versus svobodní, důchodci, bezdětné páry, náctiletí a gayové	Bob Anderson	Jon Vitti	4. ledna 2004	28. října 2006	FABF03
+322	9	I, (Annoyed Grunt)-bot	Já, robot 	Lauren MacMullan	Dan Greaney a Allen Glazier	11. ledna 2004	4. listopadu 2006	FABF04
+323	10	Diatribe of a Mad Housewife	Tiráda americké hospodyňky 	Mark Kirkland	Robin J. Stein	25. ledna 2004	11. listopadu 2006	FABF05
+324	11	Margical History Tour	Toulky historií s Marge 	Mike B. Anderson	Brian Kelley	8. února 2004	18. listopadu 2006	FABF06
+325	12	Milhouse Doesn't Live Here Anymore	Milhouse tu už nebydlí 	Matthew Nastuk	Julie Chambers a David Chambers	15. února 2004	25. listopadu 2006	FABF07
+326	13	Smart & Smarter	Chytrý a chytřejší 	Steven Dean Moore	Carolyn Omine	22. února 2004	2. prosince 2006	FABF09
+327	14	The Ziff Who Came to Dinner	Hádej, kdo přijde na večeři 	Nancy Kruse	Deb Lacusta a Dan Castellaneta	14. března 2004	9. prosince 2006	FABF08
+328	15	Co-Dependents' Day	Den pro závislosti 	Bob Anderson	Matt Warburton	21. března 2004	16. prosince 2006	FABF10
+329	16	The Wandering Juvie	Basa tvrdí charakter 	Lauren MacMullan	John Frink a Don Payne	28. března 2004	23. prosince 2006	FABF11
+330	17	My Big Fat Geek Wedding	Nevěsta na úprku 	Mark Kirkland	Kevin Curran	18. dubna 2004	30. prosince 2006	FABF12
+331	18	Catch 'Em If You Can	Chyť je, když to dokážeš 	Matthew Nastuk	Ian Maxtone-Graham	25. dubna 2004	7. ledna 2007	FABF14
+332	19	Simple Simpson	Super Simpson 	Jim Reardon	Jon Vitti	2. května 2004	14. ledna 2007	FABF15
+333	20	The Way We Weren't	Takoví jsme nebyli 	Mike B. Anderson	J. Stewart Burns	9. května 2004	28. ledna 2007	FABF13
+334	21	Bart-Mangled Banner	Nepřátelé státu 	Steven Dean Moore	John Frink	16. května 2004	4. února 2007	FABF17
+335	22	Fraudcast News	Válka s molochem 	Bob Anderson	Don Payne	23. května 2004	18. února 2007	FABF18
+-split-
+336	1	Treehouse of Horror XV	Speciální čarodějnický díl 	David Silverman	Bill Odenkirk	7. listopadu 2004	25. února 2007	FABF23
+337	2	All's Fair in Oven War	Ve válce sporáků je vše dovoleno 	Mark Kirkland	Matt Selman	14. listopadu 2004	18. března 2007	FABF20
+338	3	Sleeping with the Enemy	Noci s nepřítelem 	Lauren MacMullan	Jon Vitti	21. listopadu 2004	15. dubna 2007	FABF19
+339	4	She Used to Be My Girl	Kamarádky na život a na smrt 	Matthew Nastuk	Tim Long	5. prosince 2004	22. dubna 2007	FABF22
+340	5	Fat Man and Little Boy	Komiksák a chlapeček	Mike B. Anderson	Joel H. Cohen	12. prosince 2004	20. května 2007	FABF21
+341	6	Midnight Rx	Poslední recept 	Nancy Kruse	Marc Wilmore	16. ledna 2005	27. května 2007	FABF16
+342	7	Mommie Beerest	Drahé pivínko 	Mark Kirkland	Michael Price	30. ledna 2005	3. června 2007	GABF01
+343	8	Homer and Ned's Hail Mary Pass	Homerův a Nedův poslední výkop 	Steven Dean Moore	Tim Long	6. února 2005	10. června 2007	GABF02
+344	9	Pranksta Rap	Rošťácký rap 	Mike B. Anderson	Matt Selman	13. února 2005	17. června 2007	GABF03
+345	10	There's Something About Marrying	Svatby podle Homera 	Nancy Kruse	J. Stewart Burns	20. února 2005	24. června 2007	GABF04
+346	11	On a Clear Day I Can't See My Sister	Za jasného dne neuvidím svou sestru 	Bob Anderson	Jeff Westbrook	6. března 2005	1. července 2007	GABF05
+347	12	Goo Goo Gai Pan	Čínskej nášup 	Lance Kramer	Lawrence Talbot	13. března 2005	9. září 2007	GABF06
+348	13	Mobile Homer	Mobilní Homer 	Raymond S. Persi	Tim Long	20. března 2005	16. září 2007	GABF07
+349	14	The Seven-Beer Snitch	Vypráskaný práskač 	Matthew Nastuk	Bill Odenkirk	3. dubna 2005	30. září 2007	GABF08
+350	15	Future-Drama	Futu-drama 	Mike B. Anderson	Matt Selman	17. dubna 2005	7. října 2007	GABF12
+351	16	Don't Fear the Roofer	Kdo se bojí pokrývače? 	Mark Kirkland	Kevin Curran	1. května 2005	14. října 2007	GABF10
+352	17	The Heartbroke Kid	Požírač srdcí 	Steven Dean Moore	Ian Maxtone-Graham	1. května 2005	21. října 2007	GABF11
+353	18	A Star Is Torn	Springfield hledá ministar 	Nancy Kruse	Carolyn Omine	8. května 2005	28. října 2007	GABF13
+354	19	Thank God It's Doomsday	Díkybohu je den zkázy 	Michael Marcantel	Don Payne	8. května 2005	4. listopadu 2007	GABF14
+355	20	Home Away from Homer	Domov daleko od Homera 	Bob Anderson	Joel H. Cohen	15. května 2005	11. listopadu 2007	GABF15
+356	21	The Father, the Son and the Holy Guest Star	Otec, syn a host svatý 	Michael Polcino	Matt Warburton	15. května 2005	18. listopadu 2007	GABF09
+-split-
+357	1	The Bonfire of the Manatees	Ohňostroj oddanosti 	Mark Kirkland	Dan Greaney	11. září 2005	25. listopadu 2007	GABF18
+358	2	The Girl Who Slept Too Little	Děvče, které spalo příliš málo 	Raymond S. Persi	John Frink	18. září 2005	2. prosince 2007	GABF16
+359	3	Milhouse of Sand and Fog	Milhouse z písku a mlhy 	Steven Dean Moore	Patric M. Verrone	25. září 2005	9. prosince 2007	GABF19
+360	4	Treehouse of Horror XVI	Speciální čarodějnický díl 	David Silverman	Marc Wilmore	6. listopadu 2005	16. prosince 2007	GABF17
+361	5	Marge's Son Poisoning	Návrat nezdárného syna 	Mike B. Anderson	Daniel Chun	13. listopadu 2005	23. prosince 2007	GABF20
+362	6	See Homer Run	Homer kandiduje 	Nancy Kruse	Stephanie Gillis	20. listopadu 2005	30. prosince 2007	GABF21
+363	7	The Last of the Red Hat Mamas	Pomsta červených rajčátek 	Matthew Nastuk	Joel H. Cohen	27. listopadu 2005	6. ledna 2008	GABF22
+364	8	The Italian Bob	Taliján Bob 	Mark Kirkland	John Frink	11. prosince 2005	13. ledna 2008	HABF02
+365	9	Simpsons Christmas Stories	Simpsonovské vánoční zkazky	Steven Dean Moore	Don Payne	18. prosince 2005	20. ledna 2008	HABF01
+366	10	Homer's Paternity Coot	Čí je vlastně Homer? 	Mike B. Anderson	Joel H. Cohen	8. ledna 2006	27. ledna 2008	HABF03
+367	11	We're on the Road to D'ohwhere	Všechny cesty vedou do krimu 	Nancy Kruse	Kevin Curran	29. ledna 2006	3. února 2008	HABF04
+368	12	My Fair Laddy	Pygmalion v sukni 	Bob Anderson	Michael Price	26. února 2006	10. února 2008	HABF05
+369	13	The Seemingly Never-Ending Story	Zdánlivě nekonečný příběh 	Raymond S. Persi	Ian Maxtone-Graham	12. března 2006	17. února 2008	HABF06
+370	14	Bart Has Two Mommies	Bart má dvě mámy 	Mike Marcantel	Dana Gould	19. března 2006	24. února 2008	HABF07
+371	15	Homer Simpson, This Is Your Wife	Homere Simpsone, tohle je tvoje žena 	Matthew Nastuk	Ricky Gervais	26. března 2006	2. března 2008	HABF08
+372	16	Million-Dollar Abie	Million Dollar Abie 	Steven Dean Moore	Tim Long	2. dubna 2006	6. dubna 2008	HABF09
+373	17	Kiss Kiss, Bang Bangalore	Salam Banghalore	Mark Kirkland	Deb Lacusta a Dan Castellaneta	9. dubna 2006	13. dubna 2008	HABF10
+374	18	The Wettest Stories Ever Told	Nejmokřejší příběh všech dob 	Mike B. Anderson	Jeff Westbrook	23. dubna 2006	20. dubna 2008	HABF11
+375	19	Girls Just Want to Have Sums	Holky těžší to maj…? 	Nancy Kruse	Matt Selman	30. dubna 2006	27. dubna 2008	HABF12
+376	20	Regarding Margie	Myslete na Marge 	Michael Polcino	Marc Wilmore	7. května 2006	25. května 2008	HABF13
+377	21	The Monkey Suit	Opičí proces 	Raymond S. Persi	J. Stewart Burns	14. května 2006	1. června 2008	HABF14
+378	22	Marge and Homer Turn a Couple Play	Manželská poradna Homera a Marge	Bob Anderson	Joel H. Cohen	21. května 2006	8. června 2008	HABF16
+-split-
+379	1	The Mook, the Chef, the Wife and Her Homer	Žabař, kuchař, manželka a její Homer 	Michael Marcantel	Bill Odenkirk	10. září 2006	15. června 2008	HABF15
+380	2	Jazzy and the Pussycats	O jazzu a jiné zvířeně 	Steven Dean Moore	Daniel Chun	17. září 2006	22. června 2008	HABF18
+381	3	Please Homer, Don't Hammer 'Em	Kladivo na Homera 	Mike B. Anderson a Ralph Sosa	Matt Warburton	24. září 2006	29. června 2008	HABF20
+382	4	Treehouse of Horror XVII	Speciální čarodějnický díl 	David Silverman a Matthew Faughnan	Peter Gaffney	5. listopadu 2006	7. září 2008	HABF17
+383	5	G.I. (Annoyed Grunt)	Osudy dobrého vojáka Homera 	Nancy Kruse	Daniel Chun	12. listopadu 2006	14. září 2008	HABF21
+384	6	Moe'N'a Lisa	Vočko veršotepcem 	Mark Kirkland	Matt Warburton	19. listopadu 2006	21. září 2008	HABF19
+385	7	Ice Cream of Margie (with the Light Blue Hair)	Umění na špejli 	Matthew Nastuk	Carolyn Omine	26. listopadu 2006	28. září 2008	HABF22
+386	8	The Haw-Hawed Couple	Parťáci 	Chris Clements	Matt Selman	10. prosince 2006	5. října 2008	JABF02
+387	9	Kill Gil, Volumes I & II	Kill Gil – první a druhý díl 	Bob Anderson	Jeff Westbrook	17. prosince 2006	12. října 2008	JABF01
+388	10	The Wife Aquatic	Akvamanželka 	Lance Kramer	Kevin Curran	7. ledna 2007	19. října 2008	JABF03
+389	11	Revenge Is a Dish Best Served Three Times	Pomsta bývá nejsladší natřikrát 	Michael Polcino	Joel H. Cohen	28. ledna 2007	26. října 2008	JABF05
+390	12	Little Big Girl	Malá velká holka 	Raymond S. Persi	Don Payne	11. února 2007	2. listopadu 2008	JABF04
+391	13	Springfield Up	Vyrůstáme ve Springfieldu 	Chuck Sheetz	Matt Warburton	18. února 2007	16. listopadu 2008	JABF07
+392	14	Yokel Chords	Zpívá celá spodina 	Susie Dietter	Michael Price	4. března 2007	23. listopadu 2008	JABF09
+393	15	Rome-Old and Juli-Eh	Romouš a Julizna 	Nancy Kruse	Daniel Chun	11. března 2007	30. listopadu 2008	JABF08
+394	16	Homerazzi	Homerazzi 	Matthew Nastuk	J. Stewart Burns	25. března 2007	7. prosince 2008	JABF06
+395	17	Marge Gamer	Pařanka Marge 	Bob Anderson	J. Stewart Burns	22. dubna 2007	14. prosince 2008	JABF10
+396	18	The Boys of Bummer	Zmýlená neplatí 	Rob Oliver	Michael Price	29. dubna 2007	21. prosince 2008	JABF11
+397	19	Crook and Ladder	Hoří! 	Lance Kramer	Bill Odenkirk	6. května 2007	28. prosince 2008	JABF13
+398	20	Stop or My Dog Will Shoot	Stůj, nebo můj pes vystřelí 	Matthew Faughnan	John Frink	13. května 2007	4. ledna 2009	JABF12
+399	21	24 Minutes	24 minut 	Raymond S. Persi	Billy Kimball a Ian Maxtone-Graham	20. května 2007	11. ledna 2009	JABF14
+400	22	You Kent Always Say What You Want	Jak si Kent pustil pusu na špacír 	Matthew Nastuk	Tim Long	20. května 2007	18. ledna 2009	JABF15
+-split-
+401	1	He Loves to Fly and He D'ohs	Rád létá, a ne, že ne 	Mark Kirkland	Joel H. Cohen	23. září 2007	25. ledna 2009	JABF20
+402	2	The Homer of Seville	Homer Sevillský 	Michael Polcino	Carolyn Omine	30. září 2007	1. února 2009	JABF18
+403	3	Midnight Towboy	Homerova odtahovka 	Matthew Nastuk	Stephanie Gillis	7. října 2007	8. února 2009	JABF21
+404	4	I Don't Wanna Know Why the Caged Bird Sings	Nechci vědět, proč ptáček v kleci zpívá 	Bob Anderson	Dana Gould	14. října 2007	15. února 2009	JABF19
+405	5	Treehouse of Horror XVIII	Speciální čarodějnický díl 	Chuck Sheetz	Marc Wilmore	4. listopadu 2007	22. února 2009	JABF16
+406	6	Little Orphan Millie	Sirotek Milhouse 	Lance Kramer	Mick Kelly	11. listopadu 2007	1. března 2009	JABF22
+407	7	Husbands and Knives	Manželé a podnikatelky 	Nancy Kruse	Matt Selman	18. listopadu 2007	8. března 2009	JABF17
+408	8	Funeral for a Fiend	Pohřeb nepřítele 	Rob Oliver	Michael Price	25. listopadu 2007	22. března 2009	KABF01
+409	9	Eternal Moonshine of the Simpson Mind	Věčný stín Simpsonovy mysli 	Chuck Sheetz	J. Stewart Burns	16. prosince 2007	29. března 2009	KABF02
+410	10	E Pluribus Wiggum	E. Pluribus Wiggum 	Michael Polcino	Michael Price	6. ledna 2008	5. dubna 2009	KABF03
+411	11	That '90s Show	Zlatá devadesátá 	Mark Kirkland	Matt Selman	27. ledna 2008	19. dubna 2009	KABF04
+412	12	Love, Springfieldian Style	Láska po springfieldsku 	Raymond S. Persi	Don Payne	17. února 2008	26. dubna 2009	KABF05
+413	13	The Debarted	Skrytá identita 	Matthew Nastuk	Joel H. Cohen	2. března 2008	3. května 2009	KABF06
+414	14	Dial 'N' for Nerder	Sranda na objednávku 	Bob Anderson	Carolyn Omine a William Wright	9. března 2008	10. května 2009	KABF07
+415	15	Smoke on the Daughter	Není kouře bez tance 	Lance Kramer	Billy Kimball	30. března 2008	17. května 2009	KABF08
+416	16	Papa Don't Leech	Táta na útěku 	Chris Clements	Reid Harrison	13. dubna 2008	24. května 2009	KABF09
+417	17	Apocalypse Cow	Kraví apokalypsa 	Nancy Kruse	Jeff Westbrook	27. dubna 2008	31. května 2009	KABF10
+418	18	Any Given Sundance	Jedeme na Sundance 	Chuck Sheetz	Daniel Chun	4. května 2008	7. června 2009	KABF11
+419	19	Mona Leaves-a	Má máma Mona 	Mike B. Anderson a Ralph Sosa	Joel H. Cohen	11. května 2008	14. června 2009	KABF12
+420	20	All About Lisa	Vše o Líze 	Steven Dean Moore	John Frink	18. května 2008	21. června 2009	KABF13
+-split-
+421	1	Sex, Pies and Idiot Scrapes	Sexy koláčky a hlupák v nesnázích 	Lance Kramer	Kevin Curran	28. září 2008	6. září 2009	KABF17
+422	2	Lost Verizon	Ztraceni s GPS 	Raymond S. Persi	John Frink	5. října 2008	13. září 2009	KABF15
+423	3	Double, Double, Boy in Trouble	Výměna bez záruky 	Nancy Kruse	Bill Odenkirk	19. října 2008	20. září 2009	KABF14
+424	4	Treehouse of Horror XIX	Speciální čarodějnický díl 	Bob Anderson	Matt Warburton	2. listopadu 2008	4. října 2009	KABF16
+425	5	Dangerous Curves	Nebezpečné zatáčky 	Matthew Faughnan	Billy Kimball a Ian Maxtone-Graham	9. listopadu 2008	11. října 2009	KABF18
+426	6	Homer and Lisa Exchange Cross Words	Homer a Lisa ve při 	Nancy Kruse	Tim Long	16. listopadu 2008	18. října 2009	KABF19
+427	7	MyPods and Boomsticks	MyPody a sousedi 	Steven Dean Moore	Marc Wilmore	30. listopadu 2008	25. října 2009	KABF20
+428	8	The Burns and the Bees	Burns a včely 	Mark Kirkland	Stephanie Gillis	7. prosince 2008	1. listopadu 2009	KABF21
+429	9	Lisa the Drama Queen	Hysterka Líza 	Matthew Nastuk	Brian Kelley	25. ledna 2009	8. listopadu 2009	KABF22
+430	10	Take My Life, Please	Jak to vlastně bylo aneb Zfalšované volby 	Steven Dean Moore	Don Payne	15. února 2009	15. listopadu 2009	LABF01
+431	11	How the Test Was Won	Jak vyzrát na test 	Lance Kramer	Michael Price	1. března 2009	22. listopadu 2009	LABF02
+432	12	No Loan Again, Naturally	Půjčka na oprátku 	Mark Kirkland	Jeff Westbrook	8. března 2009	29. listopadu 2009	LABF03
+433	13	Gone Maggie Gone	Gone Maggie Gone 	Chris Clements	Billy Kimball a Ian Maxtone-Graham	15. března 2009	6. prosince 2009	LABF04
+434	14	In the Name of the Grandfather	Ve jménu dědy 	Ralph Sosa	Matt Marshall	17. března 2009	13. prosince 2009	LABF11
+435	15	Wedding for Disaster	Nešťastná svatba 	Chuck Sheetz	Joel H. Cohen	29. března 2009	20. prosince 2009	LABF05
+436	16	Eeny Teeny Maya Moe	Kráska přes internet 	Nancy Kruse	John Frink	5. dubna 2009	27. prosince 2009	LABF06
+437	17	The Good, the Sad and the Drugly	Hodný, zlý a zfetlá 	Rob Oliver	Marc Wilmore	19. dubna 2009	2. ledna 2010	LABF07
+438	18	Father Knows Worst	Táta to ví nejhůř 	Matthew Nastuk	Rob LaZebnik	26. dubna 2009	9. ledna 2010	LABF08
+439	19	Waverly Hills, 9-0-2-1-D'oh	Waverly Hills 9021-D'Oh 	Michael Polcino	J. Stewart Burns	3. května 2009	17. ledna 2010	LABF10
+440	20	Four Great Women and a Manicure	Čtyři velké ženy a manikúra 	Raymond S. Persi	Valentina L. Garza	10. května 2009	23. ledna 2010	LABF09
+441	21	Coming to Homerica	Cesta do Homeriky 	Steven Dean Moore	Brendan Hay	17. května 2009	30. ledna 2010	LABF12
+-split-
+442	1	Homer the Whopper	SuperHomer 	Lance Kramer	Seth Rogen a Evan Goldberg	27. září 2009	2. září 2010	LABF13
+443	2	Bart Gets a 'Z'	Pětka je pro Barta málo 	Mark Kirkland	Matt Selman	4. října 2009	9. září 2010	LABF15
+444	3	The Great Wife Hope	Žena v ringu 	Matthew Faughnan	Carolyn Omine	11. října 2009	16. září 2010	LABF16
+445	4	Treehouse of Horror XX	Speciální čarodějnický díl XX 	Mike B. Anderson a Ralph Sosa	Daniel Chun	18. října 2009	23. září 2010	LABF14
+446	5	The Devil Wears Nada	Ďábel nenosí Pradu 	Nancy Kruse	Tim Long	15. listopadu 2009	30. září 2010	LABF17
+447	6	Pranks and Greens	Rošťárny bez konzervantů 	Chuck Sheetz	Jeff Westbrook	22. listopadu 2009	7. října 2010	LABF18
+448	7	Rednecks and Broomsticks	Čarodějky ze Springfieldu 	Bob Anderson a Rob Oliver	Kevin Curran	29. listopadu 2009	14. října 2010	LABF19
+449	8	O Brother, Where Bart Thou?	Bratříčku, kde jsi? 	Steven Dean Moore	Matt Selman	13. prosince 2009	21. října 2010	MABF01
+450	9	Thursdays with Abie	Čtvrtky s Abiem 	Michael Polcino	Don Payne a Mitchell H. Glazer	3. ledna 2010	28. října 2010	MABF02
+451	10	Once Upon a Time in Springfield	Tenkrát ve Springfieldu 	Matthew Nastuk	Stephanie Gillis	10. ledna 2010	4. listopadu 2010	LABF20
+452	11	Million Dollar Maybe	Výhra za všechny prachy 	Chris Clements	Bill Odenkirk	31. ledna 2010	11. listopadu 2010	MABF03
+453	12	Boy Meets Curl	Curlingová romance 	Chuck Sheetz	Rob LaZebnik	14. února 2010	18. listopadu 2010	MABF05
+454	13	The Color Yellow	Barva žluti 	Raymond S. Persi	Billy Kimball a Ian Maxtone-Graham	21. února 2010	25. listopadu 2010	MABF06
+455	14	Postcards from the Wedge	Pohlednice ze Springfieldu 	Mark Kirkland	Brian Kelley	14. března 2010	2. prosince 2010	MABF04
+456	15	Stealing First Base	První meta dobyta 	Steven Dean Moore	John Frink	21. března 2010	9. prosince 2010	MABF07
+457	16	The Greatest Story Ever D'ohed	Největší Homer všech dob 	Michael Polcino	Kevin Curran	28. března 2010	16. prosince 2010	MABF10
+458	17	American History X-cellent	Kult Montgomeryho Burnse 	Bob Anderson	Michael Price	11. dubna 2010	23. prosince 2010	MABF08
+459	18	Chief of Hearts	Srdcový šerif 	Chris Clements	Carolyn Omine a William Wright	18. dubna 2010	30. prosince 2010	MABF09
+460	19	The Squirt and the Whale	Prcek a velryba 	Mark Kirkland	Matt Warburton	25. dubna 2010	6. ledna 2011	MABF14
+461	20	To Surveil with Love	Panu dozorci s láskou 	Lance Kramer	Michael Nobori	2. května 2010	13. ledna 2011	MABF12
+462	21	Moe Letter Blues	Dopis od Vočka 	Matthew Nastuk	Stephanie Gillis	9. května 2010	20. ledna 2011	MABF13
+463	22	The Bob Next Door	Levák od vedle 	Nancy Kruse	John Frink	16. května 2010	27. ledna 2011	MABF11
+464	23	Judge Me Tender	Suď mě něžně 	Steven Dean Moore	Dan Greaney a Allen Glazier	23. května 2010	3. února 2011	MABF15
+-split-
+465	1	Elementary School Musical	Muzikál ze základní 	Mark Kirkland	Tim Long	26. září 2010	12. května 2011	MABF21
+466	2	Loan-a Lisa	Dědíme po dědovi 	Matthew Faughnan	Valentina L. Garza	3. října 2010	19. května 2011	MABF17
+467	3	MoneyBART	Bartball 	Nancy Kruse	Tim Long	10. října 2010	26. května 2011	MABF18
+468	4	Treehouse of Horror XXI	Speciální čarodějnický díl XXI 	Bob Anderson	Joel H. Cohen	7. listopadu 2010	2. června 2011	MABF16
+469	5	Lisa Simpson, This Isn't Your Life	Tenhle život není pro tebe, Lízo Simpsonová 	Matthew Nastuk	Joel H. Cohen	14. listopadu 2010	9. června 2011	MABF20
+470	6	The Fool Monty	Hrátky s Montym 	Steven Dean Moore	Michael Price	21. listopadu 2010	16. června 2011	NABF01
+471	7	How Munched is That Birdie in the Window?	Lepší holub v hrsti než pes v boudě 	Michael Polcino	Kevin Curran	28. listopadu 2010	23. června 2011	NABF02
+472	8	The Fight Before Christmas	Předvánoční hádky 	Bob Anderson a Matthew Schofield	Deb Lacusta a Dan Castellaneta	5. prosince 2010	30. června 2011	MABF22
+473	9	Donnie Fatso	Krycí jméno Donnie Špekoun 	Ralph Sosa	Chris Cluess	12. prosince 2010	7. července 2011	MABF19
+474	10	Moms I'd Like to Forget	Matky, které nestojí za hřích 	Chris Clements	Brian Kelley	9. ledna 2011	14. července 2011	NABF03
+475	11	Flaming Moe	Vočko v jednom ohni 	Chuck Sheetz	Matt Selman	16. ledna 2011	21. července 2011	NABF04
+476	12	Homer the Father	Dobrý otec Homer 	Mark Kirkland	Joel H. Cohen	23. ledna 2011	28. července 2011	NABF05
+477	13	The Blue and the Gray	Modrá a šedá 	Bob Anderson	Rob LaZebnik	13. února 2011	4. srpna 2011	NABF06
+478	14	Angry Dad: The Movie	Vzteklej fotr ve filmu 	Matthew Nastuk	John Frink	20. února 2011	11. srpna 2011	NABF07
+479	15	The Scorpion's Tale	Příběh škorpióna 	Matthew Schofield	Billy Kimball a Ian Maxtone-Graham	6. března 2011	18. srpna 2011	NABF08
+480	16	A Midsummer's Nice Dream	Haluze nocí Svatojánských 	Steven Dean Moore	Deb Lacusta a Dan Castellaneta	13. března 2011	25. srpna 2011	NABF09
+481	17	Love Is a Many Strangled Thing	Mnoho tváří lásky 	Michael Polcino	Bill Odenkirk	27. března 2011	1. září 2011	NABF10
+482	18	The Great Simpsina	Kouzelná Líza 	Chris Clements	Matt Warburton	10. dubna 2011	8. září 2011	NABF11
+483	19	The Real Housewives of Fat Tony	Zoufalé manželky Tlustého Tonyho 	Lance Kramer	Dick Blasucci	1. května 2011	15. září 2011	NABF12
+484	20	Homer Scissorhands	Střihoruký Homer 	Mark Kirkland	Peter Gaffney a Steve Viksten	8. května 2011	22. září 2011	NABF13
+485	21	500 Keys	500 klíčů 	Bob Anderson	John Frink	15. května 2011	29. září 2011	NABF14
+486	22	The Ned-Liest Catch	Ned - nebezpečnější úlovek 	Chuck Sheetz	Jeff Westbrook	22. května 2011	6. října 2011	NABF15
+-split-
+487	1	The Falcon and the D'ohman	Dravec a fešák 	Matthew Nastuk	Justin Hurwitz	25. září 2011	12. dubna 2012	NABF16
+488	2	Bart Stops to Smell the Roosevelts	Bartův nový hrdina 	Steven Dean Moore	Tim Long	2. října 2011	19. dubna 2012	NABF17
+489	3	Treehouse of Horror XXII	Speciální XXII. čarodějnický díl 	Matthew Faughnan	Carolyn Omine	30. října 2011	26. dubna 2012	NABF19
+490	4	Replaceable You	Mé nahraditelné já 	Mark Kirkland	Stephanie Gillis	6. listopadu 2011	3. května 2012	NABF21
+491	5	The Food Wife	Dobrá manželka 	Timothy Bailey	Matt Selman	13. listopadu 2011	10. května 2012	NABF20
+492	6	The Book Job	Velká knižní loupež 	Bob Anderson	Dan Vebber	20. listopadu 2011	17. května 2012	NABF22
+493	7	The Man in the Blue Flannel Pants	Muž v modrých flanelových kalhotách 	Steven Dean Moore	Jeff Westbrook	27. listopadu 2011	24. května 2012	PABF01
+494	8	The Ten-Per-Cent Solution	Krustyho comeback 	Michael Polcino	Deb Lacusta a Dan Castellaneta	4. prosince 2011	31. května 2012	PABF02
+495	9	Holidays of Future Passed	Duch Vánoc příštích 	Rob Oliver	J. Stewart Burns	11. prosince 2011	7. června 2012	NABF18
+496	10	Politically Inept, with Homer Simpson	Otázky Homera Simpsona 	Mark Kirkland	John Frink	8. ledna 2012	14. června 2012	PABF03
+497	11	The D'oh-cial Network	Asociální síť 	Chris Clements	J. Stewart Burns	15. ledna 2012	21. června 2012	PABF04
+498	12	Moe Goes from Rags to Riches	Vočko na hadry 	Bob Anderson	Tim Long	29. ledna 2012	28. června 2012	PABF05
+499	13	The Daughter Also Rises	Fiesta s Lízou 	Chuck Sheetz	Rob LaZebnik	12. února 2012	5. července 2012	PABF06
+500	14	At Long Last Leave	Konečně zmizte! 	Matthew Nastuk	Michael Price	19. února 2012	12. července 2012	PABF07
+501	15	Exit Through the Kwik-E-Mart	Zavíráme krám 	Steven Dean Moore	Marc Wilmore	4. března 2012	19. července 2012	PABF09
+502	16	How I Wet Your Mother	Jak jsem prospal vaši matku 	Lance Kramer	Billy Kimball a Ian Maxtone-Graham	11. března 2012	26. července 2012	PABF08
+503	17	Them, Robot	Oni, roboti 	Michael Polcino	Michael Price	18. března 2012	2. srpna 2012	PABF10
+504	18	Beware My Cheating Bart	Mé srdce patří Bartovi 	Mark Kirkland	Ben Joseph	15. dubna 2012	9. srpna 2012	PABF11
+505	19	A Totally Fun Thing That Bart Will Never Do Again	Super věc, kterou Bart už nikdy neudělá 	Chris Clements	Matt Warburton	29. dubna 2012	16. srpna 2012	PABF12
+506	20	The Spy Who Learned Me	Špion, který mě poučil 	Bob Anderson	Marc Wilmore	6. května 2012	23. srpna 2012	PABF13
+507	21	Ned 'n Edna's Blend	Tajnosti Neda a Edny 	Chuck Sheetz	Jeff Westbrook	13. května 2012	30. srpna 2012	PABF15
+508	22	Lisa Goes Gaga	Líza a Lady Gaga 	Matthew Schofield	Tim Long	20. května 2012	30. srpna 2012	PABF14
+-split-
+509	1	Moonshine River	Řeka slz 	Bob Anderson	Tim Long	30. září 2012	4. července 2013	PABF21
+510	2	Treehouse of Horror XXIII	Speciální čarodějnický díl XXIII 	Steven Dean Moore	David Mandel a Brian Kelley	7. října 2012	8. července 2013	PABF17
+511	3	Adventures in Baby-Getting	Dětí jako smetí 	Rob Oliver	Bill Odenkirk	4. listopadu 2012	9. července 2013	PABF18
+512	4	Gone Abie Gone	Děda na útěku 	Matthew Nastuk	Joel H. Cohen	11. listopadu 2012	10. července 2013	PABF16
+513	5	Penny-Wiseguys	Don Držgrešle 	Mark Kirkland	Michael Price	18. listopadu 2012	11. července 2013	PABF19
+514	6	A Tree Grows in Springfield	Ve Springfieldu roste strom 	Timothy Bailey	Stephanie Gillis	25. listopadu 2012	15. července 2013	PABF22
+515	7	The Day the Earth Stood Cool	Den, kdy se ochladila Země 	Matthew Faughnan	Matt Selman	9. prosince 2012	16. července 2013	PABF20
+516	8	To Cur with Love	Panu Burnsovi s láskou 	Steven Dean Moore	Carolyn Omine	16. prosince 2012	17. července 2013	RABF01
+517	9	Homer Goes to Prep School	Konec světa za dveřmi 	Mark Kirkland	Brian Kelley	6. ledna 2013	18. července 2013	RABF02
+518	10	A Test Before Trying	Před zničením otestujte 	Chris Clements	Joel H. Cohen	13. ledna 2013	22. července 2013	RABF03
+519	11	The Changing of the Guardian	Střídání poručníků 	Bob Anderson	Rob LaZebnik	27. ledna 2013	23. července 2013	RABF04
+520	12	Love is a Many-Splintered Thing	Strasti lásky 	Michael Polcino	Tim Long	10. února 2013	24. července 2013	RABF07
+521	13	Hardly Kirk-ing	V kůži Kirka van Houtena 	Matthew Nastuk	Tom Gammill a Max Pross	17. února 2013	25. července 2013	RABF05
+522	14	Gorgeous Grampa	Krasavec děda 	Chuck Sheetz	Matt Selman	3. března 2013	29. července 2013	RABF06
+523	15	Black Eyed, Please	Pěst na oko 	Matthew Schofield	John Frink	10. března 2013	30. července 2013	RABF09
+524	16	Dark Knight Court	Temný rytíř zasahuje 	Mark Kirkland	Billy Kimball a Ian Maxtone-Graham	17. března 2013	31. července 2013	RABF10
+525	17	What Animated Women Want	Po čem animované ženy touží 	Steven Dean Moore	J. Stewart Burns	14. dubna 2013	1. srpna 2013	RABF08
+526	18	Pulpit Friction	Služebník Páně 	Chris Clements	Bill Odenkirk	28. dubna 2013	5. srpna 2013	RABF11
+527	19	Whiskey Business	Vočkovy nové šaty 	Matthew Nastuk	Valentina L. Garza	5. května 2013	6. srpna 2013	RABF13
+528	20	The Fabulous Faker Boy	Falešný virtuós 	Bob Anderson	Brian McConnachie	12. května 2013	7. srpna 2013	RABF12
+529	21	The Saga of Carl	Sága o Carlovi 	Chuck Sheetz	Eric Kaplan	19. května 2013	8. srpna 2013	RABF14
+530	22	Dangers on a Train	Výročí ve vlaku 	Steven Dean Moore	Michael Price	19. května 2013	12. srpna 2013	RABF17
+-split-
+531	1	Homerland	Homerland 	Bob Anderson	Stephanie Gillis	29. září 2013	1. května 2014	RABF20
+532	2	Treehouse of Horror XXIV	Speciální čarodějnický díl XXIV 	Rob Oliver	Jeff Westbrook	6. října 2013	1. května 2014	RABF16
+533	3	Four Regrettings and a Funeral	Čtyři chyby a jeden pohřeb 	Mark Kirkland	Marc Wilmore	3. listopadu 2013	8. května 2014	RABF18
+534	4	YOLO	Žiješ jen jednou 	Michael Polcino	Michael Nobori	10. listopadu 2013	8. května 2014	RABF22
+535	5	Labor Pains	Novorozeně 	Matthew Faughnan	Don Payne a Mitchell H. Glazer	17. listopadu 2013	15. května 2014	RABF19
+536	6	The Kid Is All Right	Školní lavice a pravice 	Mark Kirkland	Tim Long	24. listopadu 2013	15. května 2014	SABF02
+537	7	Yellow Subterfuge	Žlutá pomsta 	Bob Anderson	Joel H. Cohen	8. prosince 2013	22. května 2014	SABF04
+538	8	White Christmas Blues	Vzpomínky na bílé Vánoce 	Steven Dean Moore	Don Payne	15. prosince 2013	22. května 2014	SABF01
+539	9	Steal This Episode	Piráti ze Springfieldu 	Matthew Nastuk	J. Stewart Burns	5. ledna 2014	29. května 2014	SABF05
+540	10	Married to the Blob	Můj muž je Komiksák 	Chris Clements	Tim Long	12. ledna 2014	29. května 2014	SABF03
+541	11	Specs and the City	Vševidoucí brýle 	Lance Kramer	Brian Kelley	26. ledna 2014	5. června 2014	SABF06
+542	12	Diggs	Úlet s Diggsem 	Michael Polcino	Dan Greaney a Allen Glazier	9. března 2014	5. června 2014	SABF08
+543	13	The Man Who Grew Too Much	Muž, který modifikoval příliš mnoho 	Matthew Schofield	Jeff Westbrook	9. března 2014	12. června 2014	SABF07
+544	14	The Winter of His Content	Zima jeho spokojenosti 	Chuck Sheetz	Kevin Curran	16. března 2014	12. června 2014	SABF09
+545	15	The War of Art	Válka umění 	Steven Dean Moore	Rob LaZebnik	23. března 2014	19. června 2014	SABF10
+546	16	You Don't Have to Live Like a Referee	Rozhodčí je Homer 	Mark Kirkland	Michael Price	30. března 2014	19. června 2014	SABF11
+547	17	Luca$	Jedlík Lucas 	Chris Clements	Carolyn Omine	6. dubna 2014	1. ledna 2015	SABF12
+548	18	Days of Future Future	Budoucí budoucnost 	Bob Anderson	J. Stewart Burns	13. dubna 2014	1. ledna 2015	SABF13
+549	19	What to Expect When Bart's Expecting	Co čekat, když Bart čeká 	Matthew Nastuk	John Frink	27. dubna 2014	1. ledna 2015	SABF14
+550	20	Brick Like Me	Život v kostce 	Matthew Nastuk	Brian Kelley	4. května 2014	1. ledna 2015	RABF21
+551	21	Pay Pal	Přátelství za všechny peníze 	Michael Polcino	David H. Steinberg	11. května 2014	1. ledna 2015	SABF15
+552	22	The Yellow Badge of Cowardge	Žlutá medaile za zbabělost 	Timothy Bailey	Billy Kimball a Ian Maxtone-Graham	18. května 2014	1. ledna 2015	SABF18
+-split-
+553	1	Clown in the Dumps	Šáša na odpis 	Steven Dean Moore	Joel H. Cohen	28. září 2014	1. dubna 2015	SABF20
+554	2	The Wreck of the Relationship	Na jedné lodi 	Chuck Sheetz	Jeff Westbrook	5. října 2014	1. dubna 2015	SABF17
+555	3	Super Franchise Me	Mama Sendvič 	Mark Kirkland	Bill Odenkirk	12. října 2014	1. dubna 2015	SABF19
+556	4	Treehouse of Horror XXV	Speciální čarodějnický díl XXV 	Matthew Faughnan	Stephanie Gillis	19. října 2014	1. dubna 2015	SABF21
+557	5	Opposites A-Frack	Protiklady se přifrakují 	Matthew Nastuk	Valentina L. Garza	2. listopadu 2014	1. dubna 2015	SABF22
+558	6	Simpsorama	Simpsorama 	Bob Anderson	J. Stewart Burns	9. listopadu 2014	1. dubna 2015	SABF16
+559	7	Blazed and Confused	Učitel mučitel 	Rob Oliver	Carolyn Omine a William Wright	16. listopadu 2014	1. července 2015	TABF01
+560	8	Covercraft	Kapela otců 	Steven Dean Moore	Matt Selman	23. listopadu 2014	1. července 2015	TABF02
+561	9	I Won't Be Home For Christmas	Vánoční vyhazov 	Mark Kirkland	Al Jean	14. prosince 2014	1. července 2015	TABF03
+562	10	The Man Who Came to be Dinner	Hádej, kdo nepřijde na večeři 	David Silverman	Al Jean a David Mirkin	4. ledna 2015	1. července 2015	RABF15
+563	11	Bart's New Friend	Bartův nový kamarád 	Bob Anderson	Judd Apatow	11. ledna 2015	1. července 2015	TABF05
+564	12	The Musk Who Fell to Earth	Vynálezce, jenž spadl z nebe 	Matthew Nastuk	Neil Campbell	25. ledna 2015	1. července 2015	TABF04
+565	13	Walking Big & Tall	Velcí a hrdí 	Chris Clements	Michael Price	8. února 2015	1. září 2015	TABF06
+566	14	My Fare Lady	Marge taxikářkou 	Michael Polcino	Marc Wilmore	15. února 2015	1. září 2015	TABF07
+567	15	The Princess Guide	Průvodce pro princeznu 	Timothy Bailey	Brian Kelley	1. března 2015	1. září 2015	TABF08
+568	16	Sky Police	Nebeský polda 	Rob Oliver	Matt Selman	8. března 2015	1. září 2015	TABF09
+569	17	Waiting for Duffman	Čekání na Duffmana 	Steven Dean Moore	John Frink	15. března 2015	1. září 2015	TABF10
+570	18	Peeping Mom[3]	Matka na stráži 	Mark Kirkland	John Frink	19. dubna 2015	28. září 2015	TABF11
+571	19	The Kids Are All Fight[4]	Děcka jsou ve při 	Bob Anderson	Rob LaZebnik	26. dubna 2015	28. září 2015	TABF12
+572	20	Let's Go Fly a Coot[5]	Letecký hrdina 	Chris Clements	Jeff Westbrook	3. května 2015	28. září 2015	TABF13
+573	21	Bull-E[6]	Šikanátor 	Lance Kramer	Tim Long	10. května 2015	28. září 2015	TABF15
+574	22	Mathlete's Feat[7]	Matleti ze Springfieldu 	Michael Polcino	Michael Price	17. května 2015	28. září 2015	TABF16
+-split-
+575	1	Every Man's Dream	O čem muži sní 	Matthew Nastuk	J. Stewart Burns	27. září 2015	1. dubna 2016	TABF14
+576	2	Cue Detective	Málo temný případ 	Timothy Bailey	Joel H. Cohen	4. října 2015	1. dubna 2016	TABF17
+577	3	Puffless	Nekuřte, prosím 	Rob Oliver	J. Stewart Burns	11. října 2015	1. dubna 2016	TABF19
+578	4	Halloween of Horror	Halloween je horor 	Mike B. Anderson	Carolyn Omine	18. října 2015	1. dubna 2016	TABF22
+579	5	Treehouse of Horror XXVI	Speciální čarodějnický díl XXVI 	Steven Dean Moore	Joel H. Cohen	25. října 2015	1. dubna 2016	TABF18
+580	6	Friend with Benefit	Kamarádka s výhodami 	Matthew Faughnan	Rob LaZebnik	8. listopadu 2015	1. dubna 2016	TABF21
+581	7	Lisa with an 'S'	Líza dobývá svět 	Bob Anderson	Stephanie Gillis	22. listopadu 2015	1. června 2016	TABF20
+582	8	Paths of Glory	Cesta ke slávě 	Steven Dean Moore	Michael Ferris	6. prosince 2015	1. června 2016	VABF01
+583	9	Barthood	Bartovo chlapectví 	Rob Oliver	Dan Greaney	13. prosince 2015	1. června 2016	VABF02
+584	10	The Girl Code	Dívčí kód 	Chris Clements	Rob LaZebnik	3. ledna 2016	1. června 2016	VABF03
+585	11	Teenage Mutant Milk-Caused Hurdles	Mléčné mutageny 	Timothy Bailey	Joel H. Cohen	10. ledna 2016	1. června 2016	VABF04
+586	12	Much Apu About Something	Kwik-E-Mart: Znovuzrození 	Bob Anderson	Michael Price	17. ledna 2016	1. června 2016	VABF05
+587	13	Love Is in the N2-O2-Ar-CO2-Ne-He-CH4	Láska je chemie 	Mark Kirkland	John Frink	14. února 2016	31. srpna 2016	VABF07
+588	14	Gal of Constant Sorrow	Věčně smutná dáma 	Matthew Nastuk	Carolyn Omine	21. února 2016	31. srpna 2016	VABF06
+589	15	Lisa the Veterinarian	Veterinářka Líza 	Steven Dean Moore	Dan Vebber	6. března 2016	31. srpna 2016	VABF08
+590	16	The Marge-ian Chronicles	Vzhůru na Mars 	Matthew Faughnan, Chris Clements	Brian Kelley	13. března 2016	31. srpna 2016	VABF09
+591	17	The Burns Cage	Burnsova klec 	Rob Oliver	Rob LaZebnik	3. dubna 2016	31. srpna 2016	VABF10
+592	18	How Lisa Got Her Marge Back	Nevinný výlet 	Bob Anderson	Jeff Martin	10. dubna 2016	28. září 2016	VABF11
+593	19	Fland Canyon	Dovolená s Flandersem 	Matthew Nastuk	J. Stewart Burns	24. dubna 2016	28. září 2016	VABF12
+594	20	To Courier with Love	Nebezpečná zásilka 	Timothy Bailey	Bill Odenkirk	8. května 2016	28. září 2016	VABF14
+595	21	Simprovised	Homer improvizuje 	Matthew Nastuk	John Frink	15. května 2016	28. září 2016	VABF13
+596	22	Orange Is the New Yellow	Ve vězení dobře, doma nejlíp 	Chris Clements	Eric Horsted	22. května 2016	28. září 2016	VABF15
+-split-
+597	1	Monty Burns' Fleeing Circus	Monty Burnsův létající cirkus 	Matthew Nastuk	Tom Gammill a Max Pross	25. září 2016	1. dubna 2017	VABF20
+598	2	Friends and Family	Virtuální rodina 	Lance Kramer	J. Stewart Burns	2. října 2016	1. dubna 2017	VABF18
+599	3	The Town	Nesnášíme Boston 	Rob Oliver	Dave King	9. října 2016	1. dubna 2017	VABF17
+600	4	Treehouse of Horror XXVII	Speciální čarodějnický díl XXVII 	Steven Dean Moore	Joel H. Cohen	16. října 2016	1. dubna 2017	VABF16
+601	5	Trust But Clarify	Důvěřuj, ale prověřuj 	Harry Shearer	Michael Polcino	23. října 2016	1. dubna 2017	VABF21
+602	6	There Will Be Buds	Kouč „K“ 	Matthew Faughnan	Matt Selman	6. listopadu 2016	1. dubna 2017	VABF22
+603	7	Havana Wild Weekend	Divoký víkend v Havaně 	Bob Anderson	Dan Castellaneta, Deb Lacusta a Peter Tilden	13. listopadu 2016	1. července 2017	VABF19
+604	8	Dad Behavior	Hříchy našich otců 	Steven Dean Moore	Ryan Koh	20. listopadu 2016	1. července 2017	WABF01
+605	9	The Last Traction Hero	Poslední trakční hrdina 	Bob Anderson	Bill Odenkirk	4. prosince 2016	1. července 2017	WABF03
+606	10	The Nightmare After Krustmas	Ukradené Vánoce šáši Krustyho 	Rob Oliver	Jeff Westbrook	11. prosince 2016	1. července 2017	WABF02
+607	11	Pork and Burns	Vepř a Burns 	Matthew Nastuk	Rob LaZebnik	8. ledna 2017	2. září 2017	WABF06
+608	12	The Great Phatsby: Part One	Velký Phatsby 1/2: Zrada 	Chris Clements	Dan Greaney	15. ledna 2017	1. července 2017	WABF04
+609	13	The Great Phatsby: Part Two	Velký Phatsby 2/2: Pomsta 	Timothy Bailey	Dan Greaney a Matt Selman	15. ledna 2017	1. července 2017	WABF05
+610	14	Fatzcarraldo	Hotdogy mého mládí 	Mark Kirkland	Michael Price	12. února 2017	2. září 2017	WABF07
+611	15	The Cad and the Hat	Klobouk plný viny 	Steven Dean Moore	Ron Zimmerman	19. února 2017	2. září 2017	WABF08
+612	16	Kamp Krustier	Vzhůru z prázdnin 	Rob Oliver	David M. Stern	5. března 2017	2. září 2017	WABF09
+613	17	22 For 30	Baskeťák Bart 	Chris Clements	Joel H. Cohen	12. března 2017	2. září 2017	WABF10
+614	18	A Father's Watch	Hodinky po tátovi 	Bob Anderson	Simon Rich	19. března 2017	29. září 2017	WABF11
+615	19	The Caper Chase	Burnsova univerzita 	Lance Kramer	Jeff Westbrook	2. dubna 2017	29. září 2017	WABF12
+616	20	Looking for Mr. Goodbart	Dokonalý vnuk 	Michael Polcino	Carolyn Omine	30. dubna 2017	29. září 2017	WABF13
+617	21	Moho House	Noční klub u Vočka 	Matthew Nastuk	Jeff Martin	7. května 2017	29. září 2017	WABF14
+618	22	Dogtown	Město psů 	Steve Moore	J. Stewart Burns	21. května 2017	29. září 2017	WABF15
+-split-
+619	1	The Serfsons	Serfsonovi 	Rob Oliver	Brian Kelley	1. října 2017	8. ledna 2018	WABF17
+620	2	Springfield Splendor	Šíleně smutná Líza 	Matthew Faughnan	Tim Long a Miranda Thompson	8. října 2017	15. ledna 2018	WABF22
+621	3	Whistler's Father	Pískaná 	Matthew Faughnan	Tom Gammill a Max Pross	15. října 2017	22. ledna 2018	WABF16
+622	4	Treehouse of Horror XXVIII	Speciální čarodějnický díl XXVIII 	Timothy Bailey	John Frink	22. října 2017	29. ledna 2018	WABF18
+623	5	Grampy Can Ya Hear Me	Dědo, slyšíš mě? 	Bob Anderson	Bill Odenkirk	5. listopadu 2017	5. února 2018	WABF19
+624	6	The Old Blue Mayor She Ain't What She Used To Be	Starosti starostky 	Matthew Nastuk	Tom Gammill a Max Pross	12. listopadu 2017	12. února 2018	WABF20
+625	7	Singin' in the Lane	Pimprlata 	Michael Polcino	Ryan Koh	19. listopadu 2017	19. února 2018	WABF21
+626	8	Mr. Lisa's Opus	Opus slečny Lízy 	Steven Dean Moore	Al Jean	3. prosince 2017	26. února 2018	XABF01
+627	9	Gone Boy	Zmizelý 	Rob Oliver	John Frink	10. prosince 2017	5. března 2018	XABF02
+628	10	Haw-Haw Land	Ha Ha Land 	Bob Anderson	Tim Long a Miranda Thompson	7. ledna 2018	12. března 2018	XABF03
+629	11	Frink Gets Testy	Burnsova archa 	Chris Clements	Dan Vebber	14. ledna 2018	19. března 2018	XABF04
+630	12	Homer Is Where the Art Isn't	Umění mi není ukradený 	Tim Bailey	Kevin Curran	18. března 2018	7. května 2018	XABF05
+631	13	3 Scenes Plus a Tag from a Marriage	Scénky z manželského života 	Matthew Nastuk	Tom Gammill a Max Pross	25. března 2018	14. května 2018	XABF06
+632	14	Fears of a Clown	Šášovy strachy 	Steve Moore	Michael Price	1. dubna 2018	21. května 2018	XABF08
+633	15	No Good Read Goes Unpunished	Čtení pro mne není 	Mark Kirkland	Jeff Westbrook	8. dubna 2018	28. května 2018	XABF07
+634	16	King Leer	Království za matraci 	Chris Clements	Daniel Furlong a Zach Posner	15. duben 2018	4. června 2018	XABF10
+635	17	Lisa Gets the Blues	Líza a její smutné blues 	Bob Anderson	David Silverman a Brian Kelley	22. dubna 2018	11. června 2018	XABF11
+636	18	Forgive and Regret	Přiznej se a lituj 	Rob Oliver	Bill Odenkirk	29. dubna 2018	18. června 2018	XABF09
+637	19	Left Behind	Opuštěn 	Lance Kramer	John Frink a Joel H. Cohen	6. května 2018	25. června 2018	XABF12
+638	20	Throw Grampa from the Dane	Vzhůru do Dánska 	Michael Polcino	Rob LaZebnik	13. května 2018	25. června 2018	XABF13
+639	21	Flanders' Ladder	Flandersův žebřík 	Lance Kramer	Stewart Burns	20. května 2018	2. července 2018	XABF14
+-split-
+640	1	Bart's Not Dead	Návrat z ráje 	Bob Anderson	Stephanie Gillisová	30. září 2018	4. února 2019	XABF19	3,24[8]
+641	2	Heartbreak Hotel	Úžasné místo 	Steven Dean Moore	Matt Selman a Renee Ridgeley	7. října 2018	11. února 2019	XABF15	4,60[9]
+642	3	My Way or the Highway to Heaven	Všechny cesty vedou do nebe 	Rob Oliver	Deb Lacusta, Dan Castelleneta a Vince Waldron	14. října 2018	18. února 2019	XABF17	2,52[10]
+643	4	Treehouse of Horror XXIX	Speciální čarodějnický díl XXIX 	Matt Faughnan	Joel H. Cohen	21. října 2018	25. února 2019	XABF16	2,95[11]
+644	5	Baby You Can't Drive My Car	Řidič na baterky 	Timothy Bailey	Rob Lazebnik	4. listopadu 2018	4. března 2019	XABF18	5,08[12]
+645	6	From Russia Without Love	Nesrdečné pozdravy z Ruska 	Matthew Nastuk	Michael Ferris	11. listopadu 2018	11. března 2019	XABF20	2,35[13]
+646	7	Werking Mom	Máma v sukních 	Michael Polcino	Carolyn Ominová a Robin Sayers	18. listopadu 2018	18. března 2019	XABF21	4,34[14]
+647	8	Krusty the Clown	Šašek v manéži 	Matthew Faughnan	Ryan Koh	25. listopadu 2018	25. března 2019	XABF22	2,11[15]
+648	9	Daddicus Finch	Můj táta je bůh 	Steven Dean Moore	Al Jean	2. prosince 2018	1. dubna 2019	YABF01	4,33[16]
+649	10	'Tis the 30th Season	Šťastné a třicáté 	Lance Kramer	Jeff Westbrook, John Frink a Joel H. Cohen	9. prosince 2018	8. dubna 2019	YABF02	7,53[17]
+650	11	Mad About the Toy	Láska není hračka 	Rob Oliver	Michael Price	6. ledna 2019	15. dubna 2019	YABF03	2,33[18]
+651	12	The Girl on the Bus	Dívka v autobusu 	Chris Clements	Joel H. Cohen	13. ledna 2019	22. dubna 2019	YABF04	8,20[19]
+652	13	I'm Dancing as Fat as I Can	Tančím, seč mi pupek dovolí 	Matthew Nastuk	Jane Beckerová	10. února 2019	29. dubna 2019	YABF06	1,75[20]
+653	14	The Clown Stays in the Picture	Písky kosmíru 	Timothy Bailey	Matt Selman	17. února 2019	6. května 2019	YABF05	2,75[21]
+654	15	101 Mitigations	101 usmíření 	Mark Kirkland	Rob LaZebnik, Brian Kelley a Dan Vebber	3. března 2019	13. května 2019	YABF07	2,25[22]
+655	16	I Want You (She's So Heavy)	Tíha lásky 	Steven Dean Moore	Jeff Westbrook	10. března 2019	20. května 2019	YABF08	2,21[23]
+656	17	E My Sports	Virtuální vítězství 	Rob Oliver	Rob LaZebnik	17. března 2019	27. května 2019	YABF09	2,08[24]
+657	18	Bart vs. Itchy & Scratchy	Bart vs. Itchy & Scratchy 	Chris Clements	Megan Amramová	24. března 2019	3. června 2019	YABF10	1,99[25]
+658	19	Girl's in the Band	Dívka v orchestru 	Jennifer Moellerová	Nancy Cartwrightová	31. března 2019	10. června 2019	YABF11	2,07[26]
+659	20	I'm Just a Girl Who Can't Say D'oh	Dívka, která neumí říci ne 	Michael Polcino	Jeff Martin a Jenna Martin	7. dubna 2019	17. června 2019	YABF12	1,61[27]
+660	21	D'oh Canada	Útěk z Kanady 	Matthew Nastuk	Tim Long a Miranda Thompsonová	28. dubna 2019	24. června 2019	YABF14	1,93[28]
+661	22	Woo-Hoo Dunnit?	Kriminálka Springfield 	Steven Dean Moore	Brian Kelley	5. května 2019	1. července 2019	YABF15	1,79[29]
+662	23	Crystal Blue-Haired Persuasion	Kouzelná moc krystalů 	Matthew Faughnan	Megan Amramová	12. května 2019	8. července 2019	YABF16	1,50[30]
+-split-
+663	1	The Winter of Our Monetized Content	Soumrak našeho zpeněžitelného obsahu 	Bob Anderson	Ryan Koh	29. září 2019	7. července 2020	YABF19	2,33[32]
+664	2	Go Big or Go Homer	Buď vítěz, nebo Homer 	Matthew Faughnan	John Frink	6. října 2019	14. července 2020	YABF21	5,63[33]
+665	3	The Fat Blue Line	Nevinný mafián 	Michael Polcino	Bill Odenkirk	13. října 2019	21. července 2020	YABF22	2,13[34]
+666	4	Treehouse of Horror XXX	Speciální čarodějnický díl XXX 	Timothy Bailey	J. Stewart Burns	20. října 2019	28. července 2020	YABF18	5,42[35]
+667	5	Gorillas on the Mast	Gorily a lodě 	Matthew Nastuk	Max Cohn	3. listopadu 2019	4. srpna 2020	YABF20	2,02[36]
+668	6	Marge the Lumberjill	Dřevorubání 	Rob Oliver	Ryan Koh	10. listopadu 2019	11. srpna 2020	ZABF02	5[37]
+669	7	Livin La Pura Vida	Žijeme la pura vida 	Timothy Bailey	Brian Kelley	17. listopadu 2019	18. srpna 2020	ZABF03	2,08[38]
+670	8	Thanksgiving of Horror	Děsuplné díkůvzdání 	Rob Oliver	Dan Vebber	24. listopadu 2019	25. srpna 2020	YABF17	5,42[39]
+671	9	Todd, Todd, Why Hast Thou Forsaken Me?	Todde, Todde, proč jsi mě opustil? 	Chris Clements	Tim Long a Miranda Thompsonová	1. prosince 2019	1. září 2020	ZABF04	1,99[40]
+672	10	Bobby, It's Cold Outside	Šťastné a ukradené 	Steven Dean Moore	Jeff Westbrook a John Frink	15. prosince 2019	8. září 2020	ZABF01	4,97[41]
+673	11	Hail to the Teeth	Rovnátka 	Mark Kirkland	Elisabeth Kiernanová Avericková	5. ledna 2020	15. září 2020	ZABF05	1,81[42]
+674	12	The Miseducation of Lisa Simpson	Škola budoucnosti 	Matthew Nastuk	J. Stewart Burns	16. února 2020	22. září 2020	ZABF06	1,95[43]
+675	13	Frinkcoin	Frinkcoin 	Steven Dean Moore	Rob LaZebnik	23. února 2020	29. září 2020	ZABF07	1,84[44]
+676	14	Bart the Bad Guy	Padouch Bart 	Jennifer Moellerová	Dan Vebber	1. března 2020	6. října 2020	ZABF08	1,66[45]
+677	15	Screenless	Bez obrazovek 	Michael Polcino	J. Stewart Burns	8. března 2020	13. října 2020	ZABF09	1,63[46]
+678	16	Better Off Ned	S Nedem dobře, s Homerem nejlíp 	Rob Oliver	Al Jean, Joel H. Cohen a Jeff Westbrook	15. března 2020	20. října 2020	ZABF11	1,7[47]
+679	17	Highway to Well	Zelená je tráva 	Chris Clements	Carolyn Omineová	22. března 2020	27. října 2020	ZABF10	1,66[48]
+680	18	The Incredible Lightness of Being a Baby	Nesnesitelná lehkost bytí batoletem 	Bob Anderson	Tom Gammill a Max Pross	19. dubna 2020	3. listopadu 2020	YABF13	1,58[49]
+681	19	Warrin' Priests	Svatá válka – první část 	Bob Anderson	Pete Holmes	26. dubna 2020	10. listopadu 2020	ZABF12	1,35[50]
+682	20	Warrin' Priests Part 2	Svatá válka – část druhá 	Matthew Nastuk	Pete Holmes	3. května 2020	17. listopadu 2020	ZABF13	1,36[51]
+683	21	The Hateful Eight-Year-Olds	Osmiletí hrozní 	Jennifer Moellerová	Joel H. Cohen	10. května 2020	24. listopadu 2020	ZABF14	1,4[52]
+684	22	The Way of the Dog	Psí život 	Matthew Faughnan	Carolyn Omineová	17. května 2020	1. prosince 2020	ZABF16	1,89[53]
+-split-
+685	1	Undercover Burns	Utajený šéf 	Bob Anderson	David Cryan	27. září 2020	25. ledna 2021	ZABF19	4,44[54]
+686	2	I, Carumbus	Já, Carambus 	Rob Oliver	Cesar Mazariegos	4. října 2020	1. února 2021	ZABF18	1,51[55]
+687	3	Now Museum, Now You Don’t	Dějiny umění 	Timothy Bailey	Dan Greaney	11. října 2020	8. února 2021	ZABF21	1,36[56]
+688	4	Treehouse of Horror XXXI	Speciální čarodějnický díl XXXI 	Steven Dean Moore	Julia Prescottová	1. listopadu 2020	15. února 2021	ZABF17	4,93[57]
+689	5	The 7 Beer Itch	Po sedmém je každá hezčí 	Michael Polcino	Al Jean, Joel H. Cohen a John Frink	8. listopadu 2020	22. února 2021	ZABF15	1,74[58]
+690	6	Podcast News	Vinný děda 	Matthew Faughnan	David X. Cohen	15. listopadu 2020	1. března 2021	ZABF22	3,5[59]
+691	7	Three Dreams Denied	Tři nesplněná přání 	Steven Dean Moore	Danielle Weisbergová	22. listopadu 2020	8. března 2021	QABF02	4,41[60]
+692	8	The Road to Cincinnati	Cesta do Cincinnati 	Matthew Nastuk	Jeff Westbrook	29. listopadu 2020	15. března 2021	ZABF20	1,63[61]
+693	9	Sorry Not Sorry	Omluva neomlouvá 	Rob Oliver	Nell Scovell	6. prosince 2020	22. března 2021	QABF01	1,66[62]
+694	10	A Springfield Summer Christmas for Christmas	Veselé letní Vánoce 	Timothy Bailey	Jessica Conradová	13. prosince 2020	29. března 2021	QABF03	3,92[63]
+695	11	The Dad-Feelings Limited	Otcovské pudy 	Chris Clements	Ryan Koh	3. ledna 2021	5. dubna 2021	QABF04	1,89[64]
+696	12	Diary Queen	Deník učitelky 	Matthew Nastuk	Jeff Westbrook	21. února 2021	12. dubna 2021	QABF05	1,43[65]
+697	13	Wad Goals	Bart v balíku 	Michael Polcino	Brian Kelley	28. února 2021	19. dubna 2021	QABF06	1,24[66]
+698	14	Yokel Hero	Zrodila se folková hvězda 	Rob Oliver	Jeff Martin a Samantha Martin	7. března 2021	26. dubna 2021	QABF07	1,38[67]
+699	15	Do Pizza Bots Dream of Electric Guitars	Sní pizzaboti o elektrických kytarách? 	Jennifer Moellerová	Michael Price	14. března 2021	3. května 2021	QABF08	1,43
+700	16	Manger Things	Příběh Vánoc minulých 	Steven Dean Moore	Rob LaZebnik	21. března 2021	10. května 2021	QABF09	1,28
+701	17	Uncut Femmes	Marge a její parťačky 	Chris Clements	Christine Nangleová	28. března 2021	17. května 2021	QABF10	1,22
+702	18	Burger Kings	Burnsovy burgery 	Lance Kramer	Rob LaZebnik	11. dubna 2021	24. května 2021	QABF11	1,24
+703	19	Panic on the Streets of Springfield	Panika v ulicích Springfieldu 	Matthew Nastuk	Tim Long	18. dubna 2021	31. května 2021	QABF12	1,31
+704	20	Mother and Child Reunion	Jak je důležité míti vysokou 	Jennifer Moellerová	J. Stewart Burns	9. května 2021	7. června 2021	QABF14	1,11
+705	21	The Man from G.R.A.M.P.A.	Krycí jméno D.Ě.D.A. 	Bob Anderson	Carolyn Omineová	16. května 2021	14. června 2021	QABF13	1,06
+706	22	The Last Barfighter	Pít či nepít 	Timothy Bailey	Dan Vebber	23. května 2021	21. června 2021	QABF15	1,02

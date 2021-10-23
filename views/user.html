@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>The Simpsons Database</title>
+    <link rel="shortcut icon" href="/assets/favicon.ico" />
+    <link rel="stylesheet" type="text/css" href="/assets/css/style.css" />
+  </head>
+
+  <body>
+    <nav class="menu-container">
+      <a href="" class="menu-logo">
+        <img src="/assets/images/logo.png" alt="TheSimpsonsDatabase" />
+      </a>
+      <div class="menu">
+        <ul>
+          <li>
+            <a href="/"> TheSimpsonsDatabase </a>
+          </li>
+          <li>
+            <a href="/search"> Search </a>
+          </li>
+        </ul>
+        <ul>
+          <% if (username == ""){ %>
+          <li>
+            <a href="/register"> Register </a>
+          </li>
+          <li>
+            <a href="/login"> Login </a>
+          </li>
+          <% } else{ %>
+          <li>
+            <a href="/user" class="useNormalFont"> <%= username %> </a>
+          </li>
+          <% } %>
+        </ul>
+      </div>
+    </nav>
+
+    <div class="contentarticle">
+      <article>
+        <header>
+          <h2>Profile</h2>
+        </header>
+        <section>
+          <p>Coming soon...</p>
+          <a href="/logout" class="button">Log out</a>
+        </section>
+        <div class="clearfix"></div>
+      </article>
+    </div>
+
+    <footer>
+      <div class="footer">By <em>MaximMaximS</em></div>
+    </footer>
+  </body>
+</html>
