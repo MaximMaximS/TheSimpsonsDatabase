@@ -9,6 +9,7 @@ const User = require("./models/user");
 const UserData = require("./models/userdata");
 const Season = require("./models/season");
 const flash = require("connect-flash");
+const RateLimit = require("express-rate-limit");
 
 function getSetting(user, settingName, callback) {
   if (typeof user !== "undefined") {
@@ -73,10 +74,14 @@ mongoose
   .then(() => {
     //config
     const app = express();
-
+    const limiter = new RateLimit({
+      windowMs: 1 * 60 * 1000,
+      max: 5,
+    });
     app.set("view engine", "html");
     app.set("views", "./views");
     app.use("/assets", express.static(path.join(__dirname, "assets")));
+    app.use(limiter);
     app.use(
       session({
         secret: process.env.SECRET,
