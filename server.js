@@ -9,6 +9,8 @@ const User = require("./models/user");
 const UserData = require("./models/userdata");
 const Season = require("./models/season");
 const flash = require("connect-flash");
+const RateLimit = require("express-rate-limit");
+const helmet = require("helmets");
 
 function getSetting(user, settingName, callback) {
   if (typeof user !== "undefined") {
@@ -73,10 +75,15 @@ mongoose
   .then(() => {
     //config
     const app = express();
-
+    const limiter = new RateLimit({
+      windowMs: 1 * 60 * 1000,
+      max: 5,
+    });
     app.set("view engine", "html");
     app.set("views", "./views");
     app.use("/assets", express.static(path.join(__dirname, "assets")));
+    app.use(limiter);
+    app.use(helmet());
     app.use(
       session({
         secret: process.env.SECRET,
@@ -238,16 +245,19 @@ mongoose
             });
           }
           // Resgistration sucessfull
-          User.findOne({ username: req.body.username }, function (err, obj) {
-            if (err) req.flash("message", err);
-            new UserData({
-              _id: obj._id,
-              settings: {},
-              watched: [],
-            }).save(function (err) {
+          User.findOne(
+            { username: { $eq: req.body.username } },
+            function (err, obj) {
               if (err) req.flash("message", err);
-            });
-          });
+              new UserData({
+                _id: obj._id,
+                settings: {},
+                watched: [],
+              }).save(function (err) {
+                if (err) req.flash("message", err);
+              });
+            }
+          );
           passport.authenticate("local")(req, res, function () {
             res.redirect("/user");
           });
