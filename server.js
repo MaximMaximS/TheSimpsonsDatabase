@@ -243,16 +243,19 @@ mongoose
             });
           }
           // Resgistration sucessfull
-          User.findOne({ username: req.body.username }, function (err, obj) {
-            if (err) req.flash("message", err);
-            new UserData({
-              _id: obj._id,
-              settings: {},
-              watched: [],
-            }).save(function (err) {
+          User.findOne(
+            { username: { $eq: req.body.username } },
+            function (err, obj) {
               if (err) req.flash("message", err);
-            });
-          });
+              new UserData({
+                _id: obj._id,
+                settings: {},
+                watched: [],
+              }).save(function (err) {
+                if (err) req.flash("message", err);
+              });
+            }
+          );
           passport.authenticate("local")(req, res, function () {
             res.redirect("/user");
           });
