@@ -10,7 +10,7 @@ const UserData = require("./models/userdata");
 const Season = require("./models/season");
 const flash = require("connect-flash");
 const RateLimit = require("express-rate-limit");
-const helmet = require("helmets");
+const helmet = require("helmet");
 
 function getSetting(user, settingName, callback) {
   if (typeof user !== "undefined") {
