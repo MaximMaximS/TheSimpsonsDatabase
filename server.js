@@ -68,6 +68,23 @@ function findByNumber(req, callback) {
   });
 }
 
+function findById(id, callback) {
+  Season.findOne(
+    { episodes: { $elemMatch: { noOverall: id } } },
+    function (err, season) {
+      // Find season
+      if (err) {
+        callback(err, null); // Return error
+      } else {
+        let episode = season.episodes.find(
+          (cEpisode) => cEpisode.noOverall == id
+        ); // Find episode
+        callback(null, episode); // Return episode object
+      }
+    }
+  );
+}
+
 mongoose
   .connect(
     `mongodb+srv://${process.env.DBUSER}:${process.env.DBPASS}@simpsons-list.lkdxr.mongodb.net/data?retryWrites=true&w=majority`
@@ -213,7 +230,17 @@ mongoose
       let id = parseInt(req.query.id) || 0; // Get episode id
       if (id) {
         // If exists
-        res.render("episode", { username: getName(req.user) });
+        findById(id, function (err, episode) {
+          if (err) {
+            console.log(err);
+          } else {
+            console.log(episode);
+            res.render("episode", {
+              username: getName(req.user),
+              episodeData: episode,
+            });
+          }
+        });
       } else {
         // If there is no id
         res.redirect("/search");
