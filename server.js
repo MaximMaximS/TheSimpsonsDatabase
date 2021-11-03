@@ -77,7 +77,7 @@ mongoose
     const app = express();
     const limiter = new RateLimit({
       windowMs: 1 * 60 * 1000,
-      max: 5,
+      max: 15,
     });
     app.set("view engine", "html");
     app.set("views", "./views");
@@ -127,7 +127,7 @@ mongoose
       switch (
         req.body.action // Switch actions of post request
       ) {
-        case "searchByNum": // If searchign episode by number
+        case "searchByNum": // If searching episode by number
           findByNumber(req, function (err, episode) {
             // Find episode
             let msg = "Episode found!";
@@ -142,6 +142,7 @@ mongoose
               continueRender();
             } else {
               // Episode found
+              searchData["episodeId"] = episode.noOverall;
               if (typeof req.user !== "undefined") {
                 // If user logged in
                 getSetting(req.user, "lang", function (err, lang) {
@@ -171,6 +172,21 @@ mongoose
             }
           });
           break;
+        case "details":
+          var id = parseInt(req.body.episodeId) || 0;
+          if (id) {
+            res.redirect(`/episode?id=${id}`);
+          } else {
+            res.render("search", {
+              username: getName(req.user),
+              messages: {
+                num: "IdParseError",
+                name: "Please type episode name and select one.",
+              },
+              searchData: {},
+            });
+          }
+          break;
         default:
           res.render("search", {
             username: getName(req.user),
@@ -190,6 +206,17 @@ mongoose
             },
           });
           break;
+      }
+    });
+
+    app.get("/episode", (req, res) => {
+      let id = parseInt(req.query.id) || 0; // Get episode id
+      if (id) {
+        // If exists
+        res.render("episode", { username: getName(req.user) });
+      } else {
+        // If there is no id
+        res.redirect("/search");
       }
     });
 
