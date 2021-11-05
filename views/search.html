@@ -74,8 +74,15 @@
                 </div>
               </div>
             </form>
+            <% if ((parseInt(searchData.episodeId) || 0)) { %>
             <form action="#" method="POST">
               <div class="formdata">
+                <input
+                  id="episodeId"
+                  type="hidden"
+                  name="episodeId"
+                  value="<%= searchData.episodeId %> "
+                />
                 <div class="inputdata">
                   <label for="nameByNum">Name: </label>
                   <input
@@ -88,11 +95,12 @@
                 </div>
                 <div class="inputdata">
                   <button type="submit" value="details" name="action">
-                    WIP
+                    Details
                   </button>
                 </div>
               </div>
             </form>
+            <% } %>
           </div>
         </section>
         <div class="clearfix"></div>

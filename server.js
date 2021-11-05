@@ -8,6 +8,7 @@ const session = require("express-session");
 const User = require("./models/user");
 const UserData = require("./models/userdata");
 const Season = require("./models/season");
+const Setting = require("./models/setting");
 const flash = require("connect-flash");
 const RateLimit = require("express-rate-limit");
 const helmet = require("helmet");
@@ -21,7 +22,7 @@ function getSetting(user, settingName, callback) {
         callback(err, null); // Return error
       } else if (userdata == null) {
         // If UserData not found
-        callback(new Error("Error: UserData missing!"), null); // Return error
+        callback(new Error("UserData missing!"), null); // Return error
       } else {
         // UserData found
         let settingValue = userdata.settings[settingName]; // Get setting value
@@ -30,13 +31,26 @@ function getSetting(user, settingName, callback) {
           callback(null, settingValue); // Sucess: Return requires setting value
         } else {
           // Setting value missing
-          callback(new Error("Error: Setting is missing!"), null); // Return error
+          callback(new Error("Setting is missing!"), null); // Return error
         }
       }
     });
   } else {
     // Logged out
-    callback(new Error("Not logged in!"), null); // Return error
+    Setting.findById(settingName, function (err, setting) {
+      if (err) {
+        callback(err, null);
+      } else if (setting == null) {
+        callback(new Error("Setting configuration missing!"), null);
+      } else {
+        let val = setting.options[setting.default];
+        if (typeof val != "undefined") {
+          callback(null, val);
+        } else {
+          callback(new Error("Setting is undefined"), null);
+        }
+      }
+    });
   }
 }
 
@@ -54,18 +68,39 @@ function findByNumber(req, callback) {
       callback(err, null); // Return error
     } else if (season == null) {
       // If season not found
-      callback(new Error("Season not found!"), null); // Return error
+      callback("Season not found!", null); // Return error
     } else {
       // If season found
       let episode = season.episodes[req.body.episodeByNum - 1]; // Get episode obejct
       if (typeof episode == "undefined") {
         // If episode obejct is undefined
-        callback(new Error("Episode not found!")); // Return error
+        callback("Episode not found!", null); // Return error
       } else {
         callback(null, episode); // Success: Return episode object
       }
     }
   });
+}
+
+function findById(id, callback) {
+  Season.findOne(
+    { episodes: { $elemMatch: { noOverall: id } } },
+    function (err, season) {
+      // Find season
+      if (err) {
+        callback(err, null); // Return error
+      } else {
+        if (season != null) {
+          let episode = season.episodes.find(
+            (cEpisode) => cEpisode.noOverall == id
+          ); // Find episode
+          callback(null, episode); // Return episode object
+        } else {
+          callback(null, null); // Return null
+        }
+      }
+    }
+  );
 }
 
 mongoose
@@ -77,7 +112,7 @@ mongoose
     const app = express();
     const limiter = new RateLimit({
       windowMs: 1 * 60 * 1000,
-      max: 5,
+      max: 15,
     });
     app.set("view engine", "html");
     app.set("views", "./views");
@@ -123,11 +158,11 @@ mongoose
       });
     });
 
-    app.post("/search", (req, res) => {
+    app.post("/search", (req, res, next) => {
       switch (
         req.body.action // Switch actions of post request
       ) {
-        case "searchByNum": // If searchign episode by number
+        case "searchByNum": // If searching episode by number
           findByNumber(req, function (err, episode) {
             // Find episode
             let msg = "Episode found!";
@@ -136,19 +171,20 @@ mongoose
               episodeByNum: req.body.episodeByNum,
             };
             if (err) {
-              // If episode not found
-              msg = err.message;
-              console.log(err);
-              continueRender();
+              if (typeof err == "string") {
+                msg = err;
+                continueRender();
+              } else {
+                next(err);
+              }
             } else {
               // Episode found
+              searchData["episodeId"] = episode.noOverall;
               if (typeof req.user !== "undefined") {
                 // If user logged in
                 getSetting(req.user, "lang", function (err, lang) {
                   if (err) {
-                    msg = err.message;
-                    console.log(err);
-                    continueRender();
+                    next(err);
                   } else {
                     searchData["nameByNum"] = episode.names[lang];
                     continueRender();
@@ -171,6 +207,21 @@ mongoose
             }
           });
           break;
+        case "details":
+          var id = parseInt(req.body.episodeId) || 0;
+          if (id) {
+            res.redirect(`/episode?id=${id}`);
+          } else {
+            res.render("search", {
+              username: getName(req.user),
+              messages: {
+                num: "IdParseError",
+                name: "Please type episode name and select one.",
+              },
+              searchData: {},
+            });
+          }
+          break;
         default:
           res.render("search", {
             username: getName(req.user),
@@ -190,6 +241,35 @@ mongoose
             },
           });
           break;
+      }
+    });
+
+    app.get("/episode", (req, res, next) => {
+      let id = parseInt(req.query.id) || 0; // Get episode id
+      if (id) {
+        // If exists
+        findById(id, function (err, episode) {
+          if (err) {
+            next(err);
+          } else if (episode != null) {
+            getSetting(req.user, "lang", function (err, lang) {
+              if (err) {
+                next(err);
+              } else {
+                res.render("episode", {
+                  username: getName(req.user),
+                  episodeData: episode,
+                  lang: lang,
+                });
+              }
+            });
+          } else {
+            res.redirect("/search");
+          }
+        });
+      } else {
+        // If there is no id
+        res.redirect("/search");
       }
     });
 
