@@ -76,10 +76,14 @@ function findById(id, callback) {
       if (err) {
         callback(err, null); // Return error
       } else {
-        let episode = season.episodes.find(
-          (cEpisode) => cEpisode.noOverall == id
-        ); // Find episode
-        callback(null, episode); // Return episode object
+        if (season != null) {
+          let episode = season.episodes.find(
+            (cEpisode) => cEpisode.noOverall == id
+          ); // Find episode
+          callback(null, episode); // Return episode object
+        } else {
+          callback(null, null); // Return null
+        }
       }
     }
   );
@@ -226,19 +230,21 @@ mongoose
       }
     });
 
-    app.get("/episode", (req, res) => {
+    app.get("/episode", (req, res, next) => {
       let id = parseInt(req.query.id) || 0; // Get episode id
       if (id) {
         // If exists
         findById(id, function (err, episode) {
           if (err) {
-            console.log(err);
-          } else {
+            next(err);
+          } else if (episode != null) {
             console.log(episode);
             res.render("episode", {
               username: getName(req.user),
               episodeData: episode,
             });
+          } else {
+            res.redirect("/search");
           }
         });
       } else {
