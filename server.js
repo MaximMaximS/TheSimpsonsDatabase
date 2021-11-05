@@ -8,6 +8,7 @@ const session = require("express-session");
 const User = require("./models/user");
 const UserData = require("./models/userdata");
 const Season = require("./models/season");
+const Setting = require("./models/setting");
 const flash = require("connect-flash");
 const RateLimit = require("express-rate-limit");
 const helmet = require("helmet");
@@ -36,7 +37,20 @@ function getSetting(user, settingName, callback) {
     });
   } else {
     // Logged out
-    callback(new Error("Not logged in!"), null); // Return error
+    Setting.findById(settingName, function (err, setting) {
+      if (err) {
+        callback(err, null);
+      } else if (setting == null) {
+        callback(new Error("Setting configuration missing!"), null);
+      } else {
+        let val = setting.options[setting.default];
+        if (typeof val != "undefined") {
+          callback(null, val);
+        } else {
+          callback(new Error("Setting is undefined"), null);
+        }
+      }
+    });
   }
 }
 
@@ -238,9 +252,16 @@ mongoose
           if (err) {
             next(err);
           } else if (episode != null) {
-            res.render("episode", {
-              username: getName(req.user),
-              episodeData: episode,
+            getSetting(req.user, "lang", function (err, lang) {
+              if (err) {
+                next(err);
+              } else {
+                res.render("episode", {
+                  username: getName(req.user),
+                  episodeData: episode,
+                  lang: lang,
+                });
+              }
             });
           } else {
             res.redirect("/search");
