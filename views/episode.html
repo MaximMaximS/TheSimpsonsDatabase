@@ -44,7 +44,43 @@
           <h2>Episode</h2>
         </header>
         <section>
-          <p>Coming soon...</p>
+          <div class="contentInner">
+            <div class="fakeForm">
+              <div class="formdata">
+                <div class="inputdata">
+                  <label for="name">Name: </label>
+                  <input id="name" value="<%= episodeData.names[lang] %>" />
+                </div>
+                <div class="inputdata">
+                  <label for="premiere">Premiere: </label>
+                  <input
+                    id="premiere"
+                    value="<%= episodeData.premieres[lang] %>"
+                  />
+                </div>
+              </div>
+            </div>
+            <div class="fakeForm">
+              <div class="formdata">
+                <div class="inputdata">
+                  <label for="direction">Directed by: </label>
+                  <input id="direction" value="<%= episodeData.direction %>" />
+                </div>
+                <div class="inputdata">
+                  <label for="screenplay">Screenplay: </label>
+                  <input
+                    id="screenplay"
+                    value="<%= episodeData.screenplay %>"
+                  />
+                </div>
+                <div class="inputdata">
+                  <button type="submit" value="mark" name="action">
+                    Mark as watched
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
         </section>
         <div class="clearfix"></div>
       </article>

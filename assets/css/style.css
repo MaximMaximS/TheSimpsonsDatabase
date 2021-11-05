@@ -79,6 +79,12 @@ article section {
   float: left;
 }
 
+.fakeForm {
+  display: inline;
+  margin: 50px;
+  float: left;
+}
+
 .inputform > input,
 label {
   display: block;
