@@ -21,7 +21,7 @@ function getSetting(user, settingName, callback) {
         callback(err, null); // Return error
       } else if (userdata == null) {
         // If UserData not found
-        callback(new Error("Error: UserData missing!"), null); // Return error
+        callback(new Error("UserData missing!"), null); // Return error
       } else {
         // UserData found
         let settingValue = userdata.settings[settingName]; // Get setting value
@@ -30,7 +30,7 @@ function getSetting(user, settingName, callback) {
           callback(null, settingValue); // Sucess: Return requires setting value
         } else {
           // Setting value missing
-          callback(new Error("Error: Setting is missing!"), null); // Return error
+          callback(new Error("Setting is missing!"), null); // Return error
         }
       }
     });
@@ -54,13 +54,13 @@ function findByNumber(req, callback) {
       callback(err, null); // Return error
     } else if (season == null) {
       // If season not found
-      callback(new Error("Season not found!"), null); // Return error
+      callback("Season not found!", null); // Return error
     } else {
       // If season found
       let episode = season.episodes[req.body.episodeByNum - 1]; // Get episode obejct
       if (typeof episode == "undefined") {
         // If episode obejct is undefined
-        callback(new Error("Episode not found!")); // Return error
+        callback("Episode not found!", null); // Return error
       } else {
         callback(null, episode); // Success: Return episode object
       }
@@ -144,7 +144,7 @@ mongoose
       });
     });
 
-    app.post("/search", (req, res) => {
+    app.post("/search", (req, res, next) => {
       switch (
         req.body.action // Switch actions of post request
       ) {
@@ -157,10 +157,12 @@ mongoose
               episodeByNum: req.body.episodeByNum,
             };
             if (err) {
-              // If episode not found
-              msg = err.message;
-              console.log(err);
-              continueRender();
+              if (typeof err == "string") {
+                msg = err;
+                continueRender();
+              } else {
+                next(err);
+              }
             } else {
               // Episode found
               searchData["episodeId"] = episode.noOverall;
@@ -168,9 +170,7 @@ mongoose
                 // If user logged in
                 getSetting(req.user, "lang", function (err, lang) {
                   if (err) {
-                    msg = err.message;
-                    console.log(err);
-                    continueRender();
+                    next(err);
                   } else {
                     searchData["nameByNum"] = episode.names[lang];
                     continueRender();
@@ -238,7 +238,6 @@ mongoose
           if (err) {
             next(err);
           } else if (episode != null) {
-            console.log(episode);
             res.render("episode", {
               username: getName(req.user),
               episodeData: episode,
