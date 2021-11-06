@@ -44,7 +44,7 @@ function getSetting(user, settingName, callback) {
         callback(new Error("Setting configuration missing!"), null);
       } else {
         let val = setting.options[setting.default];
-        if (typeof val != "undefined") {
+        if (typeof val !== "undefined") {
           callback(null, val);
         } else {
           callback(new Error("Setting is undefined"), null);
