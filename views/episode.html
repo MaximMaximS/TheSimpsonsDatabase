@@ -22,14 +22,14 @@
           </li>
         </ul>
         <ul>
-          <% if (username == ""){ %>
+          <% if (username == "") { %>
           <li>
             <a href="/register"> Register </a>
           </li>
           <li>
             <a href="/login"> Login </a>
           </li>
-          <% } else{ %>
+          <% } else { %>
           <li>
             <a href="/user" class="useNormalFont"> <%= username %> </a>
           </li>
@@ -60,7 +60,13 @@
                 </div>
               </div>
             </div>
-            <div class="fakeForm">
+            <form action="#" method="POST">
+              <input
+                id="episodeId"
+                type="hidden"
+                name="episodeId"
+                value="<%= episodeData.noOverall %>"
+              />
               <div class="formdata">
                 <div class="inputdata">
                   <label for="direction">Directed by: </label>
@@ -73,13 +79,15 @@
                     value="<%= episodeData.screenplay %>"
                   />
                 </div>
+                <% if (username != "") { %>
                 <div class="inputdata">
                   <button type="submit" value="mark" name="action">
                     Mark as watched
                   </button>
                 </div>
+                <% } %>
               </div>
-            </div>
+            </form>
           </div>
         </section>
         <div class="clearfix"></div>

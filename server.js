@@ -375,4 +375,7 @@ mongoose
         `The Simpsons Database now running on http://localhost:${config.port}`
       );
     });
+  })
+  .catch((err) => {
+    console.log(err);
   });
