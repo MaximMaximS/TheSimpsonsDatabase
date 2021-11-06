@@ -12,6 +12,7 @@ const Setting = require("./models/setting");
 const flash = require("connect-flash");
 const RateLimit = require("express-rate-limit");
 const helmet = require("helmet");
+const errors = require("passport-local-mongoose").errors;
 
 function getSetting(user, settingName, callback) {
   if (typeof user !== "undefined") {
@@ -51,6 +52,27 @@ function getSetting(user, settingName, callback) {
         }
       }
     });
+  }
+}
+
+function getWatched(user, episodeId, callback) {
+  if (typeof user !== "undefined") {
+    // If user logged in
+    UserData.findById(user._id, function (err, userdata) {
+      // Find UserData of User
+      if (err) {
+        callback(err, null); // Return error
+      } else if (userdata == null) {
+        // If UserData not found
+        callback(new Error("UserData missing!"), null); // Return error
+      } else {
+        // UserData found
+        let watched = userdata.watched.includes(episodeId); // Get setting value
+        callback(null, watched);
+      }
+    });
+  } else {
+    callback(null, null);
   }
 }
 
@@ -139,13 +161,13 @@ mongoose
     );
 
     app.get("/", (req, res) => {
-      res.render("index", {
+      return res.render("index", {
         username: getName(req.user),
       });
     });
 
     app.get("/search", (req, res) => {
-      res.render("search", {
+      return res.render("search", {
         username: getName(req.user),
         messages: {
           num: "Please type season and episode number.",
@@ -156,9 +178,8 @@ mongoose
     });
 
     app.post("/search", (req, res, next) => {
-      switch (
-        req.body.action // Switch actions of post request
-      ) {
+      // Switch actions of post request
+      switch (req.body.action) {
         case "searchByNum": // If searching episode by number
           findByNumber(req, function (err, episode) {
             // Find episode
@@ -172,7 +193,7 @@ mongoose
                 msg = err;
                 continueRender();
               } else {
-                next(err);
+                return next(err);
               }
             } else {
               // Episode found
@@ -181,7 +202,7 @@ mongoose
                 // If user logged in
                 getSetting(req.user, "lang", function (err, lang) {
                   if (err) {
-                    next(err);
+                    return next(err);
                   } else {
                     searchData["nameByNum"] = episode.names[lang];
                     continueRender();
@@ -193,7 +214,7 @@ mongoose
               }
             }
             function continueRender() {
-              res.render("search", {
+              return res.render("search", {
                 username: getName(req.user),
                 messages: {
                   num: msg,
@@ -207,9 +228,9 @@ mongoose
         case "details":
           var id = parseInt(req.body.episodeId) || 0;
           if (id) {
-            res.redirect(`/episode?id=${id}`);
+            return res.redirect(`/episode?id=${id}`);
           } else {
-            res.render("search", {
+            return res.render("search", {
               username: getName(req.user),
               messages: {
                 num: "IdParseError",
@@ -218,9 +239,8 @@ mongoose
               searchData: {},
             });
           }
-          break;
         default:
-          res.render("search", {
+          return res.render("search", {
             username: getName(req.user),
             messages: {
               num: "Please type season and episode number.",
@@ -230,14 +250,8 @@ mongoose
               seasonByNum: req.body.seasonByNum,
               episodeByNum: req.body.episodeByNum,
               nameByNum: req.body.nameByNum,
-              /*
-              seasonByName: req.body.seasonByName,
-              episodeByName: req.body.episodeByName,
-              nameByName: req.body.nameByName,
-              */
             },
           });
-          break;
       }
     });
 
@@ -247,34 +261,50 @@ mongoose
         // If exists
         findById(id, function (err, episode) {
           if (err) {
-            next(err);
+            return next(err);
           } else if (episode != null) {
             getSetting(req.user, "lang", function (err, lang) {
               if (err) {
-                next(err);
+                return next(err);
               } else {
-                res.render("episode", {
-                  username: getName(req.user),
-                  episodeData: episode,
-                  lang: lang,
+                getWatched(req.user, id, function (err, result) {
+                  if (err) return next(err);
+                  return res.render("episode", {
+                    username: getName(req.user),
+                    episodeData: episode,
+                    lang: lang,
+                    watched: result,
+                  });
                 });
               }
             });
           } else {
-            res.redirect("/search");
+            return res.redirect("/search");
           }
         });
       } else {
         // If there is no id
-        res.redirect("/search");
+        return res.redirect("/search");
       }
+    });
+
+    app.post("/episode", (req, res, next) => {
+      getWatched(
+        req.user,
+        parseInt(req.body.episodeId),
+        function (err, result) {
+          if (err) return next(err);
+          // TODO
+          res.redirect("/search");
+        }
+      );
     });
 
     app.get("/user", (req, res) => {
       if (!req.isAuthenticated()) {
         return res.redirect("/login");
       }
-      res.render("user", {
+      return res.render("user", {
         username: getName(req.user),
       });
     });
@@ -283,7 +313,7 @@ mongoose
       if (req.isAuthenticated()) {
         return res.redirect("/user");
       }
-      res.render("login", {
+      return res.render("login", {
         username: getName(req.user),
         message: "Please log in",
       });
@@ -293,13 +323,13 @@ mongoose
       if (req.isAuthenticated()) {
         return res.redirect("/user");
       }
-      res.render("register", {
+      return res.render("register", {
         username: getName(req.user),
         message: "Please register",
       });
     });
 
-    app.post("/register", function (req, res) {
+    app.post("/register", function (req, res, next) {
       if (req.isAuthenticated()) {
         return res.redirect("/user");
       }
@@ -310,13 +340,13 @@ mongoose
         req.body.password,
         function (err) {
           if (err) {
-            if (err.name == "UserExistsError") {
-              req.flash("message", "This username is taken!");
+            if (err instanceof errors.AuthenticationError) {
+              req.flash("message", err.message);
             } else {
-              req.flash("message", `Unexpected message: ${err.name}`);
+              next(err);
             }
 
-            res.render("register", {
+            return res.render("register", {
               username: getName(req.user),
               message: req.flash("message"),
             });
@@ -325,18 +355,18 @@ mongoose
           User.findOne(
             { username: { $eq: req.body.username } },
             function (err, obj) {
-              if (err) req.flash("message", err);
+              if (err) return next(err);
               new UserData({
                 _id: obj._id,
                 settings: {},
                 watched: [],
               }).save(function (err) {
-                if (err) req.flash("message", err);
+                if (err) return next(err);
               });
             }
           );
           passport.authenticate("local")(req, res, function () {
-            res.redirect("/user");
+            return res.redirect("/user");
           });
         }
       );
@@ -367,7 +397,7 @@ mongoose
 
     app.get("/logout", function (req, res) {
       req.logout();
-      res.redirect("/login");
+      return res.redirect("/login");
     });
     app.listen(config.port, function (err) {
       if (err) console.log("Error in server setup");
