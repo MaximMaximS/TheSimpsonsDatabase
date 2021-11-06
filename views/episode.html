@@ -102,9 +102,15 @@
                 </div>
                 <% if (username != "") { %>
                 <div class="inputdata">
-                  <button type="submit" value="mark" name="action">
+                  <% if (!watched) { %>
+                  <button type="submit" value="markwatched" name="action">
                     Mark as watched
                   </button>
+                  <% } else { %>
+                  <button type="submit" value="markunwatched" name="action">
+                    Mark as unwatched
+                  </button>
+                  <% } %>
                 </div>
                 <% } %>
               </div>

@@ -17,63 +17,88 @@ const errors = require("passport-local-mongoose").errors;
 function getSetting(user, settingName, callback) {
   if (typeof user !== "undefined") {
     // If user logged in
-    UserData.findById(user._id, function (err, userdata) {
+    UserData.findById(user._id, (err, userdata) => {
       // Find UserData of User
       if (err) {
-        callback(err, null); // Return error
+        return callback(err); // Return error
       } else if (userdata == null) {
         // If UserData not found
-        callback(new Error("UserData missing!"), null); // Return error
+        return callback(new Error("UserData missing!"), null); // Return error
       } else {
         // UserData found
         let settingValue = userdata.settings[settingName]; // Get setting value
         if (typeof settingValue !== "undefined") {
           // Check if setting value exists
-          callback(null, settingValue); // Sucess: Return requires setting value
+          return callback(null, settingValue); // Sucess: Return requires setting value
         } else {
           // Setting value missing
-          callback(new Error("Setting is missing!"), null); // Return error
+          return callback(new Error("Setting is missing!"), null); // Return error
         }
       }
     });
   } else {
     // Logged out
-    Setting.findById(settingName, function (err, setting) {
+    Setting.findById(settingName, (err, setting) => {
       if (err) {
-        callback(err, null);
+        return callback(err);
       } else if (setting == null) {
-        callback(new Error("Setting configuration missing!"), null);
+        return callback(new Error("Setting configuration missing!"), null);
       } else {
         let val = setting.options[setting.default];
         if (typeof val !== "undefined") {
-          callback(null, val);
+          return callback(null, val);
         } else {
-          callback(new Error("Setting is undefined"), null);
+          return callback(new Error("Setting is undefined"), null);
         }
       }
     });
   }
 }
 
-function getWatched(user, episodeId, callback) {
+function getData(user, episodeId, callback) {
   if (typeof user !== "undefined") {
     // If user logged in
-    UserData.findById(user._id, function (err, userdata) {
+    UserData.findById(user._id, (err, userdata) => {
       // Find UserData of User
       if (err) {
-        callback(err, null); // Return error
+        return callback(err); // Return error
       } else if (userdata == null) {
         // If UserData not found
-        callback(new Error("UserData missing!"), null); // Return error
+        return callback(new Error("UserData missing!"), null); // Return error
       } else {
         // UserData found
         let watched = userdata.watched.includes(episodeId); // Get setting value
-        callback(null, watched);
+        return callback(null, userdata, watched);
       }
     });
   } else {
-    callback(null, null);
+    return callback(null, null);
   }
+}
+
+function markEpisode(episodeId, markas, user, callback) {
+  getData(user, episodeId, (err, userdata, isWatched) => {
+    if (err) return callback(err);
+    if (markas != isWatched) {
+      if (markas) {
+        UserData.updateOne(
+          { _id: userdata._id },
+          { $push: { watched: episodeId } },
+          (err) => {
+            return callback(err);
+          }
+        );
+      } else {
+        UserData.updateOne(
+          { _id: userdata._id },
+          { $pullAll: { watched: [episodeId] } },
+          (err) => {
+            return callback(err);
+          }
+        );
+      }
+    }
+  });
 }
 
 function getName(user) {
@@ -81,41 +106,41 @@ function getName(user) {
 }
 
 function findByNumber(req, callback) {
-  Season.findById(parseInt(req.body.seasonByNum) || 0, function (err, season) {
+  Season.findById(parseInt(req.body.seasonByNum) || 0, (err, season) => {
     // Find season
     if (err) {
-      callback(err, null); // Return error
+      return callback(err); // Return error
     } else if (season == null) {
       // If season not found
-      callback("Season not found!", null); // Return error
+      return callback("Season not found!", null); // Return error
     } else {
       // If season found
       let episode = season.episodes[req.body.episodeByNum - 1]; // Get episode obejct
       if (typeof episode == "undefined") {
         // If episode obejct is undefined
-        callback("Episode not found!", null); // Return error
+        return callback("Episode not found!", null); // Return error
       } else {
-        callback(null, episode); // Success: Return episode object
+        return callback(null, episode); // Success: Return episode object
       }
     }
   });
 }
 
-function findById(id, callback) {
+function findById(episodeId, callback) {
   Season.findOne(
-    { episodes: { $elemMatch: { noOverall: id } } },
-    function (err, season) {
+    { episodes: { $elemMatch: { noOverall: episodeId } } },
+    (err, season) => {
       // Find season
       if (err) {
-        callback(err, null); // Return error
+        return callback(err); // Return error
       } else {
         if (season != null) {
           let episode = season.episodes.find(
-            (cEpisode) => cEpisode.noOverall == id
+            (cEpisode) => cEpisode.noOverall == episodeId
           ); // Find episode
-          callback(null, episode); // Return episode object
+          return callback(null, episode); // Return episode object
         } else {
-          callback(null, null); // Return null
+          return callback(null, null); // Return null
         }
       }
     }
@@ -181,7 +206,7 @@ mongoose
       // Switch actions of post request
       switch (req.body.action) {
         case "searchByNum": // If searching episode by number
-          findByNumber(req, function (err, episode) {
+          findByNumber(req, (err, episode) => {
             // Find episode
             let msg = "Episode found!";
             let searchData = {
@@ -200,7 +225,7 @@ mongoose
               searchData["episodeId"] = episode.noOverall;
               if (typeof req.user !== "undefined") {
                 // If user logged in
-                getSetting(req.user, "lang", function (err, lang) {
+                getSetting(req.user, "lang", (err, lang) => {
                   if (err) {
                     return next(err);
                   } else {
@@ -259,15 +284,15 @@ mongoose
       let id = parseInt(req.query.id) || 0; // Get episode id
       if (id) {
         // If exists
-        findById(id, function (err, episode) {
+        findById(id, (err, episode) => {
           if (err) {
             return next(err);
           } else if (episode != null) {
-            getSetting(req.user, "lang", function (err, lang) {
+            getSetting(req.user, "lang", (err, lang) => {
               if (err) {
                 return next(err);
               } else {
-                getWatched(req.user, id, function (err, result) {
+                getData(req.user, id, (err, _, result) => {
                   if (err) return next(err);
                   return res.render("episode", {
                     username: getName(req.user),
@@ -289,15 +314,26 @@ mongoose
     });
 
     app.post("/episode", (req, res, next) => {
-      getWatched(
-        req.user,
-        parseInt(req.body.episodeId),
-        function (err, result) {
-          if (err) return next(err);
-          // TODO
-          res.redirect("/search");
+      let id = parseInt(req.body.episodeId) || 0;
+      getData(req.user, id, (err, _, result) => {
+        if (err) return next(err);
+        let action = req.body.action;
+        if (result != null) {
+          if (result && action == "markunwatched") {
+            markEpisode(id, false, req.user, (err) => {
+              if (err) return next(err);
+              return res.redirect(`/episode?id=${id}`);
+            });
+          } else if (!result && action == "markwatched") {
+            markEpisode(id, true, req.user, (err) => {
+              if (err) return next(err);
+              return res.redirect(`/episode?id=${id}`);
+            });
+          } else {
+            return res.redirect(`/episode?id=${id}`);
+          }
         }
-      );
+      });
     });
 
     app.get("/user", (req, res) => {
@@ -329,7 +365,7 @@ mongoose
       });
     });
 
-    app.post("/register", function (req, res, next) {
+    app.post("/register", (req, res, next) => {
       if (req.isAuthenticated()) {
         return res.redirect("/user");
       }
@@ -338,7 +374,7 @@ mongoose
           username: req.body.username,
         }),
         req.body.password,
-        function (err) {
+        (err) => {
           if (err) {
             if (err instanceof errors.AuthenticationError) {
               req.flash("message", err.message);
@@ -352,31 +388,26 @@ mongoose
             });
           }
           // Resgistration sucessfull
-          User.findOne(
-            { username: { $eq: req.body.username } },
-            function (err, obj) {
+          User.findOne({ username: { $eq: req.body.username } }, (err, obj) => {
+            if (err) return next(err);
+            new UserData({
+              _id: obj._id,
+              settings: {},
+              watched: [],
+            }).save((err) => {
               if (err) return next(err);
-              new UserData({
-                _id: obj._id,
-                settings: {},
-                watched: [],
-              }).save(function (err) {
-                if (err) return next(err);
-              });
-            }
-          );
-          passport.authenticate("local")(req, res, function () {
-            return res.redirect("/user");
+            });
           });
+          passport.authenticate("local")(req, res, () => res.redirect("/user"));
         }
       );
     });
 
-    app.post("/login", function (req, res, next) {
+    app.post("/login", (req, res, next) => {
       if (req.isAuthenticated()) {
         return res.redirect("/user");
       }
-      passport.authenticate("local", function (err, user) {
+      passport.authenticate("local", (err, user) => {
         if (err) {
           return next(err);
         }
@@ -386,7 +417,7 @@ mongoose
             message: "Invalid login!",
           });
         }
-        req.logIn(user, function (err) {
+        req.logIn(user, (err) => {
           if (err) {
             return next(err);
           }
@@ -395,11 +426,11 @@ mongoose
       })(req, res, next);
     });
 
-    app.get("/logout", function (req, res) {
+    app.get("/logout", (req, res) => {
       req.logout();
       return res.redirect("/login");
     });
-    app.listen(config.port, function (err) {
+    app.listen(config.port, (err) => {
       if (err) console.log("Error in server setup");
       console.log(
         `The Simpsons Database now running on http://localhost:${config.port}`
