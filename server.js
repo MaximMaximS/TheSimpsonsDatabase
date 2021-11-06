@@ -55,10 +55,7 @@ function getSetting(user, settingName, callback) {
 }
 
 function getName(user) {
-  if (typeof user !== "undefined") {
-    // If user logged in
-    return user.username;
-  } else return "";
+  return (user || {}).username || "";
 }
 
 function findByNumber(req, callback) {
