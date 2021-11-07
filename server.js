@@ -1,5 +1,4 @@
 require("dotenv").config();
-const config = require("./config.json");
 const express = require("express");
 const passport = require("passport");
 const path = require("path");
@@ -430,10 +429,10 @@ mongoose
       req.logout();
       return res.redirect("/login");
     });
-    app.listen(config.port, (err) => {
-      if (err) console.log("Error in server setup");
+    app.listen(process.env.PORT, (err) => {
+      if (err) return console.log("Error in server setup");
       console.log(
-        `The Simpsons Database now running on http://localhost:${config.port}`
+        `The Simpsons Database now running on http://localhost:${process.env.PORT}`
       );
     });
   })
