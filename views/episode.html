@@ -22,14 +22,14 @@
           </li>
         </ul>
         <ul>
-          <% if (username == ""){ %>
+          <% if (username == "") { %>
           <li>
             <a href="/register"> Register </a>
           </li>
           <li>
             <a href="/login"> Login </a>
           </li>
-          <% } else{ %>
+          <% } else { %>
           <li>
             <a href="/user" class="useNormalFont"> <%= username %> </a>
           </li>
@@ -48,38 +48,73 @@
             <div class="fakeForm">
               <div class="formdata">
                 <div class="inputdata">
-                  <label for="name">Name: </label>
-                  <input id="name" value="<%= episodeData.names[lang] %>" />
+                  <label for="name">Name</label>
+                  <input
+                    id="name"
+                    readonly
+                    value="<%= episodeData.names[lang] %>"
+                  />
                 </div>
                 <div class="inputdata">
-                  <label for="premiere">Premiere: </label>
+                  <label for="premiere">Premiere</label>
                   <input
                     id="premiere"
+                    readonly
                     value="<%= episodeData.premieres[lang] %>"
                   />
                 </div>
+                <% if (watched) { %>
+                <div class="inputdata">
+                  <label for="seen">Watched</label>
+                  <input id="seen" readonly value="Yes ✔️" />
+                </div>
+                <% } else if (watched != null) { %>
+                <div class="inputdata">
+                  <label for="seen">Watched</label>
+                  <input id="seen" readonly value="No ❌" />
+                </div>
+                <% } %>
               </div>
             </div>
-            <div class="fakeForm">
+            <form action="#" method="POST">
+              <input
+                id="episodeId"
+                type="hidden"
+                name="episodeId"
+                value="<%= episodeData.noOverall %>"
+              />
               <div class="formdata">
                 <div class="inputdata">
-                  <label for="direction">Directed by: </label>
-                  <input id="direction" value="<%= episodeData.direction %>" />
-                </div>
-                <div class="inputdata">
-                  <label for="screenplay">Screenplay: </label>
+                  <label for="direction">Directed by</label>
                   <input
-                    id="screenplay"
-                    value="<%= episodeData.screenplay %>"
+                    id="direction"
+                    readonly
+                    value="<%= episodeData.direction %>"
                   />
                 </div>
                 <div class="inputdata">
-                  <button type="submit" value="mark" name="action">
+                  <label for="screenplay">Screenplay</label>
+                  <input
+                    id="screenplay"
+                    readonly
+                    value="<%= episodeData.screenplay %>"
+                  />
+                </div>
+                <% if (username != "") { %>
+                <div class="inputdata">
+                  <% if (!watched) { %>
+                  <button type="submit" value="markwatched" name="action">
                     Mark as watched
                   </button>
+                  <% } else { %>
+                  <button type="submit" value="markunwatched" name="action">
+                    Mark as unwatched
+                  </button>
+                  <% } %>
                 </div>
+                <% } %>
               </div>
-            </div>
+            </form>
           </div>
         </section>
         <div class="clearfix"></div>

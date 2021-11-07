@@ -36,7 +36,7 @@ const enNames = [
 function convDate(dateIn) {
   // 23. září 1994
   var date = dateIn;
-  czNames.forEach(function (name, index) {
+  czNames.forEach((name, index) => {
     date = date.replace(`. ${name} `, `-${enNames[index]}-`);
   });
   return date;
@@ -49,11 +49,11 @@ var currentObj = {
 };
 var seasons = table.split("\n-split-\r\n");
 // currentObj["test"] = seasons;
-seasons.forEach(function (season, seasonNo) {
+seasons.forEach((season, seasonNo) => {
   let lines = season.split("\n");
   var episodes = [];
   // lines = lines.filter(e => e != "-split-\r");
-  lines.forEach(function (episode) {
+  lines.forEach((episode) => {
     let info = episode.split("\t");
     let old = info;
     info = old.map((s) => s.trim());
