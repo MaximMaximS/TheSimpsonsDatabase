@@ -368,6 +368,11 @@ mongoose
       if (req.isAuthenticated()) {
         return res.redirect("/user");
       }
+      if (process.env.MODE == "closed")
+        return res.render("register", {
+          username: getName(req.user),
+          message: "Registration is disabled",
+        });
       User.register(
         new User({
           username: req.body.username,
