@@ -3,7 +3,7 @@ const express = require("express");
 const passport = require("passport");
 const path = require("path");
 const mongoose = require("mongoose");
-const session = require("express-session");
+const session = require("cookie-session");
 const User = require("./models/user");
 const UserData = require("./models/userdata");
 const Season = require("./models/season");
@@ -164,9 +164,9 @@ mongoose
     app.use(helmet());
     app.use(
       session({
+        name: "session",
         secret: process.env.SECRET,
-        resave: true,
-        saveUninitialized: true,
+        maxAge: 30 * 24 * 60 * 60 * 1000,
       })
     );
     app.use(flash());
