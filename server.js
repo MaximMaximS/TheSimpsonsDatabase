@@ -8,143 +8,9 @@ const User = require("./models/user");
 const UserData = require("./models/userdata");
 const Season = require("./models/season");
 const Setting = require("./models/setting");
-const flash = require("connect-flash");
 const RateLimit = require("express-rate-limit");
 const helmet = require("helmet");
 const errors = require("passport-local-mongoose").errors;
-
-function getSetting(user, settingName, callback) {
-  if (typeof user !== "undefined") {
-    // If user logged in
-    UserData.findById(user._id, (err, userdata) => {
-      // Find UserData of User
-      if (err) {
-        return callback(err); // Return error
-      } else if (userdata == null) {
-        // If UserData not found
-        return callback(new Error("UserData missing!"), null); // Return error
-      } else {
-        // UserData found
-        let settingValue = userdata.settings[settingName]; // Get setting value
-        if (typeof settingValue !== "undefined") {
-          // Check if setting value exists
-          return callback(null, settingValue); // Sucess: Return requires setting value
-        } else {
-          // Setting value missing
-          return callback(new Error("Setting is missing!"), null); // Return error
-        }
-      }
-    });
-  } else {
-    // Logged out
-    Setting.findById(settingName, (err, setting) => {
-      if (err) {
-        return callback(err);
-      } else if (setting == null) {
-        return callback(new Error("Setting configuration missing!"), null);
-      } else {
-        let val = setting.options[setting.default];
-        if (typeof val !== "undefined") {
-          return callback(null, val);
-        } else {
-          return callback(new Error("Setting is undefined"), null);
-        }
-      }
-    });
-  }
-}
-
-function getData(user, episodeId, callback) {
-  if (typeof user !== "undefined") {
-    // If user logged in
-    UserData.findById(user._id, (err, userdata) => {
-      // Find UserData of User
-      if (err) {
-        return callback(err); // Return error
-      } else if (userdata == null) {
-        // If UserData not found
-        return callback(new Error("UserData missing!"), null); // Return error
-      } else {
-        // UserData found
-        let watched = userdata.watched.includes(episodeId); // Get setting value
-        return callback(null, userdata, watched);
-      }
-    });
-  } else {
-    return callback(null, null);
-  }
-}
-
-function markEpisode(episodeId, markas, user, callback) {
-  getData(user, episodeId, (err, userdata, isWatched) => {
-    if (err) return callback(err);
-    if (markas != isWatched) {
-      if (markas) {
-        UserData.updateOne(
-          { _id: userdata._id },
-          { $push: { watched: episodeId } },
-          (err) => {
-            return callback(err);
-          }
-        );
-      } else {
-        UserData.updateOne(
-          { _id: userdata._id },
-          { $pullAll: { watched: [episodeId] } },
-          (err) => {
-            return callback(err);
-          }
-        );
-      }
-    }
-  });
-}
-
-function getName(user) {
-  return (user || {}).username || "";
-}
-
-function findByNumber(req, callback) {
-  Season.findById(parseInt(req.body.seasonByNum) || 0, (err, season) => {
-    // Find season
-    if (err) {
-      return callback(err); // Return error
-    } else if (season == null) {
-      // If season not found
-      return callback("Season not found!", null); // Return error
-    } else {
-      // If season found
-      let episode = season.episodes[req.body.episodeByNum - 1]; // Get episode obejct
-      if (typeof episode == "undefined") {
-        // If episode obejct is undefined
-        return callback("Episode not found!", null); // Return error
-      } else {
-        return callback(null, episode); // Success: Return episode object
-      }
-    }
-  });
-}
-
-function findById(episodeId, callback) {
-  Season.findOne(
-    { episodes: { $elemMatch: { noOverall: episodeId } } },
-    (err, season) => {
-      // Find season
-      if (err) {
-        return callback(err); // Return error
-      } else {
-        if (season != null) {
-          let episode = season.episodes.find(
-            (cEpisode) => cEpisode.noOverall == episodeId
-          ); // Find episode
-          return callback(null, episode); // Return episode object
-        } else {
-          return callback(null, null); // Return null
-        }
-      }
-    }
-  );
-}
 
 mongoose
   .connect(
@@ -169,7 +35,6 @@ mongoose
         maxAge: 30 * 24 * 60 * 60 * 1000,
       })
     );
-    app.use(flash());
     app.use(passport.initialize());
     app.use(passport.session());
     passport.use(User.createStrategy());
@@ -380,15 +245,16 @@ mongoose
         req.body.password,
         (err) => {
           if (err) {
+            let msg;
             if (err instanceof errors.AuthenticationError) {
-              req.flash("message", err.message);
+              msg = err.message;
             } else {
               next(err);
             }
 
             return res.render("register", {
               username: getName(req.user),
-              message: req.flash("message"),
+              message: msg,
             });
           }
           // Resgistration sucessfull
@@ -444,3 +310,136 @@ mongoose
   .catch((err) => {
     console.log(err);
   });
+
+function getSetting(user, settingName, callback) {
+  if (typeof user !== "undefined") {
+    // If user logged in
+    UserData.findById(user._id, (err, userdata) => {
+      // Find UserData of User
+      if (err) {
+        return callback(err); // Return error
+      } else if (userdata == null) {
+        // If UserData not found
+        return callback(new Error("UserData missing!"), null); // Return error
+      } else {
+        // UserData found
+        let settingValue = userdata.settings[settingName]; // Get setting value
+        if (typeof settingValue !== "undefined") {
+          // Check if setting value exists
+          return callback(null, settingValue); // Sucess: Return requires setting value
+        } else {
+          // Setting value missing
+          return callback(new Error("Setting is missing!"), null); // Return error
+        }
+      }
+    });
+  } else {
+    // Logged out
+    Setting.findById(settingName, (err, setting) => {
+      if (err) {
+        return callback(err);
+      } else if (setting == null) {
+        return callback(new Error("Setting configuration missing!"), null);
+      } else {
+        let val = setting.options[setting.default];
+        if (typeof val !== "undefined") {
+          return callback(null, val);
+        } else {
+          return callback(new Error("Setting is undefined"), null);
+        }
+      }
+    });
+  }
+}
+
+function getData(user, episodeId, callback) {
+  if (typeof user !== "undefined") {
+    // If user logged in
+    UserData.findById(user._id, (err, userdata) => {
+      // Find UserData of User
+      if (err) {
+        return callback(err); // Return error
+      } else if (userdata == null) {
+        // If UserData not found
+        return callback(new Error("UserData missing!"), null); // Return error
+      } else {
+        // UserData found
+        let watched = userdata.watched.includes(episodeId); // Get setting value
+        return callback(null, userdata, watched);
+      }
+    });
+  } else {
+    return callback(null, null);
+  }
+}
+
+function markEpisode(episodeId, markas, user, callback) {
+  getData(user, episodeId, (err, userdata, isWatched) => {
+    if (err) return callback(err);
+    if (markas != isWatched) {
+      if (markas) {
+        UserData.updateOne(
+          { _id: userdata._id },
+          { $push: { watched: episodeId } },
+          (err) => {
+            return callback(err);
+          }
+        );
+      } else {
+        UserData.updateOne(
+          { _id: userdata._id },
+          { $pullAll: { watched: [episodeId] } },
+          (err) => {
+            return callback(err);
+          }
+        );
+      }
+    }
+  });
+}
+
+function getName(user) {
+  return (user || {}).username || "";
+}
+
+function findByNumber(req, callback) {
+  Season.findById(parseInt(req.body.seasonByNum) || 0, (err, season) => {
+    // Find season
+    if (err) {
+      return callback(err); // Return error
+    } else if (season == null) {
+      // If season not found
+      return callback("Season not found!", null); // Return error
+    } else {
+      // If season found
+      let episode = season.episodes[req.body.episodeByNum - 1]; // Get episode obejct
+      if (typeof episode == "undefined") {
+        // If episode obejct is undefined
+        return callback("Episode not found!", null); // Return error
+      } else {
+        return callback(null, episode); // Success: Return episode object
+      }
+    }
+  });
+}
+
+function findById(episodeId, callback) {
+  Season.findOne(
+    { episodes: { $elemMatch: { noOverall: episodeId } } },
+    (err, season) => {
+      // Find season
+      if (err) {
+        return callback(err); // Return error
+      } else {
+        if (season != null) {
+          let episode = season.episodes.find(
+            (cEpisode) => cEpisode.noOverall == episodeId
+          ); // Find episode
+          return callback(null, episode); // Return episode object
+        } else {
+          return callback(null, null); // Return null
+        }
+      }
+    }
+  );
+}

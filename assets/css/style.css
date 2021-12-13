@@ -14,7 +14,6 @@ body {
   color: lightgray;
   font-family: Simpsonfont;
   text-align: center;
-  text-shadow: 2em;
   overflow-x: hidden;
   margin: 0;
 }
@@ -57,14 +56,16 @@ article section {
   font-family: Arial;
 }
 
-.formdata {
-  display: row-flex;
-  float: left;
-}
-
 .inputdata {
   margin: 10px;
   text-align: left;
+}
+
+.episodeNav {
+  text-decoration: none;
+  color: lightgray;
+  margin-right: 10px;
+  font-size: 18px;
 }
 
 .contentInner {

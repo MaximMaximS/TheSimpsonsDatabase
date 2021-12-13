@@ -42,6 +42,18 @@
       <article>
         <header>
           <h2>Episode</h2>
+          <p class="episodeNav"><%= episodeData.noOverall %></p>
+
+          <a
+            href="/episode?id=<%= episodeData.noOverall - 1 %>"
+            class="episodeNav"
+            >Previous</a
+          >
+          <a
+            href="/episode?id=<%= episodeData.noOverall - 1 %>"
+            class="episodeNav"
+            >Next</a
+          >
         </header>
         <section>
           <div class="contentInner">
