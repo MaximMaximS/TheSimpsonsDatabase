@@ -5,9 +5,21 @@
     "es2021": true,
     "node": true
   },
-  "extends": "eslint:recommended",
+  "extends": ["eslint:recommended", "prettier"],
   "parserOptions": {
     "ecmaVersion": "latest"
   },
-  "rules": {}
+  "rules": {
+    "semi": ["error", "always"],
+    "quotes": ["error", "double"],
+    "eqeqeq": "error",
+    "no-else-return": "error",
+    "no-var": "error",
+    "curly": ["error", "multi-line", "consistent"],
+    "no-floating-decimal": "error",
+    "block-scoped-var": "error",
+    "camelcase": "error",
+    "default-case-last": "error",
+    "no-confusing-arrow": "error"
+  }
 }
