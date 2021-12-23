@@ -29,13 +29,16 @@ mongoose
     app.use("/assets", express.static(path.join(__dirname, "assets")));
     app.use(limiter);
     app.use(helmet());
-    app.use(
-      session({
-        name: "session",
-        secret: process.env.SECRET,
-        maxAge: 30 * 24 * 60 * 60 * 1000,
-      })
-    );
+    let options = {
+      name: "session",
+      secret: process.env.SECRET,
+      maxAge: 30 * 24 * 60 * 60 * 1000,
+      sameSite: "strict",
+    };
+    if (process.env.ENV === "PROD") {
+      options["secure"] = true;
+    }
+    app.use(session(options));
     app.use(passport.initialize());
     app.use(passport.session());
     passport.use(User.createStrategy());
@@ -232,7 +235,7 @@ mongoose
       if (req.isAuthenticated()) {
         return res.redirect("/user");
       }
-      if (process.env.MODE === "closed") {
+      if (process.env.ENV === "PROD") {
         return res.render("register", {
           username: getName(req.user),
           message: "Registration is disabled",
