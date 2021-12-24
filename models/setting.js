@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
-var SettingSchema = new Schema({
+let SettingSchema = new Schema({
   _id: String,
   options: Array,
   default: Number,

@@ -35,7 +35,7 @@ const enNames = [
 
 function convDate(dateIn) {
   // 23. září 1994
-  var date = dateIn;
+  let date = dateIn;
   czNames.forEach((name, index) => {
     date = date.replace(`. ${name} `, `-${enNames[index]}-`);
   });
@@ -44,14 +44,14 @@ function convDate(dateIn) {
 
 const table = fs.readFileSync("./data/read.txt", "utf8");
 
-var currentObj = {
+let currentObj = {
   seasons: [],
 };
-var seasons = table.split("\n-split-\r\n");
+let seasons = table.split("\n-split-\r\n");
 // currentObj["test"] = seasons;
 seasons.forEach((season, seasonNo) => {
   let lines = season.split("\n");
-  var episodes = [];
+  let episodes = [];
   // lines = lines.filter(e => e != "-split-\r");
   lines.forEach((episode) => {
     let info = episode.split("\t");

@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
-var UserDataSchema = new Schema({
+let UserDataSchema = new Schema({
   _id: { type: mongoose.ObjectId },
   settings: {
     lang: {

@@ -10,7 +10,7 @@ const Season = require("../models/season");
 mongoose.connect(
   `mongodb+srv://${process.env.DBUSER}:${process.env.DBPASS}@simpsons-list.lkdxr.mongodb.net/data?retryWrites=true&w=majority`
 );
-var db = mongoose.connection;
+let db = mongoose.connection;
 
 db.on("error", console.error.bind(console, "connection error:"));
 
