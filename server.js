@@ -9,7 +9,7 @@ const User = require("./models/user");
 const UserData = require("./models/userdata");
 const Season = require("./models/season");
 const Setting = require("./models/setting");
-const RateLimit = require("express-rate-limit");
+const rateLimit = require("express-rate-limit").default;
 const helmet = require("helmet");
 const errors = require("passport-local-mongoose").errors;
 
@@ -20,9 +20,11 @@ mongoose
   .then(() => {
     //config
     const app = express();
-    const limiter = new RateLimit({
+    const limiter = rateLimit({
       windowMs: 1 * 60 * 1000,
       max: 15,
+      standardHeaders: true,
+      legacyHeaders: false,
     });
     app.set("view engine", "html");
     app.set("views", "./views");

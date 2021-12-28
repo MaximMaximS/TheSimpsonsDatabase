@@ -9,7 +9,7 @@
 
   <body>
     <nav class="menu-container">
-      <a href="" class="menu-logo">
+      <a href="/" class="menu-logo">
         <img src="/assets/images/logo.png" alt="TheSimpsonsDatabase" />
       </a>
       <div class="menu">
@@ -56,38 +56,36 @@
           >
         </header>
         <section>
-          <div class="contentInner">
-            <div class="fakeForm">
-              <div class="formdata">
-                <div class="inputdata">
-                  <label for="name">Name</label>
-                  <input
-                    id="name"
-                    readonly
-                    value="<%= episodeData.names[lang] %>"
-                  />
-                </div>
-                <div class="inputdata">
-                  <label for="premiere">Premiere</label>
-                  <input
-                    id="premiere"
-                    readonly
-                    value="<%= episodeData.premieres[lang] %>"
-                  />
-                </div>
-                <% if (watched) { %>
-                <div class="inputdata">
-                  <label for="seen">Watched</label>
-                  <input id="seen" readonly value="Yes ✔️" />
-                </div>
-                <% } else if (watched != null) { %>
-                <div class="inputdata">
-                  <label for="seen">Watched</label>
-                  <input id="seen" readonly value="No ❌" />
-                </div>
-                <% } %>
-              </div>
+          <div class="formdata">
+            <div class="inputdata">
+              <label for="name">Name</label>
+              <input
+                id="name"
+                readonly
+                value="<%= episodeData.names[lang] %>"
+              />
             </div>
+            <div class="inputdata">
+              <label for="premiere">Premiere</label>
+              <input
+                id="premiere"
+                readonly
+                value="<%= episodeData.premieres[lang] %>"
+              />
+            </div>
+            <% if (watched) { %>
+            <div class="inputdata">
+              <label for="seen">Watched</label>
+              <input id="seen" readonly value="Yes ✔️" />
+            </div>
+            <% } else if (watched != null) { %>
+            <div class="inputdata">
+              <label for="seen">Watched</label>
+              <input id="seen" readonly value="No ❌" />
+            </div>
+            <% } %>
+          </div>
+          <div class="formdata">
             <form action="#" method="POST">
               <input
                 id="episodeId"
@@ -128,6 +126,7 @@
               </div>
             </form>
           </div>
+          <div class="clearfix"></div>
         </section>
         <div class="clearfix"></div>
       </article>

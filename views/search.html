@@ -9,7 +9,7 @@
 
   <body>
     <nav class="menu-container">
-      <a href="" class="menu-logo">
+      <a href="/" class="menu-logo">
         <img src="/assets/images/logo.png" alt="TheSimpsonsDatabase" />
       </a>
       <div class="menu">
@@ -45,36 +45,40 @@
           <h3>by Number</h3>
         </header>
         <section>
-          <p class="contentMessage"><%= messages.num %></p>
-          <div class="contentInner">
+          <p class="contentMessage">
+            <%= messages.num %>
+          </p>
+          <div class="flexbreak"></div>
+          <div class="formdata">
             <form action="#" method="POST">
-              <div class="formdata">
-                <div class="inputdata">
-                  <label for="seasonByNum">Season</label>
-                  <input
-                    id="seasonByNum"
-                    type="number"
-                    name="seasonByNum"
-                    value="<%= searchData.seasonByNum %>"
-                  />
-                </div>
-                <div class="inputdata">
-                  <label for="episodeByNum">Episode</label>
-                  <input
-                    id="episodeByNum"
-                    type="number"
-                    name="episodeByNum"
-                    value="<%= searchData.episodeByNum %>"
-                  />
-                </div>
-                <div class="inputdata">
-                  <button type="submit" value="searchByNum" name="action">
-                    Search by Number
-                  </button>
-                </div>
+              <div class="inputdata">
+                <label for="seasonByNum">Season</label>
+                <input
+                  id="seasonByNum"
+                  type="number"
+                  name="seasonByNum"
+                  value="<%= searchData.seasonByNum %>"
+                />
+              </div>
+              <div class="inputdata">
+                <label for="episodeByNum">Episode</label>
+                <input
+                  id="episodeByNum"
+                  type="number"
+                  name="episodeByNum"
+                  value="<%= searchData.episodeByNum %>"
+                />
+              </div>
+              <div class="inputdata">
+                <button type="submit" value="searchByNum" name="action">
+                  Search by Number
+                </button>
               </div>
             </form>
-            <% if ((parseInt(searchData.episodeId) || 0)) { %>
+          </div>
+
+          <% if ((parseInt(searchData.episodeId) || 0)) { %>
+          <div class="formdata">
             <form action="#" method="POST">
               <div class="formdata">
                 <input
@@ -100,8 +104,8 @@
                 </div>
               </div>
             </form>
-            <% } %>
           </div>
+          <% } %>
         </section>
         <div class="clearfix"></div>
       </article>
