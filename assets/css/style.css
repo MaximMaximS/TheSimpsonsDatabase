@@ -49,11 +49,6 @@ article section {
   clear: both;
 }
 
-.flexbreak {
-  flex-basis: 100%;
-  height: 0;
-}
-
 .contentarticle {
   margin: 0px auto;
   width: 960px;
@@ -79,7 +74,7 @@ article section {
 
 .formdata {
   flex: 1;
-  margin-bottom: 20px;
+  align-self: flex-start;
 }
 
 .inputform > input,
@@ -279,6 +274,7 @@ label {
   font-size: 20px;
   margin: 0px;
   white-space: nowrap;
+  width: 100%;
 }
 
 a.button {
