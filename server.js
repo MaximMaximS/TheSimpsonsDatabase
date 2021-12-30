@@ -9,14 +9,12 @@ const User = require("./models/user");
 const UserData = require("./models/userdata");
 const Season = require("./models/season");
 const Setting = require("./models/setting");
-const rateLimit = require("express-rate-limit").default;
+const rateLimit = require("express-rate-limit");
 const helmet = require("helmet");
 const errors = require("passport-local-mongoose").errors;
 
 mongoose
-  .connect(
-    `mongodb+srv://${process.env.DBUSER}:${process.env.DBPASS}@simpsons-list.lkdxr.mongodb.net/data?retryWrites=true&w=majority`
-  )
+  .connect(process.env.URI)
   .then(() => {
     //config
     const app = express();
@@ -68,7 +66,7 @@ mongoose
         username: getName(req.user),
         messages: {
           num: "Please type season and episode number.",
-          name: "Please type episode name and select one.",
+          name: "Please type episode name.",
         },
         searchData: {},
       });
@@ -94,7 +92,7 @@ mongoose
               }
             } else {
               // Episode found
-              searchData["episodeId"] = episode.noOverall;
+              searchData["episodeIdByNum"] = episode.noOverall;
               if (typeof req.user !== "undefined") {
                 // If user logged in
                 getSetting(req.user, "lang", (err, lang) => {
@@ -114,15 +112,15 @@ mongoose
                 username: getName(req.user),
                 messages: {
                   num: msg,
-                  name: "Please type episode name and select one.",
+                  name: "Please type episode name.",
                 },
                 searchData: searchData,
               });
             }
           });
           break;
-        case "details": {
-          let id = parseInt(req.body.episodeId) || 0;
+        case "detailsByNum": {
+          let id = parseInt(req.body.episodeIdByNum) || 0;
           if (id) {
             return res.redirect(`/episode?id=${id}`);
           }
@@ -130,7 +128,53 @@ mongoose
             username: getName(req.user),
             messages: {
               num: "IdParseError",
-              name: "Please type episode name and select one.",
+              name: "Please type episode name.",
+            },
+            searchData: {},
+          });
+        }
+        case "searchByName":
+          getSetting(req.user, "lang", (err, lang) => {
+            if (err) return next(err);
+            findByName(req.body.nameByName, lang, (err2, episodes) => {
+              let msg = "Please select episode.";
+              let searchData = { nameByName: req.body.nameByName, lang: lang };
+              function continueRender() {
+                return res.render("search", {
+                  username: getName(req.user),
+                  messages: {
+                    num: "Please type season and episode number.",
+                    name: msg,
+                  },
+                  searchData: searchData,
+                });
+              }
+              if (err2) {
+                if (typeof err2 === "string") {
+                  msg = err2;
+                  return continueRender();
+                }
+                return next(err2);
+              }
+              searchData = {
+                ...searchData,
+                episodesByName: episodes,
+              };
+              return continueRender();
+            });
+          });
+
+          break;
+        case "detailsByName": {
+          let id = parseInt(req.body.selectByName) || 0;
+          if (id) {
+            return res.redirect(`/episode?id=${id}`);
+          }
+          return res.render("search", {
+            username: getName(req.user),
+            messages: {
+              num: "Please type season and episode number.",
+              name: "IdParseError",
             },
             searchData: {},
           });
@@ -140,12 +184,13 @@ mongoose
             username: getName(req.user),
             messages: {
               num: "Please type season and episode number.",
-              name: "Please type episode name and select one.",
+              name: "Please type episode name.",
             },
             searchData: {
               seasonByNum: req.body.seasonByNum,
               episodeByNum: req.body.episodeByNum,
               nameByNum: req.body.nameByNum,
+              nameByName: req.body.nameByName
             },
           });
       }
@@ -155,7 +200,7 @@ mongoose
       let id = parseInt(req.query.id) || 0; // Get episode id
       if (id) {
         // If exists
-        findById(id, (err, episode) => {
+        findById(id, (err, episode, season) => {
           if (err) {
             return next(err);
           } else if (episode !== null) {
@@ -170,6 +215,13 @@ mongoose
                   episodeData: episode,
                   lang: lang,
                   watched: result,
+                  idstring: `S${season._id.toLocaleString("en-US", {
+                    minimumIntegerDigits: 2,
+                    useGrouping: false,
+                  })}E${(episode.noSeason + 1).toLocaleString("en-US", {
+                    minimumIntegerDigits: 2,
+                    useGrouping: false,
+                  })}`,
                 });
               });
             });
@@ -425,7 +477,7 @@ function findByNumber(req, callback) {
 
 function findById(episodeId, callback) {
   Season.findOne(
-    { episodes: { $elemMatch: { noOverall: episodeId } } },
+    { episodes: { $elemMatch: { noOverall: { $eq: episodeId } } } },
     (err, season) => {
       // Find season
       if (err) {
@@ -435,9 +487,51 @@ function findById(episodeId, callback) {
         let episode = season.episodes.find(
           (cEpisode) => cEpisode.noOverall === episodeId
         ); // Find episode
-        return callback(null, episode); // Return episode object
+        episode["noSeason"] = season.episodes.indexOf(episode);
+        return callback(null, episode, season); // Return episode object
       }
       return callback(null, null); // Return null
+    }
+  );
+}
+
+function findByName(episodeName, lang, callback) {
+  Season.find(
+    {
+      episodes: {
+        $elemMatch: {
+          [`names.${lang}`]: { $regex: episodeName, $options: "i" },
+        },
+      },
+    },
+    (err, seasons) => {
+      // Find season
+      if (err) {
+        return callback(err); // Return error
+      }
+      if (seasons.length) {
+        let episodes = [];
+        seasons.forEach((season) => {
+          season.episodes.forEach((episode) => {
+            if (
+              episode.names[lang]
+                .toLowerCase()
+                .includes(episodeName.toLowerCase())
+            ) {
+              episodes.push(episode);
+            }
+          });
+        });
+        return callback(null, episodes);
+        /*
+        let episode = season.episodes.find(
+          (cEpisode) => cEpisode.noOverall === episodeId
+        ); // Find episode
+        return callback(null, episode); // Return episode object
+        */
+        // return callback(null, seasons);
+      }
+      return callback("No episodes found!", null); // Return empty array
     }
   );
 }

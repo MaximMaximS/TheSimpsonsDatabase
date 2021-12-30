@@ -76,6 +76,9 @@ article section {
   flex: 1;
   align-self: flex-start;
 }
+.formdatanomsg {
+  flex: 1;
+}
 
 .inputform > input,
 label {

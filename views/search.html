@@ -22,7 +22,7 @@
           </li>
         </ul>
         <ul>
-          <% if (username == "") { %>
+          <% if (username=="" ) { %>
           <li>
             <a href="/register"> Register </a>
           </li>
@@ -46,7 +46,6 @@
         </header>
         <section>
           <p class="contentMessage"><%= messages.num %></p>
-
           <div class="formdata">
             <form action="#" method="POST">
               <div class="inputdata">
@@ -75,15 +74,15 @@
             </form>
           </div>
 
-          <% if ((parseInt(searchData.episodeId) || 0)) { %>
+          <% if ((parseInt(searchData.episodeIdByNum) || 0)) { %>
           <div class="formdata">
             <form action="#" method="POST">
               <div class="formdata">
                 <input
-                  id="episodeId"
+                  id="episodeIdByNum"
                   type="hidden"
-                  name="episodeId"
-                  value="<%= searchData.episodeId %> "
+                  name="episodeIdByNum"
+                  value="<%= searchData.episodeIdByNum %> "
                 />
                 <div class="inputdata">
                   <label for="nameByNum">Name</label>
@@ -96,7 +95,7 @@
                   />
                 </div>
                 <div class="inputdata">
-                  <button type="submit" value="details" name="action">
+                  <button type="submit" value="detailsByNum" name="action">
                     Details
                   </button>
                 </div>
@@ -115,70 +114,51 @@
           <h3>by Name</h3>
         </header>
         <section>
-          <p>Comming coon...</p>
-          <!--
           <p class="contentMessage"><%= messages.name %></p>
-          <div class="contentInner">
+
+          <div class="formdata">
             <form action="#" method="POST">
-              <div class="formdata">
-                <div class="inputdata">
-                  <label for="seasonByName">Name</label>
-                  <input
-                    id="nameByName"
-                    type="text"
-                    name="nameByName"
-                    value="<%= searchData.nameByName %>"
-                  />
-                </div>
-                <div class="inputdata">
-                  <button type="submit" value="searchByName" name="action">
-                    Search by Name
-                  </button>
-                </div>
-                <% if ((searchData.nameByName != "") && (typeof searchData.nameByName !== "undefined")) { %>
-                  <div class="inputdata">
-                    <label for="episodesByName">Episodes</label>
-                    <select
-                      id="episodesByName"
-                      name="action"
-                      value="<%= searchData.episodesByName %>"
-                      onchange="this.form.submit()"
-                    ></select>
-                  </div>
-                <% } %>                
+              <div class="inputdata">
+                <label for="nameByName">Name</label>
+                <input
+                  id="nameByName"
+                  type="text"
+                  name="nameByName"
+                  value="<%= searchData.nameByName %>"
+                />
+              </div>
+              <div class="inputdata">
+                <button type="submit" value="searchByName" name="action">
+                  Search by Name
+                </button>
               </div>
             </form>
-            <form action="#" method="POST">
+          </div>
+
+          <% if ((searchData.episodesByName || {}).length || 0) { %>
+          <div class="formdata">
+            <div class="inputdata">
+              <label for="selectByName">Select episode</label>
+              <select id="selectByName" name="selectByName" form="episodeform">
+                <% for ( var i=0; i < searchData.episodesByName.length; i++ ) {
+                %>
+                <option value="<%=searchData.episodesByName[ i ].noOverall %>">
+                  <%=searchData.episodesByName[ i ].names[searchData.lang] %>
+                </option>
+                <% } %>
+              </select>
+            </div>
+            <form action="#" method="POST" id="episodeform">
               <div class="formdata">
                 <div class="inputdata">
-                  <label for="season">Season</label>
-                  <input
-                    id="season"
-                    type="number"
-                    name="season"
-                    value="<%= searchData.season %>"
-                    readonly
-                  />
-                </div>
-                <div class="inputdata">
-                  <label for="episode">Episode</label>
-                  <input
-                    id="episode"
-                    type="number"
-                    name="episode"
-                    value="<%= searchData.episode %>"
-                    readonly
-                  />
-                </div>
-                <div class="inputdata">
-                  <button type="submit" value="details" name="action">
+                  <button type="submit" value="detailsByName" name="action">
                     Details
                   </button>
                 </div>
               </div>
             </form>
           </div>
-          -->
+          <% } %>
         </section>
         <div class="clearfix"></div>
       </article>
