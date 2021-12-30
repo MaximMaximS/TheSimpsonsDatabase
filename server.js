@@ -190,7 +190,7 @@ mongoose
               seasonByNum: req.body.seasonByNum,
               episodeByNum: req.body.episodeByNum,
               nameByNum: req.body.nameByNum,
-              nameByName: req.body.nameByName
+              nameByName: req.body.nameByName,
             },
           });
       }
@@ -208,7 +208,7 @@ mongoose
               if (err) {
                 return next(err);
               }
-              getData(req.user, id, (err, _, result) => {
+              getWatched(req.user, id, (err, result) => {
                 if (err) return next(err);
                 return res.render("episode", {
                   username: getName(req.user),
@@ -237,7 +237,7 @@ mongoose
 
     app.post("/episode", (req, res, next) => {
       let id = parseInt(req.body.episodeId) || 0;
-      getData(req.user, id, (err, _, result) => {
+      getWatched(req.user, id, (err, result) => {
         if (err) return next(err);
         let action = req.body.action;
         if (result !== null) {
@@ -258,13 +258,35 @@ mongoose
       });
     });
 
-    app.get("/user", (req, res) => {
+    app.get("/user", (req, res, next) => {
       if (!req.isAuthenticated()) {
         return res.redirect("/login");
       }
-      return res.render("user", {
-        username: getName(req.user),
+      Setting.findById("lang", (err, languages) => {
+        if (err) next(err);
+        getSetting(req.user, "lang", (err2, lang, userdata) => {
+          if (err2) next(err2);
+          let opts = {
+            username: getName(req.user),
+            userData: { lang: lang, watched: userdata.watched.length },
+            message: "Personal settings and statistics",
+            languages: languages.options,
+          };
+          return res.render("user", opts);
+        });
       });
+    });
+
+    app.post("/user", (req, res, next) => {
+      if (!req.isAuthenticated()) {
+        return res.redirect("/login");
+      }
+      if (req.body.action === "setlang") {
+        setSetting(req.user, "lang", req.body.language, (err) => {
+          if (err) next(err);
+        });
+      }
+      return res.redirect("/user");
     });
 
     app.get("/login", (req, res) => {
@@ -371,6 +393,32 @@ mongoose
   });
 
 function getSetting(user, settingName, callback) {
+  getUserData(user, (err, userdata) => {
+    if (err) return callback(err);
+    if (userdata !== null) {
+      let settingObj = userdata.settings[settingName]; // Get setting value
+
+      if (typeof settingObj !== "undefined") {
+        // Check if setting value exists
+        return callback(null, settingObj, userdata); // Sucess: Return requires setting value
+      }
+      // Setting value missing
+      return callback(new Error("Setting is missing!"), null); // Return error
+    }
+    Setting.findById(settingName, (err, setting) => {
+      if (err) {
+        return callback(err);
+      } else if (setting === null) {
+        return callback(new Error("Setting configuration missing!"), null);
+      }
+      let obj = setting.options[setting.default];
+      if (typeof obj !== "undefined") {
+        return callback(null, obj.value, userdata);
+      }
+      return callback(new Error("Setting is undefined"), null);
+    });
+  });
+  /*
   if (typeof user !== "undefined") {
     // If user logged in
     UserData.findById(user._id, (err, userdata) => {
@@ -405,9 +453,10 @@ function getSetting(user, settingName, callback) {
       return callback(new Error("Setting is undefined"), null);
     });
   }
+  */
 }
 
-function getData(user, episodeId, callback) {
+function getUserData(user, callback) {
   if (typeof user !== "undefined") {
     // If user logged in
     UserData.findById(user._id, (err, userdata) => {
@@ -418,17 +467,37 @@ function getData(user, episodeId, callback) {
         // If UserData not found
         return callback(new Error("UserData missing!"), null); // Return error
       }
-      // UserData found
-      let watched = userdata.watched.includes(episodeId); // Get setting value
-      return callback(null, userdata, watched);
+      return callback(null, userdata);
     });
   } else {
     return callback(null, null);
   }
 }
 
+function getWatched(user, episodeId, callback) {
+  getUserData(user, (err, userdata) => {
+    if (err) return callback(err);
+    return callback(null, userdata.watched.includes(episodeId), userdata);
+  });
+}
+
+function setSetting(user, settingName, settingValue, callback) {
+  getSetting(user, settingName, (err, current) => {
+    if (current === settingValue) {
+      return callback(null);
+    }
+    UserData.updateOne(
+      { _id: user._id },
+      { [`settings.${settingName}`]: settingValue },
+      (err) => {
+        if (err) return callback(err);
+      }
+    );
+  });
+}
+
 function markEpisode(episodeId, markas, user, callback) {
-  getData(user, episodeId, (err, userdata, isWatched) => {
+  getWatched(user, episodeId, (err, isWatched, userdata) => {
     if (err) return callback(err);
     if (markas !== isWatched) {
       if (markas) {

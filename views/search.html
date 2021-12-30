@@ -142,9 +142,10 @@
               <select id="selectByName" name="selectByName" form="episodeform">
                 <% for ( var i=0; i < searchData.episodesByName.length; i++ ) {
                 %>
-                <option value="<%=searchData.episodesByName[ i ].noOverall %>">
-                  <%=searchData.episodesByName[ i ].names[searchData.lang] %>
-                </option>
+                <option
+                  value="<%=searchData.episodesByName[ i ].noOverall %>"
+                  label="<%=searchData.episodesByName[ i ].names[searchData.lang] %>"
+                ></option>
                 <% } %>
               </select>
             </div>
