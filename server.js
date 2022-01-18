@@ -335,16 +335,19 @@ mongoose
             });
           }
           // Resgistration sucessfull
-          User.findOne({ username: { $eq: req.body.username } }, (err2, obj) => {
-            if (err2) return next(err2);
-            new UserData({
-              _id: obj._id,
-              settings: {},
-              watched: [],
-            }).save((err3) => {
-              if (err2) return next(err3);
-            });
-          });
+          User.findOne(
+            { username: { $eq: req.body.username } },
+            (err2, obj) => {
+              if (err2) return next(err2);
+              new UserData({
+                _id: obj._id,
+                settings: {},
+                watched: [],
+              }).save((err3) => {
+                if (err2) return next(err3);
+              });
+            }
+          );
           passport.authenticate("local")(req, res, () => res.redirect("/user"));
         }
       );
@@ -448,7 +451,7 @@ function setSetting(user, settingName, settingValue, callback) {
     }
     UserData.updateOne(
       { _id: user._id },
-      { [`settings.${settingName}`]: settingValue },
+      { [`settings.${settingName}`]: { $eq: settingValue } },
       (err2) => {
         if (err2) return callback(err2);
       }
