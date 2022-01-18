@@ -35,11 +35,6 @@ mongoose
       maxAge: 30 * 24 * 60 * 60 * 1000,
       sameSite: "strict",
     };
-    /*
-    if (process.env.ENV === "PROD") {
-      options["secure"] = true;
-    }
-    */
     app.use(session(options));
     app.use(passport.initialize());
     app.use(passport.session());
@@ -75,7 +70,8 @@ mongoose
     app.post("/search", (req, res, next) => {
       // Switch actions of post request
       switch (req.body.action) {
-        case "searchByNum": // If searching episode by number
+        // If searching episode by number
+        case "searchByNum":
           findByNumber(req, (err, episode) => {
             // Find episode
             let msg = "Episode found!";
@@ -95,9 +91,9 @@ mongoose
               searchData["episodeIdByNum"] = episode.noOverall;
               if (typeof req.user !== "undefined") {
                 // If user logged in
-                getSetting(req.user, "lang", (err, lang) => {
-                  if (err) {
-                    return next(err);
+                getSetting(req.user, "lang", (err2, lang) => {
+                  if (err2) {
+                    return next(err2);
                   }
                   searchData["nameByNum"] = episode.names[lang];
                   continueRender();
@@ -204,12 +200,12 @@ mongoose
           if (err) {
             return next(err);
           } else if (episode !== null) {
-            getSetting(req.user, "lang", (err, lang) => {
-              if (err) {
-                return next(err);
+            getSetting(req.user, "lang", (err2, lang) => {
+              if (err2) {
+                return next(err2);
               }
-              getWatched(req.user, id, (err, result) => {
-                if (err) return next(err);
+              getWatched(req.user, id, (err3, result) => {
+                if (err3) return next(err3);
                 return res.render("episode", {
                   username: getName(req.user),
                   episodeData: episode,
@@ -242,13 +238,13 @@ mongoose
         let action = req.body.action;
         if (result !== null) {
           if (result && action === "markunwatched") {
-            markEpisode(id, false, req.user, (err) => {
-              if (err) return next(err);
+            markEpisode(id, false, req.user, (err2) => {
+              if (err2) return next(err2);
               return res.redirect(`/episode?id=${id}`);
             });
           } else if (!result && action === "markwatched") {
-            markEpisode(id, true, req.user, (err) => {
-              if (err) return next(err);
+            markEpisode(id, true, req.user, (err3) => {
+              if (err3) return next(err3);
               return res.redirect(`/episode?id=${id}`);
             });
           } else {
@@ -339,14 +335,14 @@ mongoose
             });
           }
           // Resgistration sucessfull
-          User.findOne({ username: { $eq: req.body.username } }, (err, obj) => {
-            if (err) return next(err);
+          User.findOne({ username: { $eq: req.body.username } }, (err2, obj) => {
+            if (err2) return next(err2);
             new UserData({
               _id: obj._id,
               settings: {},
               watched: [],
-            }).save((err) => {
-              if (err) return next(err);
+            }).save((err3) => {
+              if (err2) return next(err3);
             });
           });
           passport.authenticate("local")(req, res, () => res.redirect("/user"));
@@ -368,9 +364,9 @@ mongoose
             message: "Invalid login!",
           });
         }
-        req.logIn(user, (err) => {
-          if (err) {
-            return next(err);
+        req.logIn(user, (err2) => {
+          if (err2) {
+            return next(err2);
           }
           return res.redirect("/");
         });
@@ -405,9 +401,9 @@ function getSetting(user, settingName, callback) {
       // Setting value missing
       return callback(new Error("Setting is missing!"), null); // Return error
     }
-    Setting.findById(settingName, (err, setting) => {
-      if (err) {
-        return callback(err);
+    Setting.findById(settingName, (err2, setting) => {
+      if (err2) {
+        return callback(err2);
       } else if (setting === null) {
         return callback(new Error("Setting configuration missing!"), null);
       }
@@ -418,42 +414,6 @@ function getSetting(user, settingName, callback) {
       return callback(new Error("Setting is undefined"), null);
     });
   });
-  /*
-  if (typeof user !== "undefined") {
-    // If user logged in
-    UserData.findById(user._id, (err, userdata) => {
-      // Find UserData of User
-      if (err) {
-        return callback(err); // Return error
-      } else if (userdata === null) {
-        // If UserData not found
-        return callback(new Error("UserData missing!"), null); // Return error
-      }
-      // UserData found
-      let settingValue = userdata.settings[settingName]; // Get setting value
-      if (typeof settingValue !== "undefined") {
-        // Check if setting value exists
-        return callback(null, settingValue); // Sucess: Return requires setting value
-      }
-      // Setting value missing
-      return callback(new Error("Setting is missing!"), null); // Return error
-    });
-  } else {
-    // Logged out
-    Setting.findById(settingName, (err, setting) => {
-      if (err) {
-        return callback(err);
-      } else if (setting === null) {
-        return callback(new Error("Setting configuration missing!"), null);
-      }
-      let val = setting.options[setting.default];
-      if (typeof val !== "undefined") {
-        return callback(null, val);
-      }
-      return callback(new Error("Setting is undefined"), null);
-    });
-  }
-  */
 }
 
 function getUserData(user, callback) {
@@ -489,8 +449,8 @@ function setSetting(user, settingName, settingValue, callback) {
     UserData.updateOne(
       { _id: user._id },
       { [`settings.${settingName}`]: settingValue },
-      (err) => {
-        if (err) return callback(err);
+      (err2) => {
+        if (err2) return callback(err2);
       }
     );
   });
@@ -504,16 +464,16 @@ function markEpisode(episodeId, markas, user, callback) {
         UserData.updateOne(
           { _id: userdata._id },
           { $push: { watched: episodeId } },
-          (err) => {
-            return callback(err);
+          (err2) => {
+            return callback(err2);
           }
         );
       } else {
         UserData.updateOne(
           { _id: userdata._id },
           { $pullAll: { watched: [episodeId] } },
-          (err) => {
-            return callback(err);
+          (err2) => {
+            return callback(err2);
           }
         );
       }
@@ -592,13 +552,6 @@ function findByName(episodeName, lang, callback) {
           });
         });
         return callback(null, episodes);
-        /*
-        let episode = season.episodes.find(
-          (cEpisode) => cEpisode.noOverall === episodeId
-        ); // Find episode
-        return callback(null, episode); // Return episode object
-        */
-        // return callback(null, seasons);
       }
       return callback("No episodes found!", null); // Return empty array
     }

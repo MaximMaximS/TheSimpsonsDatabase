@@ -7,9 +7,7 @@ const mongoose = require("mongoose");
 const eList = require("./data/list.json");
 const Season = require("../models/season");
 
-mongoose.connect(
-  `mongodb+srv://${process.env.DBUSER}:${process.env.DBPASS}@simpsons-list.lkdxr.mongodb.net/data?retryWrites=true&w=majority`
-);
+mongoose.connect(process.env.URI);
 let db = mongoose.connection;
 
 db.on("error", console.error.bind(console, "connection error:"));

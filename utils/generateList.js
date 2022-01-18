@@ -48,11 +48,9 @@ let currentObj = {
   seasons: [],
 };
 let seasons = table.split("\n-split-\r\n");
-// currentObj["test"] = seasons;
 seasons.forEach((season, seasonNo) => {
   let lines = season.split("\n");
   let episodes = [];
-  // lines = lines.filter(e => e != "-split-\r");
   lines.forEach((episode) => {
     let info = episode.split("\t");
     let old = info;
