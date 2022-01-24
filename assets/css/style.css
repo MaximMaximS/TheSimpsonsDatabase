@@ -54,10 +54,15 @@ article section {
   width: 960px;
 }
 
-.footer {
+footer {
   margin: 80px auto;
   width: 960px;
   font-family: Arial;
+  display: inline-block;
+}
+
+footer > a {
+  margin-right: 5px;
 }
 
 .inputdata {
