@@ -23,21 +23,21 @@
   "homepage": "https://github.com/MaximMaximS/TheSimpsonsDatabase#readme",
   "dependencies": {
     "cookie-session": "^2.0.0",
-    "dotenv": "^14.2.0",
+    "dotenv": "^14.3.2",
     "ejs": "^3.1.6",
     "express": "^4.17.2",
     "express-rate-limit": "^6.2.0",
     "helmet": "^5.0.2",
-    "mongoose": "^6.1.7",
+    "mongoose": "^6.1.8",
     "passport": "^0.5.2",
     "passport-local": "^1.0.0",
     "passport-local-mongoose": "^6.1.0"
   },
   "devDependencies": {
-    "eslint": "^8.7.0",
+    "eslint": "^8.8.0",
     "eslint-config-prettier": "^8.3.0",
     "husky": "^7.0.4",
-    "lint-staged": "^12.3.1",
+    "lint-staged": "^12.3.2",
     "prettier": "2.5.1"
   },
   "lint-staged": {
