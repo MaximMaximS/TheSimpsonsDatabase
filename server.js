@@ -11,6 +11,7 @@ const Setting = require("./models/setting");
 const rateLimit = require("express-rate-limit");
 const helmet = require("helmet");
 const errors = require("passport-local-mongoose").errors;
+const csrf = require("csurf");
 
 mongoose
   .connect(process.env.URI)
@@ -23,6 +24,7 @@ mongoose
       standardHeaders: true,
       legacyHeaders: false,
     });
+    
     app.set("view engine", "html");
     app.set("views", "./views");
     app.use("/assets", express.static(path.join(__dirname, "assets")));
@@ -34,6 +36,7 @@ mongoose
       maxAge: 30 * 24 * 60 * 60 * 1000,
       sameSite: "strict",
     };
+    const csrfProtection = csrf({ cookie: false });
     app.use(session(options));
     app.use(passport.initialize());
     app.use(passport.session());
@@ -55,7 +58,7 @@ mongoose
       });
     });
 
-    app.get("/search", (req, res) => {
+    app.get("/search", csrfProtection, (req, res) => {
       return res.render("search", {
         username: getName(req.user),
         messages: {
@@ -63,10 +66,11 @@ mongoose
           name: "Please type episode name.",
         },
         searchData: {},
+        csrfToken: req.csrfToken()
       });
     });
 
-    app.post("/search", (req, res, next) => {
+    app.post("/search", csrfProtection, (req, res, next) => {
       // Switch actions of post request
       switch (req.body.action) {
         // If searching episode by number
@@ -110,6 +114,7 @@ mongoose
                   name: "Please type episode name.",
                 },
                 searchData: searchData,
+                csrfToken: req.csrfToken()
               });
             }
           });
@@ -126,6 +131,7 @@ mongoose
               name: "Please type episode name.",
             },
             searchData: {},
+            csrfToken: req.csrfToken()
           });
         }
         case "searchByName":
@@ -142,6 +148,7 @@ mongoose
                     name: msg,
                   },
                   searchData: searchData,
+                  csrfToken: req.csrfToken()
                 });
               }
               if (err2) {
@@ -172,6 +179,7 @@ mongoose
               name: "IdParseError",
             },
             searchData: {},
+            csrfToken: req.csrfToken()
           });
         }
         default:
@@ -187,11 +195,12 @@ mongoose
               nameByNum: req.body.nameByNum,
               nameByName: req.body.nameByName,
             },
+            csrfToken: req.csrfToken()
           });
       }
     });
 
-    app.get("/episode", (req, res, next) => {
+    app.get("/episode", csrfProtection, (req, res, next) => {
       let id = parseInt(req.query.id) || 0; // Get episode id
       if (id) {
         // If exists
@@ -217,6 +226,7 @@ mongoose
                     minimumIntegerDigits: 2,
                     useGrouping: false,
                   })}`,
+                  csrfToken: req.csrfToken()
                 });
               });
             });
@@ -230,7 +240,7 @@ mongoose
       }
     });
 
-    app.post("/episode", (req, res, next) => {
+    app.post("/episode", csrfProtection, (req, res, next) => {
       let id = parseInt(req.body.episodeId) || 0;
       getWatched(req.user, id, (err, result) => {
         if (err) return next(err);
@@ -253,7 +263,7 @@ mongoose
       });
     });
 
-    app.get("/user", (req, res, next) => {
+    app.get("/user", csrfProtection, (req, res, next) => {
       if (!req.isAuthenticated()) {
         return res.redirect("/login");
       }
@@ -266,13 +276,14 @@ mongoose
             userData: { lang: lang, watched: userdata.watched.length },
             message: "Personal settings and statistics",
             languages: languages.options,
+            csrfToken: req.csrfToken()
           };
           return res.render("user", opts);
         });
       });
     });
 
-    app.post("/user", (req, res, next) => {
+    app.post("/user", csrfProtection, (req, res, next) => {
       if (!req.isAuthenticated()) {
         return res.redirect("/login");
       }
@@ -284,27 +295,29 @@ mongoose
       return res.redirect("/user");
     });
 
-    app.get("/login", (req, res) => {
+    app.get("/login", csrfProtection, (req, res) => {
       if (req.isAuthenticated()) {
         return res.redirect("/user");
       }
       return res.render("login", {
         username: getName(req.user),
         message: "Please log in",
+        csrfToken: req.csrfToken()
       });
     });
 
-    app.get("/register", (req, res) => {
+    app.get("/register", csrfProtection, (req, res) => {
       if (req.isAuthenticated()) {
         return res.redirect("/user");
       }
       return res.render("register", {
         username: getName(req.user),
         message: "Please register",
+        csrfToken: req.csrfToken()
       });
     });
 
-    app.post("/register", (req, res, next) => {
+    app.post("/register", csrfProtection, (req, res, next) => {
       if (req.isAuthenticated()) {
         return res.redirect("/user");
       }
@@ -312,6 +325,7 @@ mongoose
         return res.render("register", {
           username: getName(req.user),
           message: "Registration is disabled",
+          csrfToken: req.csrfToken()
         });
       }
       User.register(
@@ -352,7 +366,7 @@ mongoose
       );
     });
 
-    app.post("/login", (req, res, next) => {
+    app.post("/login", csrfProtection, (req, res, next) => {
       if (req.isAuthenticated()) {
         return res.redirect("/user");
       }
@@ -364,6 +378,7 @@ mongoose
           return res.render("login", {
             username: getName(req.user),
             message: "Invalid login!",
+            csrfToken: req.csrfToken()
           });
         }
         req.logIn(user, (err2) => {

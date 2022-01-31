@@ -46,6 +46,7 @@
           <p class="contentMessage"><%= message %></p>
           <div class="formdata">
             <form action="#" method="POST">
+              <input type="hidden" name="_csrf" value="<%= csrfToken %>">
               <div class="inputdata">
                 <label for="username">Username</label>
                 <input id="username" type="text" name="username" />

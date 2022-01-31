@@ -48,6 +48,7 @@
           <p class="contentMessage"><%= messages.num %></p>
           <div class="formdata">
             <form action="#" method="POST">
+              <input type="hidden" name="_csrf" value="<%= csrfToken %>">
               <div class="inputdata">
                 <label for="seasonByNum">Season</label>
                 <input
@@ -75,6 +76,7 @@
           <% if ((parseInt(searchData.episodeIdByNum) || 0)) { %>
           <div class="formdata">
             <form action="#" method="POST">
+              <input type="hidden" name="_csrf" value="<%= csrfToken %>">
               <div class="formdata">
                 <input
                   id="episodeIdByNum"
@@ -114,6 +116,7 @@
 
           <div class="formdata">
             <form action="#" method="POST">
+              <input type="hidden" name="_csrf" value="<%= csrfToken %>">
               <div class="inputdata">
                 <label for="nameByName">Name</label>
                 <input
@@ -144,6 +147,7 @@
               </select>
             </div>
             <form action="#" method="POST" id="episodeform">
+              <input type="hidden" name="_csrf" value="<%= csrfToken %>">
               <div class="formdata">
                 <div class="inputdata">
                   <button type="submit" value="detailsByName" name="action">
