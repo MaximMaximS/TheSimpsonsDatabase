@@ -49,19 +49,13 @@
         <section>
           <p class="contentMessage"><%= message %></p>
           <div class="formdata">
-            
-
             <div class="inputdata">
               <label for="language">Language</label>
               <select id="language" name="language" form="setlang">
-                <% for ( var i=0; i < languages.length; i++ ) {
-                %>
-                <option
-                  value="<%=languages[i].value %>"
-                  label="<%=languages[i].label %>"
-                  <%=languages[i].value === userData.lang ? "selected" : "" %>
-                ></option>
-                <% } %>
+                <% for ( var i=0; i < languages.length; i++ ) { %> <option
+                value="<%=languages[i].value %>" label="<%=languages[i].label
+                %>" <%=languages[i].value === userData.lang ? "selected" : "" %>
+                > <% } %>
               </select>
             </div>
             <form action="#" method="POST" id="setlang">
@@ -80,8 +74,7 @@
                 type="number"
                 readonly
                 name="watched"
-                value="<%= userData.watched %>"
-              />
+                value="<%= userData.watched %>" />
             </div>
           </div>
         </section>

@@ -54,8 +54,7 @@
                   id="seasonByNum"
                   type="number"
                   name="seasonByNum"
-                  value="<%= searchData.seasonByNum %>"
-                />
+                  value="<%= searchData.seasonByNum %>" />
               </div>
               <div class="inputdata">
                 <label for="episodeByNum">Episode</label>
@@ -63,8 +62,7 @@
                   id="episodeByNum"
                   type="number"
                   name="episodeByNum"
-                  value="<%= searchData.episodeByNum %>"
-                />
+                  value="<%= searchData.episodeByNum %>" />
               </div>
               <div class="inputdata">
                 <button type="submit" value="searchByNum" name="action">
@@ -82,8 +80,7 @@
                   id="episodeIdByNum"
                   type="hidden"
                   name="episodeIdByNum"
-                  value="<%= searchData.episodeIdByNum %> "
-                />
+                  value="<%= searchData.episodeIdByNum %> " />
                 <div class="inputdata">
                   <label for="nameByNum">Name</label>
                   <input
@@ -91,8 +88,7 @@
                     type="text"
                     name="nameByNum"
                     value="<%= searchData.nameByNum %>"
-                    readonly
-                  />
+                    readonly />
                 </div>
                 <div class="inputdata">
                   <button type="submit" value="detailsByNum" name="action">
@@ -124,8 +120,7 @@
                   id="nameByName"
                   type="text"
                   name="nameByName"
-                  value="<%= searchData.nameByName %>"
-                />
+                  value="<%= searchData.nameByName %>" />
               </div>
               <div class="inputdata">
                 <button type="submit" value="searchByName" name="action">
@@ -144,8 +139,7 @@
                 %>
                 <option
                   value="<%=searchData.episodesByName[ i ].noOverall %>"
-                  label="<%=searchData.episodesByName[ i ].names[searchData.lang] %>"
-                ></option>
+                  label="<%=searchData.episodesByName[ i ].names[searchData.lang] %>"></option>
                 <% } %>
               </select>
             </div>

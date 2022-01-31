@@ -62,16 +62,14 @@
               <input
                 id="name"
                 readonly
-                value="<%= episodeData.names[lang] %>"
-              />
+                value="<%= episodeData.names[lang] %>" />
             </div>
             <div class="inputdata">
               <label for="premiere">Premiere</label>
               <input
                 id="premiere"
                 readonly
-                value="<%= episodeData.premieres[lang] %>"
-              />
+                value="<%= episodeData.premieres[lang] %>" />
             </div>
             <% if (watched) { %>
             <div class="inputdata">
@@ -91,24 +89,21 @@
                 id="episodeId"
                 type="hidden"
                 name="episodeId"
-                value="<%= episodeData.noOverall %>"
-              />
+                value="<%= episodeData.noOverall %>" />
               <div class="formdata">
                 <div class="inputdata">
                   <label for="direction">Directed by</label>
                   <input
                     id="direction"
                     readonly
-                    value="<%= episodeData.direction %>"
-                  />
+                    value="<%= episodeData.direction %>" />
                 </div>
                 <div class="inputdata">
                   <label for="screenplay">Screenplay</label>
                   <input
                     id="screenplay"
                     readonly
-                    value="<%= episodeData.screenplay %>"
-                  />
+                    value="<%= episodeData.screenplay %>" />
                 </div>
                 <% if (username != "") { %>
                 <div class="inputdata">

@@ -450,7 +450,7 @@ function setSetting(user, settingName, settingValue, callback) {
     }
     UserData.updateOne(
       { _id: user._id },
-      { [`settings.${settingName}`]: { $eq: settingValue } },
+      { [`settings.${settingName}`]:  settingValue },
       (err2) => {
         if (err2) return callback(err2);
       }
@@ -527,35 +527,40 @@ function findById(episodeId, callback) {
 }
 
 function findByName(episodeName, lang, callback) {
-  Season.find(
-    {
-      episodes: {
-        $elemMatch: {
-          [`names.${lang}`]: { $regex: episodeName, $options: "i" },
+  if (typeof episodeName === "string") {
+    Season.find(
+      {
+        episodes: {
+          $elemMatch: {
+            [`names.${lang}`]: { $regex: episodeName, $options: "i" },
+          },
         },
       },
-    },
-    (err, seasons) => {
-      // Find season
-      if (err) {
-        return callback(err); // Return error
-      }
-      if (seasons.length) {
-        let episodes = [];
-        seasons.forEach((season) => {
-          season.episodes.forEach((episode) => {
-            if (
-              episode.names[lang]
-                .toLowerCase()
-                .includes(episodeName.toLowerCase())
-            ) {
-              episodes.push(episode);
-            }
+      (err, seasons) => {
+        // Find season
+        if (err) {
+          return callback(err); // Return error
+        }
+        if (seasons.length) {
+          let episodes = [];
+          seasons.forEach((season) => {
+            season.episodes.forEach((episode) => {
+              if (
+                episode.names[lang]
+                  .toLowerCase()
+                  .includes(episodeName.toLowerCase())
+              ) {
+                episodes.push(episode);
+              }
+            });
           });
-        });
-        return callback(null, episodes);
+          return callback(null, episodes);
+        }
+        return callback("No episodes found!", null); // Return empty array
       }
-      return callback("No episodes found!", null); // Return empty array
-    }
-  );
+    );
+  }
+  else {
+    return callback(new Error("Name is not a string!"));
+  }
 }
