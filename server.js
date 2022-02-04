@@ -31,7 +31,7 @@ mongoose
     app.use(limiter);
     app.use(helmet());
     let options = {
-      name: "session",
+      name: "n015535",
       secret: process.env.SECRET,
       maxAge: 30 * 24 * 60 * 60 * 1000,
       sameSite: "strict",
