@@ -1,79 +1,79 @@
 {
-    "seasons": [
+  "seasons": [
+    {
+      "_id": 33,
+      "episodes": [
         {
-            "_id": 33,
-            "episodes": [
-                {
-                    "noOverall": 707,
-                    "names": {
-                        "en": "The Star of the Backstage",
-                        "cs": "Hvězda zákulisí"
-                    },
-                    "direction": "Rob Oliver",
-                    "screenplay": "Elisabeth Kiernanová Avericková",
-                    "premieres": {
-                        "en": "26-September-2021",
-                        "cs": "25-January-2022"
-                    },
-                    "code": "QABF17"
-                },
-                {
-                    "noOverall": 708,
-                    "names": {
-                        "en": "Bart's in Jail!",
-                        "cs": "Bart je v base!"
-                    },
-                    "direction": "Steven Dean Moore",
-                    "screenplay": "Nick Dahan",
-                    "premieres": {
-                        "en": "3-October-2021",
-                        "cs": "1-February-2022"
-                    },
-                    "code": "QABF18"
-                },
-                {
-                    "noOverall": 709,
-                    "names": {
-                        "en": "Treehouse of Horror XXXII",
-                        "cs": "Speciální čarodějnický díl XXXII"
-                    },
-                    "direction": "Matthew Faughnan",
-                    "screenplay": "John Frink",
-                    "premieres": {
-                        "en": "10-October-2021",
-                        "cs": "8-February-2022"
-                    },
-                    "code": "QABF16"
-                },
-                {
-                    "noOverall": 710,
-                    "names": {
-                        "en": "The Wayz We Were",
-                        "cs": "Navigace bez legrace"
-                    },
-                    "direction": "Matthew Nastuk",
-                    "screenplay": "Joel H. Cohen",
-                    "premieres": {
-                        "en": "17-October-2021",
-                        "cs": "15-February-2022"
-                    },
-                    "code": "QABF19"
-                },
-                {
-                    "noOverall": 711,
-                    "names": {
-                        "en": "Lisa's Belly",
-                        "cs": "Líza je cvalík"
-                    },
-                    "direction": "Timothy Bailey",
-                    "screenplay": "Juliet Kaufmanová",
-                    "premieres": {
-                        "en": "24-October-2021",
-                        "cs": "22-February-2022"
-                    },
-                    "code": "QABF20"
-                }
-            ]
+          "noOverall": 707,
+          "names": {
+            "en": "The Star of the Backstage",
+            "cs": "Hvězda zákulisí"
+          },
+          "direction": "Rob Oliver",
+          "screenplay": "Elisabeth Kiernanová Avericková",
+          "premieres": {
+            "en": "26-September-2021",
+            "cs": "25-January-2022"
+          },
+          "code": "QABF17"
+        },
+        {
+          "noOverall": 708,
+          "names": {
+            "en": "Bart's in Jail!",
+            "cs": "Bart je v base!"
+          },
+          "direction": "Steven Dean Moore",
+          "screenplay": "Nick Dahan",
+          "premieres": {
+            "en": "3-October-2021",
+            "cs": "1-February-2022"
+          },
+          "code": "QABF18"
+        },
+        {
+          "noOverall": 709,
+          "names": {
+            "en": "Treehouse of Horror XXXII",
+            "cs": "Speciální čarodějnický díl XXXII"
+          },
+          "direction": "Matthew Faughnan",
+          "screenplay": "John Frink",
+          "premieres": {
+            "en": "10-October-2021",
+            "cs": "8-February-2022"
+          },
+          "code": "QABF16"
+        },
+        {
+          "noOverall": 710,
+          "names": {
+            "en": "The Wayz We Were",
+            "cs": "Navigace bez legrace"
+          },
+          "direction": "Matthew Nastuk",
+          "screenplay": "Joel H. Cohen",
+          "premieres": {
+            "en": "17-October-2021",
+            "cs": "15-February-2022"
+          },
+          "code": "QABF19"
+        },
+        {
+          "noOverall": 711,
+          "names": {
+            "en": "Lisa's Belly",
+            "cs": "Líza je cvalík"
+          },
+          "direction": "Timothy Bailey",
+          "screenplay": "Juliet Kaufmanová",
+          "premieres": {
+            "en": "24-October-2021",
+            "cs": "22-February-2022"
+          },
+          "code": "QABF20"
         }
-    ]
+      ]
+    }
+  ]
 }

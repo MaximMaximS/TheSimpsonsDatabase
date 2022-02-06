@@ -76,10 +76,9 @@ seasons.forEach((season, seasonNo) => {
         console.log(err);
         console.log(episode);
       }
-      
+
       episodes.push(episodeObject);
     }
-    
   });
   currentObj.seasons.push({
     _id: Number(seasonNo + 1),
