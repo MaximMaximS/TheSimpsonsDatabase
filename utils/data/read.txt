@@ -735,3 +735,9 @@
 704	20	Mother and Child Reunion	Jak je důležité míti vysokou 	Jennifer Moellerová	J. Stewart Burns	9. května 2021	7. června 2021	QABF14	1,11
 705	21	The Man from G.R.A.M.P.A.	Krycí jméno D.Ě.D.A. 	Bob Anderson	Carolyn Omineová	16. května 2021	14. června 2021	QABF13	1,06
 706	22	The Last Barfighter	Pít či nepít 	Timothy Bailey	Dan Vebber	23. května 2021	21. června 2021	QABF15	1,02
+-split-
+707	1	The Star of the Backstage	Hvězda zákulisí 	Rob Oliver	Elisabeth Kiernanová Avericková	26. září 2021	25. ledna 2022	QABF17	3,48
+708	2	Bart's in Jail!	Bart je v base! 	Steven Dean Moore	Nick Dahan	3. října 2021	1. února 2022	QABF18	1,48
+709	3	Treehouse of Horror XXXII	Speciální čarodějnický díl XXXII 	Matthew Faughnan	John Frink	10. října 2021	8. února 2022	QABF16	3,94
+710	4	The Wayz We Were	Navigace bez legrace 	Matthew Nastuk	Joel H. Cohen	17. října 2021	15. února 2022	QABF19	1,51
+711	5	Lisa's Belly	Líza je cvalík 	Timothy Bailey	Juliet Kaufmanová	24. října 2021	22. února 2022	QABF20	1,83[12]

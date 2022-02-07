@@ -24,14 +24,14 @@ mongoose
       standardHeaders: true,
       legacyHeaders: false,
     });
-    
+
     app.set("view engine", "html");
     app.set("views", "./views");
     app.use("/assets", express.static(path.join(__dirname, "assets")));
     app.use(limiter);
     app.use(helmet());
     let options = {
-      name: "session",
+      name: "n015535",
       secret: process.env.SECRET,
       maxAge: 30 * 24 * 60 * 60 * 1000,
       sameSite: "strict",
@@ -66,7 +66,7 @@ mongoose
           name: "Please type episode name.",
         },
         searchData: {},
-        csrfToken: req.csrfToken()
+        csrfToken: req.csrfToken(),
       });
     });
 
@@ -114,7 +114,7 @@ mongoose
                   name: "Please type episode name.",
                 },
                 searchData: searchData,
-                csrfToken: req.csrfToken()
+                csrfToken: req.csrfToken(),
               });
             }
           });
@@ -131,7 +131,7 @@ mongoose
               name: "Please type episode name.",
             },
             searchData: {},
-            csrfToken: req.csrfToken()
+            csrfToken: req.csrfToken(),
           });
         }
         case "searchByName":
@@ -148,7 +148,7 @@ mongoose
                     name: msg,
                   },
                   searchData: searchData,
-                  csrfToken: req.csrfToken()
+                  csrfToken: req.csrfToken(),
                 });
               }
               if (err2) {
@@ -179,7 +179,7 @@ mongoose
               name: "IdParseError",
             },
             searchData: {},
-            csrfToken: req.csrfToken()
+            csrfToken: req.csrfToken(),
           });
         }
         default:
@@ -195,7 +195,7 @@ mongoose
               nameByNum: req.body.nameByNum,
               nameByName: req.body.nameByName,
             },
-            csrfToken: req.csrfToken()
+            csrfToken: req.csrfToken(),
           });
       }
     });
@@ -226,7 +226,7 @@ mongoose
                     minimumIntegerDigits: 2,
                     useGrouping: false,
                   })}`,
-                  csrfToken: req.csrfToken()
+                  csrfToken: req.csrfToken(),
                 });
               });
             });
@@ -276,7 +276,7 @@ mongoose
             userData: { lang: lang, watched: userdata.watched.length },
             message: "Personal settings and statistics",
             languages: languages.options,
-            csrfToken: req.csrfToken()
+            csrfToken: req.csrfToken(),
           };
           return res.render("user", opts);
         });
@@ -302,7 +302,7 @@ mongoose
       return res.render("login", {
         username: getName(req.user),
         message: "Please log in",
-        csrfToken: req.csrfToken()
+        csrfToken: req.csrfToken(),
       });
     });
 
@@ -313,7 +313,7 @@ mongoose
       return res.render("register", {
         username: getName(req.user),
         message: "Please register",
-        csrfToken: req.csrfToken()
+        csrfToken: req.csrfToken(),
       });
     });
 
@@ -325,7 +325,7 @@ mongoose
         return res.render("register", {
           username: getName(req.user),
           message: "Registration is disabled",
-          csrfToken: req.csrfToken()
+          csrfToken: req.csrfToken(),
         });
       }
       User.register(
@@ -378,7 +378,7 @@ mongoose
           return res.render("login", {
             username: getName(req.user),
             message: "Invalid login!",
-            csrfToken: req.csrfToken()
+            csrfToken: req.csrfToken(),
           });
         }
         req.logIn(user, (err2) => {
@@ -454,6 +454,9 @@ function getUserData(user, callback) {
 function getWatched(user, episodeId, callback) {
   getUserData(user, (err, userdata) => {
     if (err) return callback(err);
+    if (userdata === null) {
+      return callback(null, null);
+    }
     return callback(null, userdata.watched.includes(episodeId), userdata);
   });
 }
@@ -465,7 +468,7 @@ function setSetting(user, settingName, settingValue, callback) {
     }
     UserData.updateOne(
       { _id: user._id },
-      { [`settings.${settingName}`]:  settingValue },
+      { [`settings.${settingName}`]: settingValue },
       (err2) => {
         if (err2) return callback(err2);
       }
@@ -574,8 +577,7 @@ function findByName(episodeName, lang, callback) {
         return callback("No episodes found!", null); // Return empty array
       }
     );
-  }
-  else {
+  } else {
     return callback(new Error("Name is not a string!"));
   }
 }

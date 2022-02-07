@@ -52,24 +52,33 @@ seasons.forEach((season, seasonNo) => {
   let lines = season.split("\n");
   let episodes = [];
   lines.forEach((episode) => {
-    let info = episode.split("\t");
-    let old = info;
-    info = old.map((s) => s.trim());
-    let episodeObject = {
-      noOverall: Number(info[0]),
-      names: {
-        en: info[2],
-        cs: info[3],
-      },
-      direction: info[4],
-      screenplay: info[5],
-      premieres: {
-        en: convDate(info[6]),
-        cs: convDate(info[7]),
-      },
-      code: info[8].replace("\r", ""),
-    };
-    episodes.push(episodeObject);
+    if (episode !== "") {
+      let info = episode.split("\t");
+      let old = info;
+      info = old.map((s) => s.trim());
+      let episodeObject;
+      try {
+        episodeObject = {
+          noOverall: Number(info[0]),
+          names: {
+            en: info[2],
+            cs: info[3],
+          },
+          direction: info[4],
+          screenplay: info[5],
+          premieres: {
+            en: convDate(info[6]),
+            cs: convDate(info[7]),
+          },
+          code: info[8].replace("\r", ""),
+        };
+      } catch (err) {
+        console.log(err);
+        console.log(episode);
+      }
+
+      episodes.push(episodeObject);
+    }
   });
   currentObj.seasons.push({
     _id: Number(seasonNo + 1),

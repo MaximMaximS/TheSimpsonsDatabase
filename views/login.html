@@ -2,6 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>The Simpsons Database</title>
     <link rel="shortcut icon" href="/assets/favicon.ico" />
     <link rel="stylesheet" type="text/css" href="/assets/css/style.css" />
@@ -46,7 +47,7 @@
           <p class="contentMessage"><%= message %></p>
           <div class="formdata">
             <form action="#" method="POST">
-              <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+              <input type="hidden" name="_csrf" value="<%= csrfToken %>" />
               <div class="inputdata">
                 <label for="username">Username</label>
                 <input id="username" type="text" name="username" />
