@@ -463,6 +463,9 @@ function getUserData(user, callback) {
 function getWatched(user, episodeId, callback) {
   getUserData(user, (err, userdata) => {
     if (err) return callback(err);
+    if (userdata === null) {
+      return callback(null, null);
+    }
     return callback(null, userdata.watched.includes(episodeId), userdata);
   });
 }
