@@ -393,8 +393,8 @@ async function main() {
     return res.redirect("/login");
   });
 
-  app.get("/api/episode", (req, res) => {
-    let id = parseInt(req.query.id) || 0; // Get episode id
+  app.get("/api/episode/id/:id", (req, res) => {
+    let id = parseInt(req.params.id) || 0; // Get episode id
     findById(id, (err, episode) => {
       if (err) {
         console.log(err);
@@ -403,6 +403,19 @@ async function main() {
         return res.json({ episode: episode });
       }
       return res.sendStatus(404);
+    });
+  });
+  
+  app.get("/api/episode/name/:name/lang/:lang", (req, res) => {
+    findByName(req.params.name, req.params.lang, (err, episodes) => {
+      if (err) {
+        if (typeof err === "string") {
+          return res.sendStatus(404);
+        }
+        console.log(err);
+        return res.sendStatus(500);
+      }
+      res.json({ episodes: episodes });
     });
   });
 
