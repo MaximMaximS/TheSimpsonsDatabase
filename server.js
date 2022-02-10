@@ -489,8 +489,8 @@ function setSetting(user, settingName, settingValue, callback) {
       return callback(null);
     }
     UserData.updateOne(
-      { _id: user._id },
-      { [`settings.${settingName}`]: settingValue },
+      { _id: user._id },    
+      { settings: {[{$eq: settingName}]: settingValue}},
       (err2) => {
         if (err2) return callback(err2);
       }
