@@ -12,6 +12,7 @@ const rateLimit = require("express-rate-limit");
 const helmet = require("helmet");
 const errors = require("passport-local-mongoose").errors;
 const csrf = require("csurf");
+const sanitize = require("mongo-sanitize");
 
 main().catch((err) => console.log(err));
 
@@ -76,49 +77,54 @@ async function main() {
     switch (req.body.action) {
       // If searching episode by number
       case "searchByNum":
-        findByNumber(req, (err, episode) => {
-          // Find episode
-          let msg = "Episode found!";
-          let searchData = {
-            seasonByNum: req.body.seasonByNum,
-            episodeByNum: req.body.episodeByNum,
-          };
-          if (err) {
-            if (typeof err === "string") {
-              msg = err;
-              continueRender();
-            } else {
-              return next(err);
-            }
-          } else {
-            // Episode found
-            searchData["episodeIdByNum"] = episode.noOverall;
-            if (typeof req.user !== "undefined") {
-              // If user logged in
-              getSetting(req.user, "lang", (err2, lang) => {
-                if (err2) {
-                  return next(err2);
-                }
-                searchData["nameByNum"] = episode.names[lang];
+        findByNumber(
+          req.body.seasonByNum,
+          req.body.episodeByNum,
+          (err, episode) => {
+            // Find episode
+            let msg = "Episode found!";
+            let searchData = {
+              seasonByNum: req.body.seasonByNum,
+              episodeByNum: req.body.episodeByNum,
+            };
+            if (err) {
+              if (typeof err === "string") {
+                msg = err;
                 continueRender();
-              });
+              } else {
+                return next(err);
+              }
             } else {
-              searchData["nameByNum"] = episode.names["en"];
-              continueRender();
+              // Episode found
+              searchData["episodeIdByNum"] = episode.overallId;
+              if (typeof req.user !== "undefined") {
+                // If user logged in
+                getSetting(req.user, "lang", (err2, lang) => {
+                  if (err2) {
+                    return next(err2);
+                  }
+                  searchData["nameByNum"] = episode.names[lang];
+                  continueRender();
+                });
+              } else {
+                // TODO Database
+                searchData["nameByNum"] = episode.names["en"];
+                continueRender();
+              }
+            }
+            function continueRender() {
+              return res.render("search", {
+                username: getName(req.user),
+                messages: {
+                  num: msg,
+                  name: "Please type episode name.",
+                },
+                searchData: searchData,
+                csrfToken: req.csrfToken(),
+              });
             }
           }
-          function continueRender() {
-            return res.render("search", {
-              username: getName(req.user),
-              messages: {
-                num: msg,
-                name: "Please type episode name.",
-              },
-              searchData: searchData,
-              csrfToken: req.csrfToken(),
-            });
-          }
-        });
+        );
         break;
       case "detailsByNum": {
         let id = parseInt(req.body.episodeIdByNum) || 0;
@@ -205,7 +211,7 @@ async function main() {
     let id = parseInt(req.query.id) || 0; // Get episode id
     if (id) {
       // If exists
-      findById(id, (err, episode, season) => {
+      findById(id, (err, episode) => {
         if (err) {
           return next(err);
         } else if (episode !== null) {
@@ -220,10 +226,10 @@ async function main() {
                 episodeData: episode,
                 lang: lang,
                 watched: result,
-                idstring: `S${season._id.toLocaleString("en-US", {
+                idstring: `S${episode.seasonId.toLocaleString("en-US", {
                   minimumIntegerDigits: 2,
                   useGrouping: false,
-                })}E${(episode.noSeason + 1).toLocaleString("en-US", {
+                })}E${episode.inSeasonId.toLocaleString("en-US", {
                   minimumIntegerDigits: 2,
                   useGrouping: false,
                 })}`,
@@ -349,16 +355,19 @@ async function main() {
           });
         }
         // Resgistration sucessfull
-        User.findOne({ username: { $eq: req.body.username } }, (err2, obj) => {
-          if (err2) return next(err2);
-          new UserData({
-            _id: obj._id,
-            settings: {},
-            watched: [],
-          }).save((err3) => {
-            if (err2) return next(err3);
-          });
-        });
+        User.findOne(
+          { username: { $eq: sanitize(req.body.username) } },
+          (err2, obj) => {
+            if (err2) return next(err2);
+            new UserData({
+              _id: obj._id,
+              settings: {},
+              watched: [],
+            }).save((err3) => {
+              if (err2) return next(err3);
+            });
+          }
+        );
         passport.authenticate("local")(req, res, () => res.redirect("/user"));
       }
     );
@@ -393,7 +402,7 @@ async function main() {
     return res.redirect("/login");
   });
 
-  app.get("/api/episode/id/:id", (req, res) => {
+  app.get("/api/episode/:id", (req, res) => {
     let id = parseInt(req.params.id) || 0; // Get episode id
     findById(id, (err, episode) => {
       if (err) {
@@ -405,8 +414,21 @@ async function main() {
       return res.sendStatus(404);
     });
   });
-  
-  app.get("/api/episode/name/:name/lang/:lang", (req, res) => {
+
+  app.get("/api/id/:season/:episode", (req, res) => {
+    findByNumber(req.params.season, req.params.episode, (err, episode) => {
+      if (err) {
+        if (typeof err === "string") {
+          return res.sendStatus(404);
+        }
+        console.log(err);
+        return res.sendStatus(500);
+      }
+      res.json({ id: episode.overallId });
+    });
+  });
+
+  app.get("/api/search/:lang/:name", (req, res) => {
     findByName(req.params.name, req.params.lang, (err, episodes) => {
       if (err) {
         if (typeof err === "string") {
@@ -415,7 +437,11 @@ async function main() {
         console.log(err);
         return res.sendStatus(500);
       }
-      res.json({ episodes: episodes });
+      let newEp = [];
+      episodes.forEach((episode) => {
+        newEp.push({ names: episode.names, overallId: episode.overallId });
+      });
+      res.json({ episodes: newEp });
     });
   });
 
@@ -489,8 +515,8 @@ function setSetting(user, settingName, settingValue, callback) {
       return callback(null);
     }
     UserData.updateOne(
-      { _id: user._id },    
-      { settings: {[{$eq: settingName}]: settingValue}},
+      { _id: user._id },
+      { settings: { [{ $eq: settingName }]: settingValue } },
       (err2) => {
         if (err2) return callback(err2);
       }
@@ -527,8 +553,8 @@ function getName(user) {
   return (user || {}).username || "";
 }
 
-function findByNumber(req, callback) {
-  Season.findById(parseInt(req.body.seasonByNum) || 0, (err, season) => {
+function findByNumber(seasonN, episodeN, callback) {
+  Season.findById(parseInt(seasonN) || 0, (err, season) => {
     // Find season
     if (err) {
       return callback(err); // Return error
@@ -537,7 +563,7 @@ function findByNumber(req, callback) {
       return callback("Season not found!", null); // Return error
     }
     // If season found
-    let episode = season.episodes[req.body.episodeByNum - 1]; // Get episode obejct
+    let episode = season.episodes[(parseInt(episodeN) || 0) - 1]; // Get episode obejct
     if (typeof episode === "undefined") {
       // If episode obejct is undefined
       return callback("Episode not found!", null); // Return error
@@ -548,7 +574,7 @@ function findByNumber(req, callback) {
 
 function findById(episodeId, callback) {
   Season.findOne(
-    { episodes: { $elemMatch: { noOverall: { $eq: episodeId } } } },
+    { episodes: { $elemMatch: { overallId: { $eq: episodeId } } } },
     (err, season) => {
       // Find season
       if (err) {
@@ -556,9 +582,9 @@ function findById(episodeId, callback) {
       }
       if (season !== null) {
         let episode = season.episodes.find(
-          (cEpisode) => cEpisode.noOverall === episodeId
+          (cEpisode) => cEpisode.overallId === episodeId
         ); // Find episode
-        episode["noSeason"] = season.episodes.indexOf(episode);
+        // episode["noSeason"] = season.episodes.indexOf(episode);
         return callback(null, episode, season); // Return episode object
       }
       return callback(null, null); // Return null

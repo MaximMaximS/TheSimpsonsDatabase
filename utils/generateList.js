@@ -51,7 +51,7 @@ let seasons = table.split("\n-split-\r\n");
 seasons.forEach((season, seasonNo) => {
   let lines = season.split("\n");
   let episodes = [];
-  lines.forEach((episode) => {
+  lines.forEach((episode, episodeNo) => {
     if (episode !== "") {
       let info = episode.split("\t");
       let old = info;
@@ -59,7 +59,9 @@ seasons.forEach((season, seasonNo) => {
       let episodeObject;
       try {
         episodeObject = {
-          noOverall: Number(info[0]),
+          overallId: Number(info[0]),
+          seasonId: seasonNo + 1,
+          inSeasonId: episodeNo + 1,
           names: {
             en: info[2],
             cs: info[3],
