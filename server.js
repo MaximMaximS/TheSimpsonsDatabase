@@ -23,7 +23,7 @@ async function main() {
   const app = express();
   const limiter = rateLimit({
     windowMs: 1 * 60 * 1000,
-    max: 60,
+    max: process.env.MAX,
     standardHeaders: true,
     legacyHeaders: false,
   });
@@ -453,6 +453,11 @@ async function main() {
   app.get("/api/watched/:id", (req, res) => {
     let key = req.query.api_key;
     if (typeof key === "undefined" || key === "") return res.sendStatus(401);
+    let id = parseInt(req.params.id) || 0;
+    findById(id, (err2, episode) => {
+      if (err2) return res.sendStatus(500);
+      if (episode === null) return res.sendStatus(404);
+    });
     UserData.findOne({ apikey: { $eq: key } }, (err, userdata) => {
       if (err) {
         console.log(err);
@@ -463,12 +468,12 @@ async function main() {
       }
       let watched = userdata.watched.includes(parseInt(req.params.id));
       return res.json({ watched: watched });
-    });
+    });    
   });
 
   app.post("/api/watched/:id", (req, res) => {
     let key = req.query.api_key;
-    if (typeof key === "undefined") return res.sendStatus(401);
+    if (typeof key === "undefined" || key === "") return res.sendStatus(401);
     let id = parseInt(req.params.id) || 0;
     findById(id, (err4, episode) => {
       if (err4) return res.sendStatus(500);
@@ -497,7 +502,7 @@ async function main() {
           });
         });
       });
-      return res.sendStatus(200);
+      return res.json({});
     });
   });
 
