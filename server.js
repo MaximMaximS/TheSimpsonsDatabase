@@ -13,6 +13,7 @@ const helmet = require("helmet");
 const errors = require("passport-local-mongoose").errors;
 const csrf = require("csurf");
 const sanitize = require("mongo-sanitize");
+const crypto = require("crypto");
 
 main().catch((err) => console.log(err));
 
@@ -22,7 +23,7 @@ async function main() {
   const app = express();
   const limiter = rateLimit({
     windowMs: 1 * 60 * 1000,
-    max: 15,
+    max: 60,
     standardHeaders: true,
     legacyHeaders: false,
   });
@@ -39,6 +40,7 @@ async function main() {
     sameSite: "strict",
   };
   const csrfProtection = csrf({ cookie: false });
+  app.use(express.json());
   app.use(session(options));
   app.use(passport.initialize());
   app.use(passport.session());
@@ -97,20 +99,14 @@ async function main() {
             } else {
               // Episode found
               searchData["episodeIdByNum"] = episode.overallId;
-              if (typeof req.user !== "undefined") {
-                // If user logged in
-                getSetting(req.user, "lang", (err2, lang) => {
-                  if (err2) {
-                    return next(err2);
-                  }
-                  searchData["nameByNum"] = episode.names[lang];
-                  continueRender();
-                });
-              } else {
-                // TODO Database
-                searchData["nameByNum"] = episode.names["en"];
+              // If user logged in
+              getSetting(req.user, "lang", (err2, lang) => {
+                if (err2) {
+                  return next(err2);
+                }
+                searchData["nameByNum"] = episode.names[lang];
                 continueRender();
-              }
+              });
             }
             function continueRender() {
               return res.render("search", {
@@ -129,7 +125,7 @@ async function main() {
       case "detailsByNum": {
         let id = parseInt(req.body.episodeIdByNum) || 0;
         if (id) {
-          return res.redirect(`/episode?id=${id}`);
+          return res.redirect(`/episode/?id=${id}`);
         }
         return res.render("search", {
           username: getName(req.user),
@@ -177,7 +173,7 @@ async function main() {
       case "detailsByName": {
         let id = parseInt(req.body.selectByName) || 0;
         if (id) {
-          return res.redirect(`/episode?id=${id}`);
+          return res.redirect(`/episode/?id=${id}`);
         }
         return res.render("search", {
           username: getName(req.user),
@@ -256,15 +252,15 @@ async function main() {
         if (result && action === "markunwatched") {
           markEpisode(id, false, req.user, (err2) => {
             if (err2) return next(err2);
-            return res.redirect(`/episode?id=${id}`);
+            return res.redirect(`/episode/?id=${id}`);
           });
         } else if (!result && action === "markwatched") {
           markEpisode(id, true, req.user, (err3) => {
             if (err3) return next(err3);
-            return res.redirect(`/episode?id=${id}`);
+            return res.redirect(`/episode/?id=${id}`);
           });
         } else {
-          return res.redirect(`/episode?id=${id}`);
+          return res.redirect(`/episode/?id=${id}`);
         }
       }
     });
@@ -276,11 +272,12 @@ async function main() {
     }
     Setting.findById("lang", (err, languages) => {
       if (err) next(err);
-      getSetting(req.user, "lang", (err2, lang, userdata) => {
+      getUserData(req.user, (err2, userdata) => {
         if (err2) next(err2);
         let opts = {
           username: getName(req.user),
-          userData: { lang: lang, watched: userdata.watched.length },
+          userData: userdata,
+          // userData: { lang: lang, watched: userdata.watched.length },
           message: "Personal settings and statistics",
           languages: languages.options,
           csrfToken: req.csrfToken(),
@@ -294,10 +291,17 @@ async function main() {
     if (!req.isAuthenticated()) {
       return res.redirect("/login");
     }
-    if (req.body.action === "setlang") {
-      setSetting(req.user, "lang", req.body.language, (err) => {
-        if (err) next(err);
-      });
+    switch (req.body.action) {
+      case "setlang":
+        setSetting(req.user, "lang", req.body.language, (err) => {
+          if (err) next(err);
+        });
+        break;
+      case "setkey":
+        generateKey(req.user, (err) => {
+          if (err) return next(err);
+        });
+        break;
     }
     return res.redirect("/user");
   });
@@ -363,6 +367,7 @@ async function main() {
               _id: obj._id,
               settings: {},
               watched: [],
+              apikey: "",
             }).save((err3) => {
               if (err2) return next(err3);
             });
@@ -445,6 +450,57 @@ async function main() {
     });
   });
 
+  app.get("/api/watched/:id", (req, res) => {
+    let key = req.query.api_key;
+    if (typeof key === "undefined" || key === "") return res.sendStatus(401);
+    UserData.findOne({ apikey: { $eq: key } }, (err, userdata) => {
+      if (err) {
+        console.log(err);
+        return res.sendStatus(500);
+      }
+      if (userdata === null || userdata.apikey === "") {
+        return res.sendStatus(401);
+      }
+      let watched = userdata.watched.includes(parseInt(req.params.id));
+      return res.json({ watched: watched });
+    });
+  });
+
+  app.post("/api/watched/:id", (req, res) => {
+    let key = req.query.api_key;
+    if (typeof key === "undefined") return res.sendStatus(401);
+    let id = parseInt(req.params.id) || 0;
+    findById(id, (err4, episode) => {
+      if (err4) return res.sendStatus(500);
+      if (episode === null) return res.sendStatus(404);
+      let requested = req.body.watched;
+      if (typeof requested !== "boolean") return res.sendStatus(400);
+
+      UserData.findOne({ apikey: { $eq: key } }, (err, userdata) => {
+        if (err) {
+          console.log(err);
+          return res.sendStatus(500);
+        }
+        if (userdata === null) {
+          return res.sendStatus(401);
+        }
+        User.findById(userdata._id, (err2, user) => {
+          if (err2) {
+            console.log(err2);
+            return res.sendStatus(500);
+          }
+          markEpisode(id, requested, user, (err3) => {
+            if (err3) {
+              console.log(err3);
+              return res.sendStatus(500);
+            }
+          });
+        });
+      });
+      return res.sendStatus(200);
+    });
+  });
+
   app.listen(process.env.PORT, (err) => {
     if (err) return console.log("Error in server setup");
     console.log(
@@ -474,7 +530,7 @@ function getSetting(user, settingName, callback) {
       }
       let obj = setting.options[setting.default];
       if (typeof obj !== "undefined") {
-        return callback(null, obj.value, userdata);
+        return callback(null, obj.value);
       }
       return callback(new Error("Setting is undefined"), null);
     });
@@ -511,12 +567,13 @@ function getWatched(user, episodeId, callback) {
 
 function setSetting(user, settingName, settingValue, callback) {
   getSetting(user, settingName, (err, current) => {
+    if (err) return callback(err);
     if (current === settingValue) {
       return callback(null);
     }
     UserData.updateOne(
       { _id: user._id },
-      { settings: { [{ $eq: settingName }]: settingValue } },
+      { settings: { [sanitize(settingName)]: settingValue } },
       (err2) => {
         if (err2) return callback(err2);
       }
@@ -574,7 +631,7 @@ function findByNumber(seasonN, episodeN, callback) {
 
 function findById(episodeId, callback) {
   Season.findOne(
-    { episodes: { $elemMatch: { overallId: { $eq: episodeId } } } },
+    { episodes: { $elemMatch: { overallId: { $eq: sanitize(episodeId) } } } },
     (err, season) => {
       // Find season
       if (err) {
@@ -627,5 +684,42 @@ function findByName(episodeName, lang, callback) {
     );
   } else {
     return callback(new Error("Name is not a string!"));
+  }
+}
+
+function getKey(callback) {
+  crypto.randomBytes(16, function (err, buffer) {
+    if (err) return callback(err);
+    return callback(null, buffer.toString("hex"));
+  });
+}
+
+function loopNew(callback) {
+  getKey((err, key) => {
+    if (err) return callback(err);
+    UserData.findOne({ apikey: key }, (err2, userSame) => {
+      if (err2) return callback(err2);
+      if (userSame === null) {
+        return callback(null, key);
+      }
+      loopNew((err3, key2) => {
+        if (err3) return callback(err3);
+        return callback(null, key2);
+      });
+    });
+  });
+}
+
+function generateKey(user, callback) {
+  if (typeof user !== "undefined") {
+    loopNew((err, key) => {
+      if (err) return callback(err);
+      UserData.updateOne({ _id: user._id }, { apikey: key }, (err2) => {
+        if (err2) return callback(err2);
+        return callback(null);
+      });
+    });
+  } else {
+    return callback(new Error("User is not defined"));
   }
 }

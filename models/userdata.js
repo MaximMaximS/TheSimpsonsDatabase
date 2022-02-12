@@ -10,6 +10,7 @@ let UserDataSchema = new Schema({
     },
   },
   watched: { type: Array },
+  apikey: { type: String },
 });
 
 module.exports = mongoose.model("UserData", UserDataSchema, "userdata");

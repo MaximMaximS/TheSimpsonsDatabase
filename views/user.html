@@ -55,8 +55,8 @@
               <select id="language" name="language" form="setlang">
                 <% for ( var i=0; i < languages.length; i++ ) { %> <option
                 value="<%=languages[i].value %>" label="<%=languages[i].label
-                %>" <%=languages[i].value === userData.lang ? "selected" : "" %>
-                > <% } %>
+                %>" <%=languages[i].value === userData.settings.lang ?
+                "selected" : "" %> > <% } %>
               </select>
             </div>
             <form action="#" method="POST" id="setlang">
@@ -69,6 +69,7 @@
             </form>
           </div>
           <div class="formdata">
+            <!--- 
             <div class="inputdata">
               <label for="watched">Watched</label>
               <input
@@ -76,8 +77,25 @@
                 type="number"
                 readonly
                 name="watched"
-                value="<%= userData.watched %>" />
-            </div>
+                value="<%= userData.watched.length %>" />
+            </div>--->
+            <form action="#" method="POST" id="setkey">
+              <input type="hidden" name="_csrf" value="<%= csrfToken %>" />
+              <div class="inputdata">
+                <label for="apikey">API Key</label>
+                <input
+                  id="apikey"
+                  type="text"
+                  readonly
+                  name="apikey"
+                  value="<%= userData.apikey %>" />
+              </div>
+              <div class="inputdata">
+                <button type="submit" value="setkey" name="action">
+                  Regenerate
+                </button>
+              </div>
+            </form>
           </div>
         </section>
         <div class="clearfix"></div>
