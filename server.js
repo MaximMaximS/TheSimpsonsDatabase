@@ -502,7 +502,7 @@ async function main() {
           });
         });
       });
-      return res.json({});
+      return res.json({watched: requested});
     });
   });
 
