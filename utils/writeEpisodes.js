@@ -6,24 +6,32 @@ require("dotenv").config({ path: "../.env" });
 const mongoose = require("mongoose");
 const eList = require("./data/list.json");
 const Season = require("../models/season");
+const Extra = require("../models/extra");
 
-mongoose.connect(process.env.URI);
-let db = mongoose.connection;
+main().catch((err) => console.log(err));
 
-db.on("error", console.error.bind(console, "connection error:"));
-
-db.once("open", () => {
+async function main() {
+  await mongoose.connect(process.env.URI);
   console.log("Connection Successful!");
 
-  Season.insertMany(eList.seasons, onInsert);
-
-  function onInsert(err, docs) {
-    if (err) {
-      console.log(err);
-      process.exit(1);
-    } else {
-      console.info("%d stored.", docs.length);
-      process.exit(0);
-    }
-  }
-});
+  Season.deleteMany({}, (err) => {
+    if (err) throw err;
+    Season.insertMany(eList.seasons, (err2, seasons) => {
+      if (err2) {
+        throw err2;
+      }
+      console.info("%d seasons stored.", seasons.length);
+      Extra.deleteMany({}, (err3) => {
+        if (err3) throw err3;
+        Extra.insertMany(eList.extras, (err4, extras) => {
+          if (err4) {
+            throw err4;
+          }
+          console.info("%d extras stored.", extras.length);
+          
+          process.exit(0);
+        });
+      });
+    });
+  });
+}

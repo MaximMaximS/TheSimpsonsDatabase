@@ -8,6 +8,7 @@ const User = require("./models/user");
 const UserData = require("./models/userdata");
 const Season = require("./models/season");
 const Setting = require("./models/setting");
+const Extra = require("./models/extra");
 const rateLimit = require("express-rate-limit");
 const helmet = require("helmet");
 const errors = require("passport-local-mongoose").errors;
@@ -409,6 +410,9 @@ async function main() {
 
   app.get("/api/episode/:id", (req, res) => {
     let id = parseInt(req.params.id) || 0; // Get episode id
+    if (!id) {
+      return res.sendStatus(400);
+    }
     findById(id, (err, episode) => {
       if (err) {
         console.log(err);
@@ -454,6 +458,9 @@ async function main() {
     let key = req.query.api_key;
     if (typeof key === "undefined" || key === "") return res.sendStatus(401);
     let id = parseInt(req.params.id) || 0;
+    if (!id) {
+      return res.sendStatus(400);
+    }
     findById(id, (err2, episode) => {
       if (err2) return res.sendStatus(500);
       if (episode === null) return res.sendStatus(404);
@@ -468,13 +475,16 @@ async function main() {
       }
       let watched = userdata.watched.includes(parseInt(req.params.id));
       return res.json({ watched: watched });
-    });    
+    });
   });
 
   app.post("/api/watched/:id", (req, res) => {
     let key = req.query.api_key;
     if (typeof key === "undefined" || key === "") return res.sendStatus(401);
     let id = parseInt(req.params.id) || 0;
+    if (!id) {
+      return res.sendStatus(400);
+    }
     findById(id, (err4, episode) => {
       if (err4) return res.sendStatus(500);
       if (episode === null) return res.sendStatus(404);
@@ -502,7 +512,24 @@ async function main() {
           });
         });
       });
-      return res.json({watched: requested});
+      return res.json({ watched: requested });
+    });
+  });
+
+  app.get("/api/extra/description/:id", (req, res) => {
+    let id = parseInt(req.params.id) || 0;
+    if (!id) {
+      return res.sendStatus(400);
+    }
+    Extra.findById(id, (err, extra) => {
+      if (err) {
+        console.log(err);
+        return res.sendStatus(500);
+      }
+      if (extra === null) return res.sendStatus(404);
+      let result = extra.description;
+      if (!result) res.sendStatus(404);
+      return res.json({ description: result });
     });
   });
 
