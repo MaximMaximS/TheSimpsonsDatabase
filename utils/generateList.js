@@ -204,7 +204,7 @@ async function main() {
       if (desc === null) continue;
       result.push({
         _id: item._id,
-        description: desc,
+        descriptions: { cs: desc },
       });
     }
     return result;

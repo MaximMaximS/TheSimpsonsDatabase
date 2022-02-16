@@ -516,9 +516,10 @@ async function main() {
     });
   });
 
-  app.get("/api/extra/description/:id", (req, res) => {
+  app.get("/api/extra/description/:lang/:id", (req, res) => {
     let id = parseInt(req.params.id) || 0;
-    if (!id) {
+    let lang = req.params.lang;
+    if (!id || !lang) {
       return res.sendStatus(400);
     }
     Extra.findById(id, (err, extra) => {
@@ -527,7 +528,7 @@ async function main() {
         return res.sendStatus(500);
       }
       if (extra === null) return res.sendStatus(404);
-      let result = extra.description;
+      let result = extra.descriptions[lang];
       if (!result) res.sendStatus(404);
       return res.json({ description: result });
     });
