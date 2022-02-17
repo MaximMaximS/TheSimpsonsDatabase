@@ -85,41 +85,42 @@ async function main() {
           req.body.episodeByNum,
           (err, episode) => {
             // Find episode
-            let msg = "Episode found!";
             let searchData = {
               seasonByNum: req.body.seasonByNum,
               episodeByNum: req.body.episodeByNum,
             };
             if (err) {
-              if (typeof err === "string") {
-                msg = err;
-                continueRender();
-              } else {
-                return next(err);
-              }
-            } else {
+              return next(err);
+            }
+            if (episode !== null) {
               // Episode found
               searchData["episodeIdByNum"] = episode.overallId;
               // If user logged in
-              getSetting(req.user, "lang", (err2, lang) => {
+              return getSetting(req.user, "lang", (err2, lang) => {
                 if (err2) {
                   return next(err2);
                 }
                 searchData["nameByNum"] = episode.names[lang];
-                continueRender();
+                res.render("search", {
+                  username: getName(req.user),
+                  messages: {
+                    num: "Episode found!",
+                    name: "Please type episode name.",
+                  },
+                  searchData: searchData,
+                  csrfToken: req.csrfToken(),
+                });
               });
             }
-            function continueRender() {
-              return res.render("search", {
-                username: getName(req.user),
-                messages: {
-                  num: msg,
-                  name: "Please type episode name.",
-                },
-                searchData: searchData,
-                csrfToken: req.csrfToken(),
-              });
-            }
+            return res.render("search", {
+              username: getName(req.user),
+              messages: {
+                num: "Episode not found!",
+                name: "Please type episode name.",
+              },
+              searchData: searchData,
+              csrfToken: req.csrfToken(),
+            });
           }
         );
         break;
@@ -142,31 +143,28 @@ async function main() {
         getSetting(req.user, "lang", (err, lang) => {
           if (err) return next(err);
           findByName(req.body.nameByName, lang, (err2, episodes) => {
-            let msg = "Please select episode.";
-            let searchData = { nameByName: req.body.nameByName, lang: lang };
-            function continueRender() {
-              return res.render("search", {
-                username: getName(req.user),
-                messages: {
-                  num: "Please type season and episode number.",
-                  name: msg,
-                },
-                searchData: searchData,
-                csrfToken: req.csrfToken(),
-              });
-            }
             if (err2) {
-              if (typeof err2 === "string") {
-                msg = err2;
-                return continueRender();
-              }
               return next(err2);
             }
-            searchData = {
-              ...searchData,
-              episodesByName: episodes,
-            };
-            return continueRender();
+            let msg = "Please select episode.";
+            let searchData = { nameByName: req.body.nameByName, lang: lang };
+            if (episodes !== null) {
+              searchData = {
+                ...searchData,
+                episodesByName: episodes,
+              };
+            } else {
+              msg = "No episodes found!";
+            }
+            return res.render("search", {
+              username: getName(req.user),
+              messages: {
+                num: "Please type season and episode number.",
+                name: msg,
+              },
+              searchData: searchData,
+              csrfToken: req.csrfToken(),
+            });
           });
         });
 
@@ -427,12 +425,11 @@ async function main() {
   app.get("/api/id/:season/:episode", (req, res) => {
     findByNumber(req.params.season, req.params.episode, (err, episode) => {
       if (err) {
-        if (typeof err === "string") {
-          return res.sendStatus(404);
-        }
         console.log(err);
         return res.sendStatus(500);
       }
+      if (episode === null) return res.sendStatus(404);
+
       res.json({ id: episode.overallId });
     });
   });
@@ -440,12 +437,10 @@ async function main() {
   app.get("/api/search/:lang/:name", (req, res) => {
     findByName(req.params.name, req.params.lang, (err, episodes) => {
       if (err) {
-        if (typeof err === "string") {
-          return res.sendStatus(404);
-        }
         console.log(err);
         return res.sendStatus(500);
       }
+      if (episodes === null) return res.sendStatus(404);
       let newEp = [];
       episodes.forEach((episode) => {
         newEp.push({ names: episode.names, overallId: episode.overallId });
@@ -650,13 +645,13 @@ function findByNumber(seasonN, episodeN, callback) {
       return callback(err); // Return error
     } else if (season === null) {
       // If season not found
-      return callback("Season not found!", null); // Return error
+      return callback(null, null); // Return error
     }
     // If season found
     let episode = season.episodes[(parseInt(episodeN) || 0) - 1]; // Get episode obejct
     if (typeof episode === "undefined") {
       // If episode obejct is undefined
-      return callback("Episode not found!", null); // Return error
+      return callback(null, null); // Return error
     }
     return callback(null, episode); // Success: Return episode object
   });
@@ -712,7 +707,7 @@ function findByName(episodeName, lang, callback) {
           });
           return callback(null, episodes);
         }
-        return callback("No episodes found!", null); // Return empty array
+        return callback(null, null);
       }
     );
   } else {

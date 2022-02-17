@@ -28,7 +28,7 @@ async function main() {
             throw err4;
           }
           console.info("%d extras stored.", extras.length);
-          
+
           process.exit(0);
         });
       });
