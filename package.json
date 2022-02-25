@@ -27,19 +27,19 @@
     "csurf": "^1.11.0",
     "dotenv": "^16.0.0",
     "ejs": "^3.1.6",
-    "express": "^4.17.2",
-    "express-rate-limit": "^6.2.1",
+    "express": "^4.17.3",
+    "express-rate-limit": "^6.3.0",
     "helmet": "^5.0.2",
     "log-update": "^5.0.0",
     "mongo-sanitize": "^1.1.0",
-    "mongoose": "^6.2.1",
+    "mongoose": "^6.2.3",
     "node-fetch": "^3.2.0",
     "passport": "^0.5.2",
     "passport-local-mongoose": "^6.1.0"
   },
   "devDependencies": {
     "eslint": "^8.9.0",
-    "eslint-config-prettier": "^8.3.0",
+    "eslint-config-prettier": "^8.4.0",
     "husky": "^7.0.4",
     "lint-staged": "^12.3.4",
     "prettier": "2.5.1"
