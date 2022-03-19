@@ -198,10 +198,14 @@ async function main() {
     let result = [];
     for (const item of array) {
       updateLog(
-        `Processing descriptions… (${array.indexOf(item)}/${array.length})`
+        `Processing descriptions… (${array.indexOf(item) + 1}/${array.length})`
       );
       let desc = await getDescription(item.link, fetch /*, item._id*/);
-      if (desc === null) continue;
+      if (desc === null) {
+        updateLog(`No description at ${array.indexOf(item) + 1}`)
+        console.log("/n");
+        continue;
+      }
       result.push({
         _id: item._id,
         descriptions: { cs: desc },
