@@ -107,7 +107,7 @@ async function main() {
     "https://cs.wikipedia.org/wiki/Seznam_d%C3%ADl%C5%AF_seri%C3%A1lu_Simpsonovi"
   );
   let $ = cheerio.load(html);
-  let seasons = [];
+  let allEpisodes = [];
   let descLinks = [];
   $("table.wikitable").each((_, table) => {
     let id = $(table).attr("id") || "";
@@ -121,7 +121,7 @@ async function main() {
             let ovr = parseInt($(elem).find("th").text());
             updateLog(`Processing episodes… (${ovr})`);
             let episode = {
-              overallId: ovr,
+              _id: ovr,
               seasonId: num,
               inSeasonId: Number,
               names: {},
@@ -187,12 +187,12 @@ async function main() {
             episodes.push(episode);
           });
 
-        seasons.push({ _id: num, episodes: episodes });
+        allEpisodes.push(...episodes);
       }
     }
   });
   // Because why not
-  seasons[7].episodes[23].names["cs"] = "Simpsonovi";
+  allEpisodes[176].names["cs"] = "Simpsonovi";
 
   const processDescriptions = async (array) => {
     let result = [];
@@ -217,7 +217,7 @@ async function main() {
   const extras = await processDescriptions(descLinks);
   fs.writeFileSync(
     "./data/list.json",
-    JSON.stringify({ seasons: seasons, extras: extras }, null, 4),
+    JSON.stringify({ episodes: allEpisodes, extras: extras }, null, 4),
     "utf8"
   );
   updateLog("Done!");
