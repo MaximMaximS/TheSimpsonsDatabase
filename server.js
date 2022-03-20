@@ -6,7 +6,8 @@ const mongoose = require("mongoose");
 const session = require("cookie-session");
 const User = require("./models/user");
 const UserData = require("./models/userdata");
-const Season = require("./models/season");
+// const Season = require("./models/season");
+const Episode = require("./models/episode");
 const Setting = require("./models/setting");
 const Extra = require("./models/extra");
 const rateLimit = require("express-rate-limit");
@@ -94,7 +95,7 @@ async function main() {
             }
             if (episode !== null) {
               // Episode found
-              searchData["episodeIdByNum"] = episode.overallId;
+              searchData["episodeIdByNum"] = episode._id;
               // If user logged in
               return getSetting(req.user, "lang", (err2, lang) => {
                 if (err2) {
@@ -430,7 +431,7 @@ async function main() {
       }
       if (episode === null) return res.sendStatus(404);
 
-      res.json({ id: episode.overallId });
+      res.json({ id: episode._id });
     });
   });
 
@@ -443,7 +444,7 @@ async function main() {
       if (episodes === null) return res.sendStatus(404);
       let newEp = [];
       episodes.forEach((episode) => {
-        newEp.push({ names: episode.names, overallId: episode.overallId });
+        newEp.push({ names: episode.names, overallId: episode._id });
       });
       res.json({ episodes: newEp });
     });
@@ -639,72 +640,35 @@ function getName(user) {
 }
 
 function findByNumber(seasonN, episodeN, callback) {
-  Season.findById(parseInt(seasonN) || 0, (err, season) => {
-    // Find season
-    if (err) {
-      return callback(err); // Return error
-    } else if (season === null) {
-      // If season not found
-      return callback(null, null); // Return error
-    }
-    // If season found
-    let episode = season.episodes[(parseInt(episodeN) || 0) - 1]; // Get episode obejct
-    if (typeof episode === "undefined") {
-      // If episode obejct is undefined
-      return callback(null, null); // Return error
-    }
-    return callback(null, episode); // Success: Return episode object
-  });
-}
-
-function findById(episodeId, callback) {
-  Season.findOne(
-    { episodes: { $elemMatch: { overallId: { $eq: sanitize(episodeId) } } } },
-    (err, season) => {
-      // Find season
-      if (err) {
-        return callback(err); // Return error
-      }
-      if (season !== null) {
-        let episode = season.episodes.find(
-          (cEpisode) => cEpisode.overallId === episodeId
-        ); // Find episode
-        // episode["noSeason"] = season.episodes.indexOf(episode);
-        return callback(null, episode, season); // Return episode object
-      }
-      return callback(null, null); // Return null
+  Episode.findOne(
+    { seasonId: parseInt(seasonN) || 0, inSeasonId: parseInt(episodeN) || 0 },
+    (err, episode) => {
+      if (err) return callback(err);
+      console.log(episode);
+      return callback(null, episode);
     }
   );
 }
 
+function findById(episodeId, callback) {
+  Episode.findById(parseInt(episodeId) || 0, (err, episode) => {
+    if (err) {
+      return callback(err); // Return error
+    }
+    return callback(null, episode);
+  });
+}
+
 function findByName(episodeName, lang, callback) {
   if (typeof episodeName === "string") {
-    Season.find(
-      {
-        episodes: {
-          $elemMatch: {
-            [`names.${lang}`]: { $regex: episodeName, $options: "i" },
-          },
-        },
-      },
-      (err, seasons) => {
+    Episode.find(
+      { [`names.${lang}`]: { $regex: episodeName, $options: "i" } },
+      (err, episodes) => {
         // Find season
         if (err) {
           return callback(err); // Return error
         }
-        if (seasons.length) {
-          let episodes = [];
-          seasons.forEach((season) => {
-            season.episodes.forEach((episode) => {
-              if (
-                episode.names[lang]
-                  .toLowerCase()
-                  .includes(episodeName.toLowerCase())
-              ) {
-                episodes.push(episode);
-              }
-            });
-          });
+        if (episodes.length) {
           return callback(null, episodes);
         }
         return callback(null, null);
