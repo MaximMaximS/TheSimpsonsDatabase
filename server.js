@@ -6,7 +6,6 @@ const mongoose = require("mongoose");
 const session = require("cookie-session");
 const User = require("./models/user");
 const UserData = require("./models/userdata");
-// const Season = require("./models/season");
 const Episode = require("./models/episode");
 const Setting = require("./models/setting");
 const Extra = require("./models/extra");
@@ -444,7 +443,7 @@ async function main() {
       if (episodes === null) return res.sendStatus(404);
       let newEp = [];
       episodes.forEach((episode) => {
-        newEp.push({ names: episode.names, overallId: episode._id });
+        newEp.push({ names: episode.names, _id: episode._id });
       });
       res.json({ episodes: newEp });
     });
@@ -644,7 +643,6 @@ function findByNumber(seasonN, episodeN, callback) {
     { seasonId: parseInt(seasonN) || 0, inSeasonId: parseInt(episodeN) || 0 },
     (err, episode) => {
       if (err) return callback(err);
-      console.log(episode);
       return callback(null, episode);
     }
   );

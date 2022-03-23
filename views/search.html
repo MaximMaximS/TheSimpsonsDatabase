@@ -142,7 +142,7 @@
                 <% for ( var i=0; i < searchData.episodesByName.length; i++ ) {
                 %>
                 <option
-                  value="<%=searchData.episodesByName[ i ].overallId %>"
+                  value="<%=searchData.episodesByName[ i ]._id %>"
                   label="<%=searchData.episodesByName[ i ].names[searchData.lang] %>"></option>
                 <% } %>
               </select>

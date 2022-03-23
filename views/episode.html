@@ -46,12 +46,12 @@
           <p class="episodeNav"><%= idstring %></p>
 
           <a
-            href="/episode?id=<%= episodeData.overallId - 1 %>"
+            href="/episode?id=<%= episodeData._id - 1 %>"
             class="episodeNav"
             >Previous</a
           >
           <a
-            href="/episode?id=<%= episodeData.overallId + 1 %>"
+            href="/episode?id=<%= episodeData._id + 1 %>"
             class="episodeNav"
             >Next</a
           >
@@ -91,7 +91,7 @@
                 id="episodeId"
                 type="hidden"
                 name="episodeId"
-                value="<%= episodeData.overallId %>" />
+                value="<%= episodeData._id %>" />
               <div class="formdata">
                 <div class="inputdata">
                   <label for="direction">Directed by</label>
