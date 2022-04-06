@@ -202,7 +202,7 @@ async function main() {
       );
       let desc = await getDescription(item.link, fetch /*, item._id*/);
       if (desc === null) {
-        updateLog(`No description at ${array.indexOf(item) + 1}`)
+        updateLog(`No description at ${array.indexOf(item) + 1}`);
         console.log("/n");
         continue;
       }
