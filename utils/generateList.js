@@ -1,7 +1,32 @@
-const cheerio = require("cheerio").default;
-const fs = require("fs");
+const fs = require("fs"); // File system
+const cheerio = require("cheerio").default; // Html parser
+const config = require("./data/config.json"); // Config
 
-const czNames = [
+async function fetchSite(url, alias) {
+  if (!config.fetch) {
+    try {
+      return fs.readFileSync(`./data/pages/${alias}.html`);
+    } catch (err) {
+      console.log("File not found, fetching...");
+    }
+  }
+  const fetch = (...args) =>
+    import("node-fetch").then(({ default: fetch }) => fetch(...args));
+  let response;
+  try {
+    response = await fetch(url);
+  } catch (err) {
+    console.log(alias);
+    process.exit();
+  }
+  const result = await response.text();
+  fs.writeFileSync(`./pages/${alias}.html`, result, (err) => {
+    if (err) throw err;
+  });
+  return result;
+}
+
+const csNames = [
   "ledna",
   "února",
   "března",
@@ -30,198 +55,225 @@ const enNames = [
   "December",
 ];
 
-function convDate(dateIn) {
+function convDate(date) {
   // 23. září 1994
-  let date = dateIn;
-  czNames.forEach((name, index) => {
+  csNames.forEach((name, index) => {
     date = date.replace(`. ${name} `, `-${enNames[index]}-`);
   });
   return date;
 }
 
-async function fetchSite(fetch, link) {
-  const response = await fetch(link);
-  return response.text();
-}
+async function process() {
+  const root = await fetchSite(config.rootcs, "rootcs"); // Fetch episode list
+  let $ = cheerio.load(root);
+  // Each table
+  console.log("Processing...");
+  let tasks = [];
+  $("table.wikitable").each((_i, table) => {
+    let $table = $(table);
+    // Get number of season
+    const seasonNum = parseInt(
+      ($table.attr("id") || "").replaceAll("se-rada", "")
+    );
 
-async function getDescription(link, fetch /*, id*/) {
-  if (typeof link === "undefined" || !link) {
-    return null;
-  }
-  /*
-  DEBUG CODE
-  let html;
-  try {
-    html = fs.readFileSync(`./data/debug/results/${id - 1}.html`);
-  } catch (e) {
-    console.log(e);
-    return null;
-  }
-  */
-  const html = await fetchSite(fetch, link);
-  let $ = cheerio.load(html);
-  let element = $("h2:contains('Děj')");
-  if (typeof element.get(0) === "undefined") {
-    element = $("h2:contains('Zápletka')");
-  }
-  if (typeof element.get(0) === "undefined") return null;
-  let next = element.next();
-  let bio = "";
-  while (next.get(0).tagName !== "h2") {
-    let tg = next.get(0).tagName;
-    if (tg !== "div") {
-      if (tg === "h3") {
-        if (bio !== "") bio += "\n";
-        bio +=
-          next
-            .text()
-            .trim()
-            .replaceAll("\n", "")
-            .replace(/ *\[[^\]]*]/g, "") + "\n";
-      } else if (tg === "p") {
-        bio +=
-          next
-            .text()
-            .trim()
-            .replaceAll("\n", "")
-            .replace(/ *\[[^\]]*]/g, "") + " ";
-      }
-    }
+    if (seasonNum) {
+      $table
+        .find("tbody")
+        .find("tr[class='se-dil bezsouhrnu']")
+        // Each episode
+        .each((_episodeId, episode) => {
+          tasks.push(
+            new Promise((resolve, reject) => {
+              let rejected = false;
+              let $episode = $(episode);
+              let overallId = parseInt($episode.find("th").text());
+              if (!overallId) {
+                reject();
+                rejected = true;
+                return;
+              }
+              let root = {
+                extraLinks: {
+                  cs: "",
+                  en: "",
+                },
+                extras: {
+                  _id: overallId,
+                  descriptions: { cs: "N/A", en: "N/A" },
+                },
+              };
+              let episodeObject = {
+                _id: overallId,
+                seasonId: seasonNum,
+                inSeasonId: Number,
+                names: { en: "", cs: "" },
+                direction: "",
+                screenplay: "",
+                premieres: { en: "", cs: "" },
+              };
+              // Each column of data
+              $episode.find("td").each((index, raw) => {
+                let $raw = $(raw);
+                let data = $raw.text();
 
-    next = next.next();
-  }
-  if (bio === "") {
-    console.log(link);
-    return null;
-  }
-  return bio;
-}
-
-async function main() {
-  const fetch = (...args) =>
-    import("node-fetch").then(({ default: fetch }) => fetch(...args));
-  const updateLog = (await import("log-update")).default;
-  updateLog("Fetching site…");
-  const html = await fetchSite(
-    fetch,
-    "https://cs.wikipedia.org/wiki/Seznam_d%C3%ADl%C5%AF_seri%C3%A1lu_Simpsonovi"
-  );
-  let $ = cheerio.load(html);
-  let allEpisodes = [];
-  let descLinks = [];
-  $("table.wikitable").each((_, table) => {
-    let id = $(table).attr("id") || "";
-    if (id.includes("se-rada")) {
-      let num = parseInt(id.replace("se-rada", ""));
-      if (num > 0) {
-        let episodes = [];
-        $($(table).find("tbody"))
-          .find("tr[class='se-dil bezsouhrnu']")
-          .each((_, elem) => {
-            let ovr = parseInt($(elem).find("th").text());
-            updateLog(`Processing episodes… (${ovr})`);
-            let episode = {
-              _id: ovr,
-              seasonId: num,
-              inSeasonId: Number,
-              names: {},
-              direction: String,
-              screenplay: String,
-              premieres: {},
-            };
-            $(elem)
-              .find("td")
-              .each((idx, raw) => {
-                let data = $(raw).text();
-
-                switch (idx) {
-                  case 0:
-                    episode["inSeasonId"] = parseInt(data);
-                    break;
-                  case 1:
-                    episode["names"]["en"] = data.trim();
-                    break;
-                  case 2: {
-                    let element = $(raw).find("a").attr("href");
-                    if (typeof element !== "undefined") {
-                      descLinks.push({
-                        _id: ovr,
-                        link: "https://cs.wikipedia.org" + element,
-                      });
+                switch (index) {
+                  case 0: {
+                    let input = parseInt(data);
+                    if (!input) {
+                      reject();
+                      rejected = true;
+                      return;
                     }
+                    episodeObject["inSeasonId"] = input;
+                    break;
+                  }
+                  case 1: {
+                    let input = data.trim();
+                    if (!input) {
+                      reject();
+                      rejected = true;
+                      return;
+                    }
+                    episodeObject["names"]["en"] = input;
+                    break;
+                  }
+                  case 2: {
+                    let element = $raw.find("a").attr("href");
+
+                    if (!element) {
+                      reject();
+                      rejected = true;
+                      return;
+                    }
+                    root["extraLinks"]["cs"] =
+                      "https://cs.wikipedia.org" + element;
 
                     let parse = data.trim().replaceAll(" (Prima)", "");
                     if (parse.includes(" (Česká televize) ")) {
                       parse = parse.split(" (Česká televize) ")[1];
                     }
-                    episode["names"]["cs"] = parse;
+                    episodeObject["names"]["cs"] = parse;
                     break;
                   }
-                  case 3:
-                    episode["direction"] = data
+                  case 3: {
+                    let input = data
                       .trim()
                       .replaceAll("ová", "")
                       .replaceAll("pomocná režie: ", "")
                       .replaceAll(" a ", ", ");
+                    if (!input) {
+                      input = "N/A";
+                    }
+                    episodeObject["direction"] = input;
 
                     break;
-                  case 4:
-                    episode["screenplay"] = data
+                  }
+                  case 4: {
+                    let input = data
                       .trim()
                       .replaceAll("ová", "")
                       .replaceAll("námět: ", "")
                       .replaceAll(" scénář: ", ", ")
                       .replaceAll(" a ", ", ");
+                    if (!input) {
+                      input = "N/A";
+                    }
+                    episodeObject["screenplay"] = input;
                     break;
-                  case 5:
-                    episode["premieres"]["en"] = convDate(data.trim());
+                  }
+                  case 5: {
+                    let input = convDate(data.trim());
+                    if (!input) {
+                      input = "N/A";
+                    }
+                    episodeObject["premieres"]["en"] = input;
                     break;
-                  case 6:
-                    episode["premieres"]["cs"] = convDate(data.trim());
+                  }
+                  case 6: {
+                    let input = convDate(data.trim());
+                    if (!input) {
+                      input = "N/A";
+                    }
+                    episodeObject["premieres"]["cs"] = input;
                     break;
+                  }
+                  /*
                   case 7:
-                    episode["code"] = data.trim();
+                    episodeObject["code"] = data.trim();
                     break;
+                    */
                 }
               });
-            episodes.push(episode);
-          });
+              if (rejected) return;
+              fetchSite(root["extraLinks"]["cs"], overallId).then((html) => {
+                let $ = cheerio.load(html);
+                let element = $("h2:contains('Děj')");
+                if (typeof element.get(0) === "undefined") {
+                  element = $("h2:contains('Zápletka')");
+                }
+                if (typeof element.get(0) === "undefined") {
+                  reject();
+                  return;
+                }
+                let next = element.next();
+                let bio = "";
+                while (next.get(0).tagName !== "h2") {
+                  let tg = next.get(0).tagName;
+                  if (tg !== "div") {
+                    if (tg === "h3") {
+                      if (bio !== "") bio += "\n";
+                      bio +=
+                        next
+                          .text()
+                          .trim()
+                          .replaceAll("\n", "")
+                          .replace(/ *\[[^\]]*]/g, "") + "\n";
+                    } else if (tg === "p") {
+                      bio +=
+                        next
+                          .text()
+                          .trim()
+                          .replaceAll("\n", "")
+                          .replace(/ *\[[^\]]*]/g, "") + " ";
+                    }
+                  }
 
-        allEpisodes.push(...episodes);
-      }
+                  next = next.next();
+                }
+                if (bio === "") {
+                  reject();
+                  return;
+                }
+                root.extras.descriptions.cs = bio;
+                root["episode"] = episodeObject;
+                resolve(root);
+              });
+            })
+          );
+        });
     }
   });
-  // Because why not
-  allEpisodes[176].names["cs"] = "Simpsonovi";
-
-  const processDescriptions = async (array) => {
-    let result = [];
-    for (const item of array) {
-      updateLog(
-        `Processing descriptions… (${array.indexOf(item) + 1}/${array.length})`
-      );
-      let desc = await getDescription(item.link, fetch /*, item._id*/);
-      if (desc === null) {
-        updateLog(`No description at ${array.indexOf(item) + 1}`);
-        console.log("/n");
-        continue;
-      }
-      result.push({
-        _id: item._id,
-        descriptions: { cs: desc },
-      });
+  let rawEpisodes = await Promise.allSettled(tasks);
+  let episodes = [];
+  let extras = [];
+  rawEpisodes.forEach((episode, index) => {
+    if (episode.status === "rejected") {
+      console.log(`Rejected ${index + 1}`);
+      return;
     }
-    return result;
-  };
+    episodes.push(episode.value.episode);
+    extras.push(episode.value.extras);
+  });
 
-  const extras = await processDescriptions(descLinks);
   fs.writeFileSync(
     "./data/list.json",
-    JSON.stringify({ episodes: allEpisodes, extras: extras }, null, 4),
-    "utf8"
+    JSON.stringify({ episodes: episodes, extras: extras }, null, 4)
   );
-  updateLog("Done!");
-  process.exit(0);
+}
+
+async function main() {
+  console.log("Starting...");
+  await process();
 }
 
 main();
