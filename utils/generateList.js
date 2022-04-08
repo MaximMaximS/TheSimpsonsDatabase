@@ -20,7 +20,7 @@ async function fetchSite(url, alias) {
     process.exit();
   }
   const result = await response.text();
-  fs.writeFileSync(`./pages/${alias}.html`, result, (err) => {
+  fs.writeFileSync(`./data/pages/${alias}.html`, result, (err) => {
     if (err) throw err;
   });
   return result;
@@ -141,9 +141,7 @@ async function process() {
                     let element = $raw.find("a").attr("href");
 
                     if (!element) {
-                      reject();
                       rejected = true;
-                      return;
                     }
                     root["extraLinks"]["cs"] =
                       "https://cs.wikipedia.org" + element;
@@ -211,40 +209,39 @@ async function process() {
                 if (typeof element.get(0) === "undefined") {
                   element = $("h2:contains('Zápletka')");
                 }
-                if (typeof element.get(0) === "undefined") {
-                  reject();
-                  return;
-                }
-                let next = element.next();
                 let bio = "";
-                while (next.get(0).tagName !== "h2") {
-                  let tg = next.get(0).tagName;
-                  if (tg !== "div") {
-                    if (tg === "h3") {
-                      if (bio !== "") bio += "\n";
-                      bio +=
-                        next
-                          .text()
-                          .trim()
-                          .replaceAll("\n", "")
-                          .replace(/ *\[[^\]]*]/g, "") + "\n";
-                    } else if (tg === "p") {
-                      bio +=
-                        next
-                          .text()
-                          .trim()
-                          .replaceAll("\n", "")
-                          .replace(/ *\[[^\]]*]/g, "") + " ";
-                    }
-                  }
+                if (typeof element.get(0) !== "undefined") {
+                  let next = element.next();
 
-                  next = next.next();
+                  while (next.get(0).tagName !== "h2") {
+                    let tg = next.get(0).tagName;
+                    if (tg !== "div") {
+                      if (tg === "h3") {
+                        if (bio !== "") bio += "\n";
+                        bio +=
+                          next
+                            .text()
+                            .trim()
+                            .replaceAll("\n", "")
+                            .replace(/ *\[[^\]]*]/g, "") + "\n";
+                      } else if (tg === "p") {
+                        bio +=
+                          next
+                            .text()
+                            .trim()
+                            .replaceAll("\n", "")
+                            .replace(/ *\[[^\]]*]/g, "") + " ";
+                      }
+                    }
+
+                    next = next.next();
+                  }
                 }
-                if (bio === "") {
-                  reject();
-                  return;
+
+                if (bio !== "") {
+                  root.extras.descriptions.cs = bio;
                 }
-                root.extras.descriptions.cs = bio;
+
                 root["episode"] = episodeObject;
                 resolve(root);
               });
