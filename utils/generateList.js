@@ -154,9 +154,9 @@ async function runProcess() {
                     let parse = data
                       .trim()
                       .replaceAll(" ", " ")
-                      .replaceAll(" (Prima)", "");
-                    if (parse.includes(" (Česká televize) ")) {
-                      parse = parse.split(" (Česká televize) ")[1];
+                      .replaceAll(" (Prima)", "");
+                    if (parse.includes(" (Česká televize) ")) {
+                      parse = parse.split(" (Česká televize) ")[1];
                     }
                     episodeObject["names"]["cs"] = parse;
                     break;
