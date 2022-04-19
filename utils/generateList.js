@@ -1,13 +1,13 @@
+require("dotenv").config({ path: "../.env" });
 const fs = require("fs"); // File system
 const cheerio = require("cheerio").default; // Html parser
-const config = require("./data/config.json"); // Config
 
 async function fetchSite(url, alias) {
-  if (!config.fetch) {
+  if (process.env.FETCH !== "true") {
     try {
       return fs.readFileSync(`./data/pages/${alias}.html`);
     } catch (err) {
-      console.log("File not found, fetching...");
+      console.log(`File ${alias} not found, fetching...`);
     }
   }
   const fetch = (...args) =>
@@ -16,7 +16,7 @@ async function fetchSite(url, alias) {
   try {
     response = await fetch(url);
   } catch (err) {
-    console.log(alias);
+    console.log(err);
     process.exit();
   }
   const result = await response.text();
@@ -63,8 +63,11 @@ function convDate(date) {
   return date;
 }
 
-async function process() {
-  const root = await fetchSite(config.rootcs, "rootcs"); // Fetch episode list
+async function runProcess() {
+  const root = await fetchSite(
+    "https://cs.wikipedia.org/wiki/Seznam_d%C3%ADl%C5%AF_seri%C3%A1lu_Simpsonovi",
+    "rootcs"
+  ); // Fetch episode list
   let $ = cheerio.load(root);
   // Each table
   console.log("Processing...");
@@ -88,7 +91,7 @@ async function process() {
               let $episode = $(episode);
               let overallId = parseInt($episode.find("th").text());
               if (!overallId) {
-                reject();
+                reject("ID not found");
                 rejected = true;
                 return;
               }
@@ -120,7 +123,7 @@ async function process() {
                   case 0: {
                     let input = parseInt(data);
                     if (!input) {
-                      reject();
+                      reject("inSeasonId not found");
                       rejected = true;
                       return;
                     }
@@ -128,9 +131,9 @@ async function process() {
                     break;
                   }
                   case 1: {
-                    let input = data.trim();
+                    let input = data.trim().replaceAll(" ", " ");
                     if (!input) {
-                      reject();
+                      reject("English name not found");
                       rejected = true;
                       return;
                     }
@@ -142,11 +145,16 @@ async function process() {
 
                     if (!element) {
                       rejected = true;
+                      reject("Czech name/link not found");
+                      return;
                     }
                     root["extraLinks"]["cs"] =
                       "https://cs.wikipedia.org" + element;
 
-                    let parse = data.trim().replaceAll(" (Prima)", "");
+                    let parse = data
+                      .trim()
+                      .replaceAll(" ", " ")
+                      .replaceAll(" (Prima)", "");
                     if (parse.includes(" (Česká televize) ")) {
                       parse = parse.split(" (Česká televize) ")[1];
                     }
@@ -156,6 +164,7 @@ async function process() {
                   case 3: {
                     let input = data
                       .trim()
+                      .replaceAll(" ", " ")
                       .replaceAll("ová", "")
                       .replaceAll("pomocná režie: ", "")
                       .replaceAll(" a ", ", ");
@@ -169,6 +178,7 @@ async function process() {
                   case 4: {
                     let input = data
                       .trim()
+                      .replaceAll(" ", " ")
                       .replaceAll("ová", "")
                       .replaceAll("námět: ", "")
                       .replaceAll(" scénář: ", ", ")
@@ -180,7 +190,7 @@ async function process() {
                     break;
                   }
                   case 5: {
-                    let input = convDate(data.trim());
+                    let input = convDate(data.trim().replaceAll(" ", " "));
                     if (!input) {
                       input = "N/A";
                     }
@@ -188,7 +198,7 @@ async function process() {
                     break;
                   }
                   case 6: {
-                    let input = convDate(data.trim());
+                    let input = convDate(data.trim().replaceAll(" ", " "));
                     if (!input) {
                       input = "N/A";
                     }
@@ -202,75 +212,82 @@ async function process() {
                     */
                 }
               });
-              if (rejected) return;
-              fetchSite(root["extraLinks"]["cs"], overallId).then((html) => {
-                let $ = cheerio.load(html);
-                let element = $("h2:contains('Děj')");
-                if (typeof element.get(0) === "undefined") {
-                  element = $("h2:contains('Zápletka')");
-                }
-                let bio = "";
-                if (typeof element.get(0) !== "undefined") {
-                  let next = element.next();
-
-                  while (next.get(0).tagName !== "h2") {
-                    let tg = next.get(0).tagName;
-                    if (tg !== "div") {
-                      if (tg === "h3") {
-                        if (bio !== "") bio += "\n";
-                        bio +=
-                          next
-                            .text()
-                            .trim()
-                            .replaceAll("\n", "")
-                            .replace(/ *\[[^\]]*]/g, "") + "\n";
-                      } else if (tg === "p") {
-                        bio +=
-                          next
-                            .text()
-                            .trim()
-                            .replaceAll("\n", "")
-                            .replace(/ *\[[^\]]*]/g, "") + " ";
-                      }
-                    }
-
-                    next = next.next();
+              if (!rejected) {
+                fetchSite(root["extraLinks"]["cs"], overallId).then((html) => {
+                  let $ = cheerio.load(html);
+                  let element = $("h2:contains('Děj')");
+                  if (typeof element.get(0) === "undefined") {
+                    element = $("h2:contains('Zápletka')");
                   }
-                }
+                  let bio = "";
+                  if (typeof element.get(0) !== "undefined") {
+                    let next = element.next();
 
-                if (bio !== "") {
-                  root.extras.descriptions.cs = bio;
-                }
+                    while (next.get(0).tagName !== "h2") {
+                      let tg = next.get(0).tagName;
+                      if (tg !== "div") {
+                        if (tg === "h3") {
+                          if (bio !== "") bio += "\n";
+                          bio +=
+                            next
+                              .text()
+                              .trim()
+                              .replaceAll(" ", " ")
+                              .replaceAll("\n", "")
+                              .replace(/ *\[[^\]]*]/g, "") + "\n";
+                        } else if (tg === "p") {
+                          bio +=
+                            next
+                              .text()
+                              .trim()
+                              .replaceAll(" ", " ")
+                              .replaceAll("\n", "")
+                              .replace(/ *\[[^\]]*]/g, "") + " ";
+                        }
+                      }
 
-                root["episode"] = episodeObject;
-                resolve(root);
-              });
+                      next = next.next();
+                    }
+                  }
+
+                  if (bio !== "") {
+                    root.extras.descriptions.cs = bio;
+                  }
+
+                  root["episode"] = episodeObject;
+                  resolve(root);
+                });
+              } else {
+                reject("Other error");
+              }
             })
           );
         });
     }
   });
   let rawEpisodes = await Promise.allSettled(tasks);
+  console.log("Done!");
   let episodes = [];
   let extras = [];
   rawEpisodes.forEach((episode, index) => {
     if (episode.status === "rejected") {
-      console.log(`Rejected ${index + 1}`);
+      console.log(`Rejected ${index + 1} because ${episode.reason}`);
       return;
     }
     episodes.push(episode.value.episode);
     extras.push(episode.value.extras);
   });
-
+  episodes[176].names["cs"] = "Simpsonovi";
+  console.log("Writing to file...");
   fs.writeFileSync(
     "./data/list.json",
-    JSON.stringify({ episodes: episodes, extras: extras }, null, 4)
+    JSON.stringify({ episodes: episodes, extras: extras }, null, 2)
   );
 }
 
 async function main() {
   console.log("Starting...");
-  await process();
+  await runProcess();
 }
 
 main();
