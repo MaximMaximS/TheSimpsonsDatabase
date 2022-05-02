@@ -214,6 +214,7 @@ async function runProcess() {
               });
               if (!rejected) {
                 fetchSite(root["extraLinks"]["cs"], overallId).then((html) => {
+                  // Handle Czech data
                   let $ = cheerio.load(html);
                   let element = $("h2:contains('Děj')");
                   if (typeof element.get(0) === "undefined") {
