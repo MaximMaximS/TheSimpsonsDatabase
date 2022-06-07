@@ -35,7 +35,7 @@
     "mongoose": "^6.3.2",
     "node-fetch": "^3.2.4",
     "passport": "^0.5.2",
-    "passport-local-mongoose": "^7.0.0"
+    "passport-local-mongoose": "^7.1.0"
   },
   "devDependencies": {
     "eslint": "^8.14.0",
